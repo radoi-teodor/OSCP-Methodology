@@ -36,6 +36,6 @@ if ($outputDir===false){
 }
 
 $md = $converter->convertToMarkdown($xml);
-$report = fopen($outputDir . "/index.md", "w") or die("Unable to open file!");
+$report = fopen($outputDir . "/README.md", "w") or die("Unable to open file!");
 fwrite($report, $md);
 fclose($report);
