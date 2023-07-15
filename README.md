@@ -389,11 +389,14 @@ Select Fullname
 Extensions to check:
 \- sql
 \- sqlite
+\- db
 \- txt
 \- pdf
 \- doc
 \- docx
 \- ps1
+\- ini
+\- kdbx \(See KeePass\)
 
 **Important:**Check all files, maybe we have Windows\.oldto extract SAM\.
 
