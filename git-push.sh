@@ -11,3 +11,4 @@ git commit -m "${1:-'Default Message'}"
 echo -n "Git access token: "
 read -s git_access_token
 git push https://$git_access_token@github.com/radoi-teodor/OSCP-Methodology.git
+git push
