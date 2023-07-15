@@ -398,7 +398,7 @@ Extensions to check:
 \- ini
 \- kdbx \(See KeePass\)
 
-**Important:**Check all files, maybe we have Windows\.oldto extract SAM\.
+**Important:**Check all files, maybe we have Windows\.oldto extract SAM\. Extract it with both **samdump2**and **impacket\-secretsdump**\.
 
 Check scheduled tasks manually
 Check services manually
