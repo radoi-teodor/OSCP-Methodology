@@ -1,0 +1,12 @@
+grumphp:
+    parallel:
+        enabled: false
+        max_workers: 32
+    tasks:
+        phpcsfixer:
+            config: .php_cs.dist
+        phpversion:
+            project: '8.0.8'
+    fixer:
+        enabled: true
+

@@ -1,0 +1,26 @@
+<?php
+
+$finder = PhpCsFixer\Finder::create()
+    ->exclude('vendor')
+    ->exclude('docker')
+    ->in(__DIR__)
+;
+
+/**$binFinder = Symfony\Component\Finder\Finder::create()
+    ->files()
+    ->contains('/^#!\/usr\/bin\/env php/')
+    ->in(__DIR__ . DIRECTORY_SEPARATOR . "bin"); **/
+
+$combinedFinders = new \AppendIterator;
+$combinedFinders->append($finder->getIterator());
+#$combinedFinders->append($binFinder->getIterator());
+
+return PhpCsFixer\Config::create()
+    ->setRules([
+        '@PSR2' => true,
+        'array_syntax' => ['syntax' => 'short'],
+        'braces' => ['position_after_functions_and_oop_constructs' => 'same'],
+        'no_whitespace_in_blank_line' => true,
+    ])
+    ->setFinder($combinedFinders)
+;

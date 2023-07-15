@@ -1,0 +1,28 @@
+{
+  "name": "kibley/cherrytomd",
+  "authors": [
+    {
+      "name": "kibley",
+      "homepage": "https://gitlab.com/kibley"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "cherrytomd\\": "src/"
+    }
+  },
+  "require": {
+    "vanilla/garden-cli": "^3.1",
+    "ext-simplexml": "*",
+    "ext-mbstring": "*",
+    "ext-exif": "*"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-master",
+    "phpunit/phpunit": "^9",
+    "phpmd/phpmd": "2.10.2",
+    "phpro/grumphp": "^1.3",
+    "friendsofphp/php-cs-fixer": "^2",
+    "nikic/php-parser": "^4.2"
+  }
+}

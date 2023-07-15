@@ -1,0 +1,16 @@
+---
+title: "OSCP-OS-XXXX-Lab-Report"
+author: [Firstname Lastname]
+date: "2021-10-19"
+titlepage: true
+titlepage-color: "a90c1c"
+titlepage-text-color: "ffffff"
+titlepage-rule-color: "900000"
+header-left: "\\hspace{1cm}"
+header-center: "\\leftmark"
+header-right: "Page \\thepage"
+footer-left: "\\thetitle"
+footer-right: "\\theauthor"
+table-use-row-colors: true
+block-headings: true
+...
