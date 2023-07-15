@@ -448,8 +448,8 @@ Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Full
       </node>
     </node>
     <node name="AD" unique_id="81" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="41" is_bold="0" foreground="" ts_creation="1569561597" ts_lastsave="1689416146">
-      <node name="Post-Exploitation" unique_id="82" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569563672" ts_lastsave="1689416169"/>
-      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1689416179"/>
+      <node name="ENUM" unique_id="82" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569563672" ts_lastsave="1569563850"/>
+      <node name="LOOT" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1569564146"/>
     </node>
   </node>
 </cherrytree>
