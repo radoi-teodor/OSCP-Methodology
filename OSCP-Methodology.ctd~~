@@ -447,91 +447,9 @@ Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Full
         <rich_text weight="heavy"> Only Linux</rich_text>
       </node>
     </node>
-    <node name="POST-EX" unique_id="81" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="41" is_bold="0" foreground="" ts_creation="1569561597" ts_lastsave="1579569788">
-      <node name="ENUM" unique_id="82" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569563672" ts_lastsave="1569563850">
-        <node name="SYSTEM" unique_id="83" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1569563850" ts_lastsave="1569563853"/>
-        <node name="FILES &amp;&amp; DIR" unique_id="84" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1569563853" ts_lastsave="1569563897"/>
-        <node name="PERMISSIONS" unique_id="85" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1569563863" ts_lastsave="1569563951"/>
-        <node name="PROCESSES" unique_id="86" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1569563860" ts_lastsave="1569563936"/>
-        <node name="JOBS" unique_id="87" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1569563864" ts_lastsave="1569563964"/>
-        <node name="USERS &amp;&amp; GROUPS" unique_id="88" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1569563866" ts_lastsave="1569563980"/>
-        <node name="NETWORK" unique_id="89" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1569563868" ts_lastsave="1569563988"/>
-        <node name="MISC" unique_id="90" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="27" is_bold="0" foreground="" ts_creation="1569563990" ts_lastsave="1569563993"/>
-        <node name="SUMMARY OF VULNERABILITIES" unique_id="91" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="12" is_bold="0" foreground="" ts_creation="1568174437" ts_lastsave="1569561446">
-          <rich_text>High level summary of the system's vulnerabilities -- basically a forced stop-and-check processing stage so as not to drop into rabbit holes.
-
-</rich_text>
-          <node name="ATTACK SURFACE" unique_id="92" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="34" is_bold="0" foreground="" ts_creation="1568175777" ts_lastsave="1569564064">
-            <rich_text weight="heavy">What are</rich_text>
-            <rich_text> </rich_text>
-            <rich_text weight="heavy">the vulnerabilities?</rich_text>
-            <rich_text>
-
-
-
-</rich_text>
-            <rich_text weight="heavy">What seems most likely or most straightforward to leverage and why?</rich_text>
-            <rich_text>
-
-
-
-</rich_text>
-            <rich_text weight="heavy">Do we have all the correct files/versions/access to exploit?</rich_text>
-            <rich_text>
-</rich_text>
-          </node>
-        </node>
-      </node>
-      <node name="LOOT" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1569564146">
-        <node name="CREDS" unique_id="98" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1569564152" ts_lastsave="1569564154"/>
-        <node name="HASHES" unique_id="99" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1569564154" ts_lastsave="1579569687"/>
-        <node name="PROOF" unique_id="93" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="11" is_bold="0" foreground="" ts_creation="1579569687" ts_lastsave="1579569689"/>
-      </node>
-    </node>
-    <node name="SUMMARY OF ESCALATION" unique_id="94" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="43" is_bold="0" foreground="" ts_creation="1569563677" ts_lastsave="1579569756">
-      <rich_text weight="heavy">Name</rich_text>
-      <rich_text>:
-</rich_text>
-      <rich_text weight="heavy">Link</rich_text>
-      <rich_text>:
-</rich_text>
-      <rich_text weight="heavy">TYPE</rich_text>
-      <rich_text>:
-</rich_text>
-      <rich_text weight="heavy">EXPLANATION</rich_text>
-      <rich_text>:
-
-
-</rich_text>
-      <rich_text weight="heavy">HOW WAS THIS DISCOVERED </rich_text>
-      <rich_text>(should be in steps for enum, vuln)?
-
- 
-</rich_text>
-      <rich_text weight="heavy">HOW WAS THIS EXPLOITED?</rich_text>
-      <rich_text>
-
-POC here.
-
-</rich_text>
-      <rich_text weight="heavy">SCREENSHOTS</rich_text>
-      <rich_text>:
-
-☐ ifconfig &amp;&amp; whoami &amp;&amp; proof.txt
-☐ Shell/similar
-
-
-
-======
-</rich_text>
-      <rich_text weight="heavy">
-STEPS:</rich_text>
-    </node>
-    <node name="LOG" unique_id="100" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="20" is_bold="0" foreground="" ts_creation="1569564448" ts_lastsave="1579569913">
-      <rich_text>Useful for keeping track of work when you leave a box for awhile and come back to it.</rich_text>
-    </node>
-    <node name="MISC NOTES" unique_id="103" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1579569468" ts_lastsave="1579569936">
-      <rich_text>Dump whatever in here.</rich_text>
+    <node name="AD" unique_id="81" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="41" is_bold="0" foreground="" ts_creation="1569561597" ts_lastsave="1689416146">
+      <node name="ENUM" unique_id="82" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569563672" ts_lastsave="1569563850"/>
+      <node name="LOOT" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1569564146"/>
     </node>
   </node>
 </cherrytree>

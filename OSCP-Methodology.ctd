@@ -369,7 +369,9 @@ Manually check:
         <rich_text style="italic">crontab -l</rich_text>
         <rich_text>)
 - Check logs for cronjobs
-
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
 - Check insecure system components with </rich_text>
         <rich_text style="italic">getcap</rich_text>
         <rich_text>
@@ -386,11 +388,17 @@ Manually check:
 - SharpUp
 
 Pay attention on privilegeges of the user:
-
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
 Check the group of the user, maybe we have backup operator
-
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
 Check files using powershell:
-
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
 Extensions to check:
 - sql
 - sqlite
@@ -412,11 +420,14 @@ Check active sessions (PowerView):
 - </rich_text>
         <rich_text style="italic">NetWkstaUserEnum</rich_text>
         <rich_text>
-
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
 - </rich_text>
         <rich_text style="italic">NetSessionEnum</rich_text>
         <rich_text>
 </rich_text>
+        <rich_text justification="left"></rich_text>
         <codebox char_offset="111" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">whoami /all
 whoami /priv</codebox>
         <codebox char_offset="172" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">whoami /group</codebox>
@@ -447,9 +458,14 @@ Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Full
         <rich_text weight="heavy"> Only Linux</rich_text>
       </node>
     </node>
-    <node name="AD" unique_id="81" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="41" is_bold="0" foreground="" ts_creation="1569561597" ts_lastsave="1689416146">
-      <node name="Post-Exploitation" unique_id="82" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569563672" ts_lastsave="1689416169"/>
-      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1689416179"/>
+    <node name="AD" unique_id="81" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="41" is_bold="0" foreground="" ts_creation="1569561597" ts_lastsave="1689416622">
+      <rich_text>Here it will be AD</rich_text>
+      <node name="Post-Exploitation" unique_id="82" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569563672" ts_lastsave="1689416627">
+        <rich_text>Here it will be Post Expl</rich_text>
+      </node>
+      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1689416635">
+        <rich_text>Here it will be Lat Movement</rich_text>
+      </node>
     </node>
   </node>
 </cherrytree>
