@@ -51,7 +51,7 @@ If an exploit gives us patched message or doesn't work, WE HAVE TO CHECK ANOTHER
     </node>
     <node name="SERVICE ENUM " unique_id="76" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="39" is_bold="0" foreground="" ts_creation="1579569598" ts_lastsave="1688828388">
       <rich_text>We have to enumerate every service and gather as much information as possible.</rich_text>
-      <node name="TCP" unique_id="5" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="21" is_bold="0" foreground="" ts_creation="1569559292" ts_lastsave="1688922291">
+      <node name="TCP" unique_id="5" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="21" is_bold="0" foreground="" ts_creation="1569559292" ts_lastsave="1689500233">
         <rich_text>We will find the service report from AutoRecon.py, name Full TCP Scan.</rich_text>
         <node name="FTP" unique_id="35" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569560997" ts_lastsave="1688829046">
           <rich_text>- find the version, maybe it's a vulnerable one
@@ -277,6 +277,32 @@ Sub MyMacro()
 
     CreateObject("Wscript.Shell").Run Str
 End Sub</codebox>
+        </node>
+        <node name="MSSQL" unique_id="112" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1689500078" ts_lastsave="1689500205">
+          <rich_text>Port - 1433
+To use: </rich_text>
+          <rich_text style="italic">impacket-mssqlclient</rich_text>
+          <rich_text>
+Check this RCE using impacket-mssqlclient: </rich_text>
+          <rich_text link="webs https://rioasmara.com/2020/05/30/impacket-mssqlclient-reverse-shell/">https://rioasmara.com/2020/05/30/impacket-mssqlclient-reverse-shell/</rich_text>
+          <rich_text>
+Also the official Kali documentation: </rich_text>
+          <rich_text link="webs https://www.kali.org/tools/impacket-scripts/#impacket-mssqlclient">https://www.kali.org/tools/impacket-scripts/#impacket-mssqlclient</rich_text>
+          <rich_text>
+
+More documentation on: </rich_text>
+          <rich_text link="webs https://book.hacktricks.xyz/network-services-pentesting/pentesting-mssql-microsoft-sql-server">https://book.hacktricks.xyz/network-services-pentesting/pentesting-mssql-microsoft-sql-server</rich_text>
+        </node>
+        <node name="LDAP" unique_id="113" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1689500233" ts_lastsave="1689500339">
+          <rich_text>Port - 389 or 636 (for LDAPs - secure)
+Use </rich_text>
+          <rich_text style="italic">ldapsearch</rich_text>
+          <rich_text> to enumerate:
+
+
+More on it here: </rich_text>
+          <rich_text link="webs https://book.hacktricks.xyz/network-services-pentesting/pentesting-ldap">https://book.hacktricks.xyz/network-services-pentesting/pentesting-ldap</rich_text>
+          <codebox char_offset="68" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">ldapsearch -x -b "dc=domain,dc=com" -H ldap://{IP}</codebox>
         </node>
       </node>
       <node name="UDP" unique_id="73" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="21" is_bold="0" foreground="" ts_creation="1569559301" ts_lastsave="1579569609">

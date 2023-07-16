@@ -51,7 +51,7 @@ If an exploit gives us patched message or doesn't work, WE HAVE TO CHECK ANOTHER
     </node>
     <node name="SERVICE ENUM " unique_id="76" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="39" is_bold="0" foreground="" ts_creation="1579569598" ts_lastsave="1688828388">
       <rich_text>We have to enumerate every service and gather as much information as possible.</rich_text>
-      <node name="TCP" unique_id="5" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="21" is_bold="0" foreground="" ts_creation="1569559292" ts_lastsave="1688922291">
+      <node name="TCP" unique_id="5" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="21" is_bold="0" foreground="" ts_creation="1569559292" ts_lastsave="1689500233">
         <rich_text>We will find the service report from AutoRecon.py, name Full TCP Scan.</rich_text>
         <node name="FTP" unique_id="35" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569560997" ts_lastsave="1688829046">
           <rich_text>- find the version, maybe it's a vulnerable one
@@ -278,6 +278,27 @@ Sub MyMacro()
     CreateObject("Wscript.Shell").Run Str
 End Sub</codebox>
         </node>
+        <node name="MSSQL" unique_id="112" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1689500078" ts_lastsave="1689500205">
+          <rich_text>Port - 1433
+To use: </rich_text>
+          <rich_text style="italic">impacket-mssqlclient</rich_text>
+          <rich_text>
+Check this RCE using impacket-mssqlclient: </rich_text>
+          <rich_text link="webs https://rioasmara.com/2020/05/30/impacket-mssqlclient-reverse-shell/">https://rioasmara.com/2020/05/30/impacket-mssqlclient-reverse-shell/</rich_text>
+          <rich_text>
+Also the official Kali documentation: </rich_text>
+          <rich_text link="webs https://www.kali.org/tools/impacket-scripts/#impacket-mssqlclient">https://www.kali.org/tools/impacket-scripts/#impacket-mssqlclient</rich_text>
+          <rich_text>
+
+More documentation on: </rich_text>
+          <rich_text link="webs https://book.hacktricks.xyz/network-services-pentesting/pentesting-mssql-microsoft-sql-server">https://book.hacktricks.xyz/network-services-pentesting/pentesting-mssql-microsoft-sql-server</rich_text>
+        </node>
+        <node name="LDAP" unique_id="113" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1689500233" ts_lastsave="1689500321">
+          <rich_text>Port - 389 or 636 (for LDAPs - secure)
+Use ldapsearch to enumerate:
+</rich_text>
+          <codebox char_offset="68" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">ldapsearch -x -b "dc=domain,dc=com" -H ldap://192.168.178.29</codebox>
+        </node>
       </node>
       <node name="UDP" unique_id="73" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="21" is_bold="0" foreground="" ts_creation="1569559301" ts_lastsave="1579569609">
         <rich_text>[ NMAP OVERVIEW ]</rich_text>
@@ -381,7 +402,7 @@ Manually check:
         <codebox char_offset="321" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find / -perm -04000 2&gt;/dev/null</codebox>
         <codebox char_offset="620" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">grep "CRON" /var/log/syslog</codebox>
       </node>
-      <node name="Windows" unique_id="110" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924320" ts_lastsave="1689415743">
+      <node name="Windows" unique_id="110" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924320" ts_lastsave="1689454107">
         <rich_text>Use (and read CAREFULLY the output):
 - winpeas
 - PowerUp
@@ -402,17 +423,24 @@ Check files using powershell:
 Extensions to check:
 - sql
 - sqlite
+- db
 - txt
 - pdf
 - doc
 - docx
 - ps1
+- ini
+- kdbx (See KeePass)
 
 </rich_text>
         <rich_text weight="heavy">Important:</rich_text>
         <rich_text> Check all files, maybe we have </rich_text>
         <rich_text style="italic">Windows.old</rich_text>
-        <rich_text> to extract SAM.
+        <rich_text> to extract SAM. Extract it with both </rich_text>
+        <rich_text weight="heavy">samdump2</rich_text>
+        <rich_text> and </rich_text>
+        <rich_text weight="heavy">impacket-secretsdump</rich_text>
+        <rich_text>.
 
 Check scheduled tasks manually
 Check services manually
@@ -433,8 +461,8 @@ whoami /priv</codebox>
         <codebox char_offset="172" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">whoami /group</codebox>
         <codebox char_offset="204" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-ChildItem -Filter *.txt -Recurse
 Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Fullname</codebox>
-        <codebox char_offset="454" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-NetLoggedon</codebox>
-        <codebox char_offset="473" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-NetSession</codebox>
+        <codebox char_offset="542" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-NetLoggedon</codebox>
+        <codebox char_offset="561" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-NetSession</codebox>
       </node>
       <node name="STUCK?" unique_id="111" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1689415044" ts_lastsave="1689415478">
         <rich_text>- Recheck every line of output from Winpeas/Linpeas
