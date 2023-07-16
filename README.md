@@ -303,6 +303,8 @@ Also the official Kali documentation: [https://www.kali.org/tools/impacket-scrip
 More documentation on: [https://book.hacktricks.xyz/network-services-pentesting/pentesting-mssql-microsoft-sql-server](#https://book.hacktricks.xyz/network-services-pentesting/pentesting-mssql-microsoft-sql-server)
 
 
+**Very important: **When logging in with a Windows User, use **windows\-auth**flag in **impacket\-mssqlclient**
+
 #### LDAP 
 
 Port \- 389 or 636 \(for LDAPs \- secure\)
@@ -423,7 +425,7 @@ Check the group of the user, maybe we have backup operator
 Check files using powershell:
 
 ```
- Get-ChildItem -Filter *.txt -Recurse
+ Get-ChildItem -Filter *.txt -Recurse -ErrorAction SilentlyContinue
 Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} |
 Select Fullname 
  ```
@@ -441,6 +443,8 @@ Extensions to check:
 \- kdbx \(See KeePass\)
 
 **Important:**Check all files, maybe we have Windows\.oldto extract SAM\. Extract it with both **samdump2**and **impacket\-secretsdump**\.
+Check this: [https://juggernaut-sec.com/dumping-credentials-sam-file-hashes/#Extracting_the_Hashes_with_secretsdumppy_and_samdump2](#https://juggernaut-sec.com/dumping-credentials-sam-file-hashes/#Extracting_the_Hashes_with_secretsdumppy_and_samdump2)
+
 
 Check scheduled tasks manually
 Check services manually
@@ -468,6 +472,8 @@ Check active sessions \(PowerView\):
 \- Check kernel or build exploit and try them all from WinPeas \- **Only Windows**
 \- Always check **GTFOBins**for SUIDs and SUDO capabilities \(No matter if it look not probable\) \- **Only Linux**
 \- Always check kernel version and try all exploits \-**Only Linux**
+
+\!For some reason samdump2 failed here as the both the NT and LM are coming up as blank for all accounts\. T**his is exactly why we need to have multiple tools to accomplish a single task\. When one fails, we can try another\.**
 
 ## AD 
 
