@@ -49,8 +49,19 @@ When an exploit is in Python2, we either:
 If an exploit gives us patched message or doesn't work, WE HAVE TO CHECK ANOTHER ONE, SAME SERVICE TO MAKE SURE THAT SERVICE IS UNEXPLOITABLE.</rich_text>
       </node>
     </node>
-    <node name="SERVICE ENUM " unique_id="76" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="39" is_bold="0" foreground="" ts_creation="1579569598" ts_lastsave="1688828388">
-      <rich_text>We have to enumerate every service and gather as much information as possible.</rich_text>
+    <node name="SERVICE ENUM " unique_id="76" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="39" is_bold="0" foreground="" ts_creation="1579569598" ts_lastsave="1689708744">
+      <rich_text>We have to enumerate every service and gather as much information as possible.
+
+!For file transfer:
+Linux:
+- curl
+- scp
+
+Windows:
+- curl
+- certutil
+- scp
+</rich_text>
       <node name="TCP" unique_id="5" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="21" is_bold="0" foreground="" ts_creation="1569559292" ts_lastsave="1689500233">
         <rich_text>We will find the service report from AutoRecon.py, name Full TCP Scan.</rich_text>
         <node name="FTP" unique_id="35" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569560997" ts_lastsave="1688829046">
@@ -166,7 +177,7 @@ It is also used to get inner services =&gt; we can request </rich_text>
             <rich_text> and if the connection is refused, then the box does not have FTP running internal (just an example). Check this: </rich_text>
             <rich_text link="webs https://www.resecurity.com/blog/article/blind-ssrf-to-rce-vulnerability-exploitation">https://www.resecurity.com/blog/article/blind-ssrf-to-rce-vulnerability-exploitation</rich_text>
           </node>
-          <node name="LFI &amp; RFI" unique_id="105" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1688830874" ts_lastsave="1688832516">
+          <node name="LFI &amp; RFI" unique_id="105" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1688830874" ts_lastsave="1689651260">
             <rich_text>- we can try to include shells from our server
 [For LFI] we can poison the access logs requiresting </rich_text>
             <rich_text link="webs http://url/malicious-payload">http://url/malicious-payload</rich_text>
@@ -176,6 +187,10 @@ Places for </rich_text>
             <rich_text> </rich_text>
             <rich_text style="italic">/var/log/apache/access. log</rich_text>
             <rich_text>.
+
+- see if there is an </rich_text>
+            <rich_text weight="heavy">upload functionality</rich_text>
+            <rich_text> to mix with LFI vulnerability
 
 More on that here: </rich_text>
             <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/file-inclusion">https://book.hacktricks.xyz/pentesting-web/file-inclusion</rich_text>
@@ -298,7 +313,7 @@ End Sub</codebox>
           <codebox char_offset="650" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">swaks -t {to email} --from {from email} --attach {local file to attach} --server {IP of SMTP server} --body {txt file with body contents}
 --header "Subject: Example" --suppress-data -ap</codebox>
         </node>
-        <node name="MSSQL" unique_id="112" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1689500078" ts_lastsave="1689500205">
+        <node name="MSSQL" unique_id="112" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1689500078" ts_lastsave="1689507889">
           <rich_text>Port - 1433
 To use: </rich_text>
           <rich_text style="italic">impacket-mssqlclient</rich_text>
@@ -312,6 +327,14 @@ Also the official Kali documentation: </rich_text>
 
 More documentation on: </rich_text>
           <rich_text link="webs https://book.hacktricks.xyz/network-services-pentesting/pentesting-mssql-microsoft-sql-server">https://book.hacktricks.xyz/network-services-pentesting/pentesting-mssql-microsoft-sql-server</rich_text>
+          <rich_text>
+
+</rich_text>
+          <rich_text weight="heavy">Very important: </rich_text>
+          <rich_text>When logging in with a Windows User, use </rich_text>
+          <rich_text weight="heavy">windows-auth</rich_text>
+          <rich_text> flag in </rich_text>
+          <rich_text weight="heavy">impacket-mssqlclient</rich_text>
         </node>
         <node name="LDAP" unique_id="113" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1689500233" ts_lastsave="1689500339">
           <rich_text>Port - 389 or 636 (for LDAPs - secure)
@@ -347,7 +370,7 @@ Also check this out: </rich_text>
           <codebox char_offset="115" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">snmpwalk -v 1 -c {community string} {IP} NET-SNMP-EXTEND-MIB::nsExtendOutputFull</codebox>
         </node>
       </node>
-      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1689414543">
+      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1689708759">
         <rich_text weight="heavy">Things to consider</rich_text>
         <rich_text>
 - Have you confirmed the service on the port manually and googled all the things (the SSH string, the banner text, the source)?
@@ -369,7 +392,8 @@ Also check this out: </rich_text>
         <rich_text>
 - Do you need to relax some of the terms used for searching? Instead of v2.8 maybe we check for anything under 3.
 - Do you need a break?
-</rich_text>
+
+If reverse shell is not working, try transferring a msfvenom payload and executing it instead</rich_text>
       </node>
     </node>
     <node name="PRIVILEGE ESCALATION" unique_id="107" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="22" is_bold="0" foreground="" ts_creation="1688917213" ts_lastsave="1689415044">
@@ -494,7 +518,7 @@ Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Full
         <codebox char_offset="672" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-NetLoggedon</codebox>
         <codebox char_offset="691" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-NetSession</codebox>
       </node>
-      <node name="STUCK?" unique_id="111" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1689415044" ts_lastsave="1689505653">
+      <node name="STUCK?" unique_id="111" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1689415044" ts_lastsave="1689708492">
         <rich_text>- Recheck every line of output from Winpeas/Linpeas
 - Recheck files
 - Rerun Winpeas/Linpeas
@@ -507,6 +531,13 @@ Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Full
 - Check kernel or build exploit and try them all from WinPeas - </rich_text>
         <rich_text weight="heavy">Only Windows</rich_text>
         <rich_text>
+- Check Installed software in </rich_text>
+        <rich_text weight="heavy">Program Files</rich_text>
+        <rich_text> and </rich_text>
+        <rich_text weight="heavy">Program Files x86</rich_text>
+        <rich_text>, maybe it is a public exploit - </rich_text>
+        <rich_text weight="heavy">Only Windows</rich_text>
+        <rich_text>
 - Always check </rich_text>
         <rich_text weight="heavy">GTFOBins</rich_text>
         <rich_text> for SUIDs and SUDO capabilities (No matter if it look not probable) - </rich_text>
@@ -516,7 +547,8 @@ Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Full
         <rich_text weight="heavy"> Only Linux</rich_text>
         <rich_text>
 
-!For some reason samdump2 failed here as the both the NT and LM are coming up as blank for all accounts. This is exactly why we need to have multiple tools to accomplish a single task. When one fails, we can try another.</rich_text>
+!For some reason samdump2 failed here as the both the NT and LM are coming up as blank for all accounts. T</rich_text>
+        <rich_text weight="heavy">his is exactly why we need to have multiple tools to accomplish a single task. When one fails, we can try another.</rich_text>
       </node>
     </node>
     <node name="AD" unique_id="81" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="41" is_bold="0" foreground="" ts_creation="1569561597" ts_lastsave="1689416622">

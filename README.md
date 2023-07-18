@@ -63,6 +63,17 @@ If an exploit gives us patched message or doesn't work, WE HAVE TO CHECK ANOTHER
 
 We have to enumerate every service and gather as much information as possible\.
 
+\!For file transfer:
+Linux:
+\- curl
+\- scp
+
+Windows:
+\- curl
+\- certutil
+\- scp
+
+
 ### TCP 
 
 We will find the service report from AutoRecon\.py, name Full TCP Scan\.
@@ -173,6 +184,8 @@ and if the connection is refused, then the box does not have FTP running interna
 \[For LFI\] we can poison the access logs requiresting [http://url/malicious-payload](#http://url/malicious-payload)
 then we can include the apache access log in order to execute the PHP payload that we included in it
 Places for **access\.log**/var/log/apache/access\. log\.
+
+\- see if there is an **upload functionality**to mix with LFI vulnerability
 
 More on that here: [https://book.hacktricks.xyz/pentesting-web/file-inclusion](#https://book.hacktricks.xyz/pentesting-web/file-inclusion)
 
@@ -358,6 +371,8 @@ Also check this out: [https://book.hacktricks.xyz/network-services-pentesting/pe
 \- Do you need to relax some of the terms used for searching? Instead of v2\.8 maybe we check for anything under 3\.
 \- Do you need a break?
 
+\- If reverse shell is not working, try transferring a msfvenom payload and executing it instead
+\- If commands are not recognized, use their absolute path, for example **powershell not recongnized**=\> **C:\\Windows\\System32\\WindowsPowerShell\\v1\.0\\powershell\.exe**
 
 ## PRIVILEGE ESCALATION 
 
@@ -470,6 +485,7 @@ Check active sessions \(PowerView\):
 \- If in AD, try SharpHound and analyze object ACL \- **Only Windows**
 \- Search the build number for privilege escalation exploits \- **Only Windows**
 \- Check kernel or build exploit and try them all from WinPeas \- **Only Windows**
+\- Check Installed software in **Program Files**and **Program Files x86**, maybe it is a public exploit \- **Only Windows**
 \- Always check **GTFOBins**for SUIDs and SUDO capabilities \(No matter if it look not probable\) \- **Only Linux**
 \- Always check kernel version and try all exploits \-**Only Linux**
 
