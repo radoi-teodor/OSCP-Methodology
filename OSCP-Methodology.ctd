@@ -628,9 +628,13 @@ Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Full
         <rich_text>We will use </rich_text>
         <rich_text weight="heavy">mimikatz</rich_text>
         <rich_text>:
-
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
 Then we will extract using every method, beginning with:
-
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
 Als check out this: </rich_text>
         <rich_text link="webs https://gist.github.com/insi2304/484a4e92941b437bad961fcacda82d49">https://gist.github.com/insi2304/484a4e92941b437bad961fcacda82d49</rich_text>
         <rich_text>
@@ -682,9 +686,11 @@ lsadump::sam</codebox>
           <rich_text link="webs https://github.com/crazywifi/Enable-RDP-One-Liner-CMD">https://github.com/crazywifi/Enable-RDP-One-Liner-CMD</rich_text>
         </node>
       </node>
-      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1690115874">
+      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1690115997">
         <rich_text>Try credentials using crackmapexec:
-
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
 Every possible </rich_text>
         <rich_text weight="heavy">username</rich_text>
         <rich_text> and </rich_text>

