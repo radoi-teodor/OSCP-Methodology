@@ -536,10 +536,13 @@ Check active sessions \(PowerView\):
 \- Recheck every line of output from Winpeas/Linpeas
 \- Recheck files
 \- Rerun Winpeas/Linpeas
+
 \- If in AD, try SharpHound and analyze object ACL \- **Only Windows**
 \- Search the build number for privilege escalation exploits \- **Only Windows**
 \- Check kernel or build exploit and try them all from WinPeas \- **Only Windows**
 \- Check Installed software in **Program Files**and **Program Files x86**, maybe it is a public exploit \- **Only Windows**
+\- Check if there is a binary that **backups**or does a **job that may be a service or a scheduled job **and replace with a reverse shell \- **Only Windows**
+
 \- Always check **GTFOBins**for SUIDs and SUDO capabilities \(No matter if it look not probable\) \- **Only Linux**
 \- Always check kernel version and try all exploits \-**Only Linux**
 
@@ -566,6 +569,7 @@ Then we will extract using every method, beginning with:
 lsadump::sam 
  ```
 
+Do not forget to check **cached credentials**\.
 Als check out this: [https://gist.github.com/insi2304/484a4e92941b437bad961fcacda82d49](#https://gist.github.com/insi2304/484a4e92941b437bad961fcacda82d49)
 
 Make sure to extract all\.
@@ -636,3 +640,7 @@ actual transfer
 
 
 \!Always use **scp**from **putty**\(pscp\.exe\)\.
+
+### STUCK? 
+
+\-  Try **spraying the credentials**, maybe a password is reused by another user \(but **watch out for account lockouts**\)
