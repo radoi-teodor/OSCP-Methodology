@@ -678,7 +678,7 @@ lsadump::sam</codebox>
           <rich_text link="webs https://github.com/crazywifi/Enable-RDP-One-Liner-CMD">https://github.com/crazywifi/Enable-RDP-One-Liner-CMD</rich_text>
         </node>
       </node>
-      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1690115835">
+      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1690115874">
         <rich_text>Try credentials using crackmapexec:
 
 Every possible </rich_text>
@@ -699,7 +699,10 @@ Use </rich_text>
         <rich_text weight="heavy">crackmapexec</rich_text>
         <rich_text> and </rich_text>
         <rich_text weight="heavy">smbclient</rich_text>
-        <rich_text> to surf the shares.</rich_text>
+        <rich_text> to surf the shares.
+
+Also check this link: </rich_text>
+        <rich_text link="webs https://pentest.coffee/active-directory-lateral-movement-and-post-exploitation-cheat-sheet-3170982a7055#b769">https://pentest.coffee/active-directory-lateral-movement-and-post-exploitation-cheat-sheet-3170982a7055#b769</rich_text>
         <codebox char_offset="36" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">proxychains crackmapexec smb 10.10.114.154 -p hghgib6vHT3bVWf -u Administrator # this will check domain users credentials
 proxychains crackmapexec smb 10.10.114.154 -p hghgib6vHT3bVWf -u Administrator --local-auth # this will check local users credentials
 </codebox>
