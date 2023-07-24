@@ -444,13 +444,8 @@ Also check this out: </rich_text>
       <rich_text>We have to pay attention to </rich_text>
       <rich_text weight="heavy">files on the machine</rich_text>
       <rich_text>, most of the time, this is how privilege escalation is done.</rich_text>
-      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1690221707">
-        <rich_text>!Check if we are in a container:
-</rich_text>
-        <rich_text justification="left"></rich_text>
-        <rich_text>
-
-Use:
+      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1690221854">
+        <rich_text>Use:
 - linpeas
 - kernel exploit suggester
 
@@ -503,14 +498,10 @@ Manually check:
 Check capabilities:
 </rich_text>
         <rich_text justification="left"></rich_text>
-        <codebox char_offset="33" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">hostname
-# If we get gibberish data like "f8e1a236869d", we are in a container and we should escape it =&gt; see services that are on the machine and we could exploit
-# (other services maybe be run by machine itself, not container, and we could gather info about those services from inside the container, to gain RCE
-# of them from outside)</codebox>
-        <codebox char_offset="102" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">uname -a</codebox>
-        <codebox char_offset="357" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find / -perm -04000 2&gt;/dev/null</codebox>
-        <codebox char_offset="656" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">grep "CRON" /var/log/syslog</codebox>
-        <codebox char_offset="756" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">getcap -r / 2&gt;/dev/null
+        <codebox char_offset="66" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">uname -a</codebox>
+        <codebox char_offset="321" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find / -perm -04000 2&gt;/dev/null</codebox>
+        <codebox char_offset="620" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">grep "CRON" /var/log/syslog</codebox>
+        <codebox char_offset="720" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">getcap -r / 2&gt;/dev/null
 # And search for everyone</codebox>
         <node name="Special Cases" unique_id="117" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1690221496" ts_lastsave="1690221839">
           <rich_text>---------------------- Services and Reboot Privs ----------------------

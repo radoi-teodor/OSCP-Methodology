@@ -512,7 +512,7 @@ Check capabilities:
         <codebox char_offset="656" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">grep "CRON" /var/log/syslog</codebox>
         <codebox char_offset="756" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">getcap -r / 2&gt;/dev/null
 # And search for everyone</codebox>
-        <node name="Special Cases" unique_id="117" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1690221496" ts_lastsave="1690221818">
+        <node name="Special Cases" unique_id="117" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1690221496" ts_lastsave="1690221839">
           <rich_text>---------------------- Services and Reboot Privs ----------------------
 If we have these SUDO capabilities (sudo -l):
 
@@ -534,6 +534,8 @@ If a strange binary is found as SUID, check it's system calls:
 This may be vulnerable to path injection.
 More on that here: </rich_text>
           <rich_text link="webs https://systemweakness.com/linux-privilege-escalation-using-path-variable-manipulation-64325ab05469">https://systemweakness.com/linux-privilege-escalation-using-path-variable-manipulation-64325ab05469</rich_text>
+          <rich_text> and </rich_text>
+          <rich_text link="webs https://medium.com/purplebox/linux-privilege-escalation-with-path-variable-suid-bit-6b9c492411de">https://medium.com/purplebox/linux-privilege-escalation-with-path-variable-suid-bit-6b9c492411de</rich_text>
           <codebox char_offset="118" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">User lowpriv may run the following commands on hetemit:
     (root) NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/poweroff</codebox>
           <codebox char_offset="162" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find /etc -writable 2&gt;/dev/null
