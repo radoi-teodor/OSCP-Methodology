@@ -143,7 +143,7 @@ More exploits: [https://book.hacktricks.xyz/network-services-pentesting/pentesti
 We have to **Dirbust**and **Feroxbust**using good wordlists:
 \- /usr/share/seclists/Discovery/Web\-Content/big\.txt
 \- /usr/share/seclists/Discovery/Web\-Content/directory\-list\-2\.3\-medium\.txt
-\- /usr/share/seclists/Discovery/Web\-Content/directory\-list\-2\.3\-big\.txt \(if medium had no results\)
+\- /usr/share/seclists/Discovery/Web\-Content/directory\-list\-2\.3\-big\.txt \(let it **run in background**while testing other stuff\)
 
 Also we have to check:
 \- intersting exntensions \(docx, pdf, txt, php, sql\)
@@ -152,6 +152,9 @@ Also we have to check:
 \- check page contents, maybe credentials or something helpful is already there
 \- check comments
 \- check cookies and session
+\- **FUZZ**suspect endpoints; use wordlists from /usr/share/seclists/Fuzzing
+-  try base64
+-  try URL encoded
 
 ##### SQL injections 
 
@@ -574,6 +577,7 @@ Check active sessions \(PowerView\):
 
 \- Always check **GTFOBins**for SUIDs and SUDO capabilities \(No matter if it look not probable\) \- **Only Linux**
 \- Always check kernel version and try all exploits \-**Only Linux**
+\- Try already known passwordsto **sudo**or switch user \(**su**\) to root \- **Password Reusal**\- **Only Linux**
 
 \!For some reason samdump2 failed here as the both the NT and LM are coming up as blank for all accounts\. T**his is exactly why we need to have multiple tools to accomplish a single task\. When one fails, we can try another\.**
 
@@ -673,3 +677,4 @@ actual transfer
 ### STUCK? 
 
 \-  Try **spraying the credentials**, maybe a password is reused by another user \(but **watch out for account lockouts**\)
+\- Check for password reusal
