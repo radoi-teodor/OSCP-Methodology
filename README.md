@@ -190,6 +190,8 @@ Places for **access\.log**/var/log/apache/access\. log\.
 
 \- see if there is an **upload functionality**to mix with LFI vulnerability
 
+Check **firewall file on Linux**: /etc/ufw/user\.rules, help to get a port for the reverse shell\.
+
 More on that here: [https://book.hacktricks.xyz/pentesting-web/file-inclusion](#https://book.hacktricks.xyz/pentesting-web/file-inclusion)
 
 
@@ -448,6 +450,14 @@ Check capabilities:
  ```
 
 
+Check opened ports:
+
+```
+ netstat -tulpn
+# Maybe we can interact with an internal opened port? 
+ ```
+
+
 #### Special Cases 
 
 \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- Services and Reboot Privs \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
@@ -564,6 +574,14 @@ Check active sessions \(PowerView\):
 
 ```
  Get-NetSession 
+ ```
+
+
+\- Check opened ports:
+
+```
+ netstat -ano
+# Maybe we can interact with an internal opened port 
  ```
 
 
