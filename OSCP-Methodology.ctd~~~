@@ -186,7 +186,7 @@ It is also used to get inner services =&gt; we can request </rich_text>
             <rich_text> and if the connection is refused, then the box does not have FTP running internal (just an example). Check this: </rich_text>
             <rich_text link="webs https://www.resecurity.com/blog/article/blind-ssrf-to-rce-vulnerability-exploitation">https://www.resecurity.com/blog/article/blind-ssrf-to-rce-vulnerability-exploitation</rich_text>
           </node>
-          <node name="LFI &amp; RFI" unique_id="105" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1688830874" ts_lastsave="1690927693">
+          <node name="LFI &amp; RFI" unique_id="105" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1688830874" ts_lastsave="1690927726">
             <rich_text>- we can try to include shells from our server
 [For LFI] we can poison the access logs requiresting </rich_text>
             <rich_text link="webs http://url/malicious-payload">http://url/malicious-payload</rich_text>
@@ -201,7 +201,11 @@ Places for </rich_text>
             <rich_text weight="heavy">upload functionality</rich_text>
             <rich_text> to mix with LFI vulnerability
 
-Check firewall file
+Check </rich_text>
+            <rich_text weight="heavy">firewall file on Linux</rich_text>
+            <rich_text>: </rich_text>
+            <rich_text style="italic">/etc/ufw/user.rules</rich_text>
+            <rich_text>, help to get a port for the reverse shell.
 
 More on that here: </rich_text>
             <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/file-inclusion">https://book.hacktricks.xyz/pentesting-web/file-inclusion</rich_text>
@@ -579,7 +583,7 @@ chmod +x /tmp/{binary}
 # of them from outside)</codebox>
         </node>
       </node>
-      <node name="Windows" unique_id="110" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924320" ts_lastsave="1689504810">
+      <node name="Windows" unique_id="110" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924320" ts_lastsave="1690927760">
         <rich_text>Use (and read CAREFULLY the output):
 - winpeas
 - PowerUp
@@ -636,6 +640,10 @@ Check active sessions (PowerView):
         <rich_text>
 </rich_text>
         <rich_text justification="left"></rich_text>
+        <rich_text>
+
+- Check opened ports:
+</rich_text>
         <codebox char_offset="111" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">whoami /all
 whoami /priv</codebox>
         <codebox char_offset="172" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">whoami /group</codebox>
@@ -643,6 +651,7 @@ whoami /priv</codebox>
 Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Fullname</codebox>
         <codebox char_offset="672" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-NetLoggedon</codebox>
         <codebox char_offset="691" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-NetSession</codebox>
+        <codebox char_offset="716" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">netstat</codebox>
       </node>
       <node name="STUCK?" unique_id="111" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1689415044" ts_lastsave="1690490175">
         <rich_text>- Recheck every line of output from Winpeas/Linpeas

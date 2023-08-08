@@ -337,6 +337,11 @@ Use ldapsearchto enumerate:
  ```
 
 
+Also, do not forget to **grep**for:
+\- DefaultPassword
+\- Password
+\- Pwd
+
 More on it here: [https://book.hacktricks.xyz/network-services-pentesting/pentesting-ldap](#https://book.hacktricks.xyz/network-services-pentesting/pentesting-ldap)
 
 
