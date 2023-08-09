@@ -233,9 +233,10 @@ Bypass methods for upload protection:
 More on that here: </rich_text>
             <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/file-upload">https://book.hacktricks.xyz/pentesting-web/file-upload</rich_text>
           </node>
-          <node name="STUCK?" unique_id="118" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1691569520" ts_lastsave="1691569523">
-            <rich_text>- Dirbust one more time, each directory found in particu
-- Dirbust by extensions (ex.: PHP)</rich_text>
+          <node name="STUCK?" unique_id="118" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1691569520" ts_lastsave="1691569562">
+            <rich_text>- Dirbust one more time, each directory found in particular
+- Dirbust by extensions (ex.: PHP)
+- Try using POST params as GET</rich_text>
           </node>
         </node>
         <node name="SMTP" unique_id="108" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1688922291" ts_lastsave="1690710202">
