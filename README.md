@@ -209,6 +209,12 @@ Bypass methods for upload protection:
 More on that here: [https://book.hacktricks.xyz/pentesting-web/file-upload](#https://book.hacktricks.xyz/pentesting-web/file-upload)
 
 
+##### STUCK? 
+
+\- Dirbust one more time, each directory found in particular
+\- Dirbust by extensions \(ex\.: PHP\)
+\- Try using POST params as GET
+
 #### SMTP 
 
 We can use **Evolution**as a **SMTP UI client**\.

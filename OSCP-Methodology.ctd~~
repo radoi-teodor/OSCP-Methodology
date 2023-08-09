@@ -359,7 +359,7 @@ More documentation on: </rich_text>
           <rich_text> flag in </rich_text>
           <rich_text weight="heavy">impacket-mssqlclient</rich_text>
         </node>
-        <node name="LDAP" unique_id="113" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1689500233" ts_lastsave="1689500339">
+        <node name="LDAP" unique_id="113" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1689500233" ts_lastsave="1691523614">
           <rich_text>Port - 389 or 636 (for LDAPs - secure)
 Use </rich_text>
           <rich_text style="italic">ldapsearch</rich_text>
@@ -367,6 +367,17 @@ Use </rich_text>
 </rich_text>
           <rich_text justification="left"></rich_text>
           <rich_text>
+
+Also, do not forget to </rich_text>
+          <rich_text weight="heavy">grep</rich_text>
+          <rich_text> for:
+- </rich_text>
+          <rich_text style="italic">DefaultPassword</rich_text>
+          <rich_text>
+- </rich_text>
+          <rich_text style="italic">Password</rich_text>
+          <rich_text>
+- Pwd
 
 More on it here: </rich_text>
           <rich_text link="webs https://book.hacktricks.xyz/network-services-pentesting/pentesting-ldap">https://book.hacktricks.xyz/network-services-pentesting/pentesting-ldap</rich_text>
@@ -525,6 +536,7 @@ Check capabilities:
 
 Check opened ports:
 </rich_text>
+        <rich_text justification="left"></rich_text>
         <codebox char_offset="66" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">uname -a</codebox>
         <codebox char_offset="321" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find / -perm -04000 2&gt;/dev/null</codebox>
         <codebox char_offset="620" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">grep "CRON" /var/log/syslog</codebox>
@@ -644,6 +656,7 @@ Check active sessions (PowerView):
 
 - Check opened ports:
 </rich_text>
+        <rich_text justification="left"></rich_text>
         <codebox char_offset="111" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">whoami /all
 whoami /priv</codebox>
         <codebox char_offset="172" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">whoami /group</codebox>
