@@ -119,7 +119,7 @@ More exploits: </rich_text>
 dig axfr @&lt;DNS_IP&gt; &lt;DOMAIN&gt;</codebox>
           <codebox char_offset="46" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">dig -x {IP} @&lt;DNS_IP&gt;</codebox>
         </node>
-        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1690489967">
+        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1691569520">
           <rich_text>We have to </rich_text>
           <rich_text weight="heavy">Dirbust</rich_text>
           <rich_text> and </rich_text>
@@ -232,6 +232,10 @@ Bypass methods for upload protection:
 
 More on that here: </rich_text>
             <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/file-upload">https://book.hacktricks.xyz/pentesting-web/file-upload</rich_text>
+          </node>
+          <node name="STUCK?" unique_id="118" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1691569520" ts_lastsave="1691569523">
+            <rich_text>- Dirbust one more time, each directory found in particu
+- Dirbust by extensions (ex.: PHP)</rich_text>
           </node>
         </node>
         <node name="SMTP" unique_id="108" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1688922291" ts_lastsave="1690710202">
@@ -359,7 +363,7 @@ More documentation on: </rich_text>
           <rich_text> flag in </rich_text>
           <rich_text weight="heavy">impacket-mssqlclient</rich_text>
         </node>
-        <node name="LDAP" unique_id="113" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1689500233" ts_lastsave="1691523609">
+        <node name="LDAP" unique_id="113" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1689500233" ts_lastsave="1691523614">
           <rich_text>Port - 389 or 636 (for LDAPs - secure)
 Use </rich_text>
           <rich_text style="italic">ldapsearch</rich_text>
@@ -377,6 +381,7 @@ Also, do not forget to </rich_text>
 - </rich_text>
           <rich_text style="italic">Password</rich_text>
           <rich_text>
+- Pwd
 
 More on it here: </rich_text>
           <rich_text link="webs https://book.hacktricks.xyz/network-services-pentesting/pentesting-ldap">https://book.hacktricks.xyz/network-services-pentesting/pentesting-ldap</rich_text>
