@@ -119,7 +119,7 @@ More exploits: </rich_text>
 dig axfr @&lt;DNS_IP&gt; &lt;DOMAIN&gt;</codebox>
           <codebox char_offset="46" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">dig -x {IP} @&lt;DNS_IP&gt;</codebox>
         </node>
-        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1691569520">
+        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1691737648">
           <rich_text>We have to </rich_text>
           <rich_text weight="heavy">Dirbust</rich_text>
           <rich_text> and </rich_text>
@@ -132,6 +132,7 @@ dig axfr @&lt;DNS_IP&gt; &lt;DOMAIN&gt;</codebox>
           <rich_text> while testing other stuff)
 
 Also we have to check:
+- always check server headers (maybe there is a vulnerable server, maybe there is another thing interesting)
 - intersting exntensions (</rich_text>
           <rich_text style="italic">docx</rich_text>
           <rich_text>, </rich_text>

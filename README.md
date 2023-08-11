@@ -146,6 +146,7 @@ We have to **Dirbust**and **Feroxbust**using good wordlists:
 \- /usr/share/seclists/Discovery/Web\-Content/directory\-list\-2\.3\-big\.txt \(let it **run in background**while testing other stuff\)
 
 Also we have to check:
+\- always check server headers \(maybe there is a vulnerable server, maybe there is another thing interesting\)
 \- intersting exntensions \(docx, pdf, txt, php, sql\)
 \- we have to check recursive
 \- check if git is present on the server
