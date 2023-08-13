@@ -365,7 +365,7 @@ More documentation on: </rich_text>
           <rich_text> flag in </rich_text>
           <rich_text weight="heavy">impacket-mssqlclient</rich_text>
         </node>
-        <node name="LDAP" unique_id="113" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1689500233" ts_lastsave="1691523614">
+        <node name="LDAP" unique_id="113" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1689500233" ts_lastsave="1691925364">
           <rich_text>Port - 389 or 636 (for LDAPs - secure)
 Use </rich_text>
           <rich_text style="italic">ldapsearch</rich_text>
@@ -373,6 +373,10 @@ Use </rich_text>
 </rich_text>
           <rich_text justification="left"></rich_text>
           <rich_text>
+
+We can also use </rich_text>
+          <rich_text style="italic">ldapdomaindump</rich_text>
+          <rich_text> to enumerate LDAP.
 
 Also, do not forget to </rich_text>
           <rich_text weight="heavy">grep</rich_text>

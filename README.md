@@ -615,6 +615,12 @@ x86_64-w64-mingw32-gcc - Win x64
 
 
 **\!Important:**When discovering a new suspicious service/scheduled job, first try to replace the actual EXE, after that, if won't work, try replacing the dependend DLL \(if it is the case\)\.
+Regarding services, after replacing binary, restart the system with:
+
+```
+ shutdown /r 
+ ```
+
 
 ### STUCK? 
 
@@ -711,6 +717,11 @@ We can use bloodhound\-pythonto enumerate bloodhound without access to the machi
 {password} 
  ```
 
+
+Try moving lateraly with:
+\- RDP
+\- WinRM
+\- PSExec
 
 ### File Transfer 
 

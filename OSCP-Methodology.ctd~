@@ -365,7 +365,7 @@ More documentation on: </rich_text>
           <rich_text> flag in </rich_text>
           <rich_text weight="heavy">impacket-mssqlclient</rich_text>
         </node>
-        <node name="LDAP" unique_id="113" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1689500233" ts_lastsave="1691925364">
+        <node name="LDAP" unique_id="113" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1689500233" ts_lastsave="1691956558">
           <rich_text>Port - 389 or 636 (for LDAPs - secure)
 Use </rich_text>
           <rich_text style="italic">ldapsearch</rich_text>
@@ -388,6 +388,10 @@ Also, do not forget to </rich_text>
           <rich_text style="italic">Password</rich_text>
           <rich_text>
 - Pwd
+
+Classic methodology for LDAPSearch:
+1. Get user list
+2. Try to find a default password, or leaked password
 
 More on it here: </rich_text>
           <rich_text link="webs https://book.hacktricks.xyz/network-services-pentesting/pentesting-ldap">https://book.hacktricks.xyz/network-services-pentesting/pentesting-ldap</rich_text>
@@ -825,7 +829,7 @@ lsadump::sam</codebox>
           <rich_text link="webs https://github.com/crazywifi/Enable-RDP-One-Liner-CMD">https://github.com/crazywifi/Enable-RDP-One-Liner-CMD</rich_text>
         </node>
       </node>
-      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1691921899">
+      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1691958968">
         <rich_text>Try credentials using crackmapexec:
 </rich_text>
         <rich_text justification="left"></rich_text>
@@ -859,6 +863,12 @@ We can use </rich_text>
         <rich_text> to enumerate bloodhound without access to the machine, only having valid creds of an unprivileged user:
 </rich_text>
         <rich_text justification="left"></rich_text>
+        <rich_text>
+
+Try moving lateraly with:
+- RDP
+- WinRM
+- PSExec</rich_text>
         <codebox char_offset="36" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">proxychains crackmapexec smb 10.10.114.154 -p hghgib6vHT3bVWf -u Administrator # this will check domain users credentials
 proxychains crackmapexec smb 10.10.114.154 -p hghgib6vHT3bVWf -u Administrator --local-auth # this will check local users credentials
 </codebox>
