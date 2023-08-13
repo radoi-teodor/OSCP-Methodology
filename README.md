@@ -608,6 +608,7 @@ x86_64-w64-mingw32-gcc - Win x64
  ```
 
 
+**\!Important:**When discovering a new suspicious service/scheduled job, first try to replace the actual EXE, after that, if won't work, try replacing the dependend DLL \(if it is the case\)\.
 
 ### STUCK? 
 
