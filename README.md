@@ -344,10 +344,16 @@ Use ldapsearchto enumerate:
  ```
 
 
+We can also use ldapdomaindumpto enumerate LDAP\.
+
 Also, do not forget to **grep**for:
 \- DefaultPassword
 \- Password
 \- Pwd
+
+Classic methodology for LDAPSearch:
+1\. Get user list
+2\. Try to find a default password, or leaked password
 
 More on it here: [https://book.hacktricks.xyz/network-services-pentesting/pentesting-ldap](#https://book.hacktricks.xyz/network-services-pentesting/pentesting-ldap)
 
