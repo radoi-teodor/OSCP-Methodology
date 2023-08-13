@@ -697,6 +697,14 @@ Use **crackmapexec**and **smbclient**to surf the shares\.
 Also check this link: [https://pentest.coffee/active-directory-lateral-movement-and-post-exploitation-cheat-sheet-3170982a7055#b769](#https://pentest.coffee/active-directory-lateral-movement-and-post-exploitation-cheat-sheet-3170982a7055#b769)
 
 
+We can use bloodhound\-pythonto enumerate bloodhound without access to the machine, only having valid creds of an unprivileged user:
+
+```
+ bloodhound-python -d {domain name} -ns {dc-ip} -c All -u {user} -p
+{password} 
+ ```
+
+
 ### File Transfer 
 
 We can transfer files from the machine by port forwarding SCP port 6000 to 22 kali \(from the Pivot Machine\):
