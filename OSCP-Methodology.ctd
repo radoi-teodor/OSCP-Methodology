@@ -156,7 +156,7 @@ Also we have to check:
           <rich_text>
    → try base64
    → try URL encoded</rich_text>
-          <node name="SQL injections" unique_id="60" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1572496816" ts_lastsave="1688831912">
+          <node name="SQL injections" unique_id="60" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1572496816" ts_lastsave="1691996989">
             <rich_text>- check with quote “ ' ”
 - check the request in network tab for errors
 - check for time differences between </rich_text>
@@ -164,6 +164,12 @@ Also we have to check:
             <rich_text> and </rich_text>
             <rich_text weight="heavy">ones that may have errors</rich_text>
             <rich_text>
+- check which permissions has MySQL (maybe it runs as </rich_text>
+            <rich_text weight="heavy">root</rich_text>
+            <rich_text>) - can be seen in permissions of the file that is created by MySQL
+	=&gt; If runs as root, we can </rich_text>
+            <rich_text weight="heavy">exfiltrate any file from the system</rich_text>
+            <rich_text>.
 
 More on SQL injections:
 - </rich_text>
@@ -688,6 +694,7 @@ Note, for cross compiling, mingw-w64 calls:
         <rich_text> When discovering a new suspicious service/scheduled job, first try to replace the actual EXE, after that, if won't work, try replacing the dependend DLL (if it is the case).
 Regarding services, after replacing binary, restart the system with:
 </rich_text>
+        <rich_text justification="left"></rich_text>
         <codebox char_offset="111" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">whoami /all
 whoami /priv</codebox>
         <codebox char_offset="172" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">whoami /group</codebox>

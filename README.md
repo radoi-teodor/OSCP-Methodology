@@ -162,6 +162,8 @@ Also we have to check:
 \- check with quote “ ' ”
 \- check the request in network tab for errors
 \- check for time differences between **normal requests**and **ones that may have errors**
+\- check which permissions has MySQL \(maybe it runs as **root**\) \- can be seen in permissions of the file that is created by MySQL
+=\> If runs as root, we can **exfiltrate any file from the system**\.
 
 More on SQL injections:
 \- [https://book.hacktricks.xyz/pentesting-web/sql-injection](#https://book.hacktricks.xyz/pentesting-web/sql-injection)
