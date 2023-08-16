@@ -414,6 +414,7 @@ Also check this out: [https://book.hacktricks.xyz/network-services-pentesting/pe
 \- If commands are not recognized, use their absolute path, for example **powershell not recongnized**=\> **C:\\Windows\\System32\\WindowsPowerShell\\v1\.0\\powershell\.exe**
 
 \- Check **certificates**, maybe we find an interesting domain to add to our /etc/hoststo get a new website
+\- If it is an open\-source application, check their repo, maybe you will fins something interesting
 
 \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- FROM [https://dev.to/hackin7/proving-grounds-tips-50ae](#https://dev.to/hackin7/proving-grounds-tips-50ae)
 

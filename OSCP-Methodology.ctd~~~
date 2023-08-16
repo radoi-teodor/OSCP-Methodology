@@ -506,12 +506,11 @@ Also check this out: </rich_text>
         <rich_text> if reverse won't work</rich_text>
       </node>
     </node>
-    <node name="PRIVILEGE ESCALATION" unique_id="107" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="22" is_bold="0" foreground="" ts_creation="1688917213" ts_lastsave="1692172530">
+    <node name="PRIVILEGE ESCALATION" unique_id="107" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="22" is_bold="0" foreground="" ts_creation="1688917213" ts_lastsave="1692172590">
       <rich_text>We have to pay attention to </rich_text>
       <rich_text weight="heavy">files on the machine</rich_text>
       <rich_text>, most of the time, this is how privilege escalation is done.
-
-Check if</rich_text>
+</rich_text>
       <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1690927663">
         <rich_text>Use:
 - linpeas
