@@ -156,6 +156,7 @@ Also we have to check:
 \- **FUZZ**suspect endpoints; use wordlists from /usr/share/seclists/Fuzzing
 -  try base64
 -  try URL encoded
+\- When something does not work, use incognito, maybe it will work from there
 
 ##### SQL injections 
 
@@ -412,6 +413,8 @@ Also check this out: [https://book.hacktricks.xyz/network-services-pentesting/pe
 \- If reverse shell is not working, try transferring a msfvenom payload and executing it instead
 \- If commands are not recognized, use their absolute path, for example **powershell not recongnized**=\> **C:\\Windows\\System32\\WindowsPowerShell\\v1\.0\\powershell\.exe**
 
+\- Check **certificates**, maybe we find an interesting domain to add to our /etc/hoststo get a new website
+
 \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- FROM [https://dev.to/hackin7/proving-grounds-tips-50ae](#https://dev.to/hackin7/proving-grounds-tips-50ae)
 
 \- The firewall of the machines may be configured to prevent reverse shell connections to most ports except the application ports =\> Use application port on your attacking machine for reverse shell
@@ -419,9 +422,13 @@ Also check this out: [https://book.hacktricks.xyz/network-services-pentesting/pe
 \- Google exploits, not just searchsploit\. Found many exploits this way
 \- If the **ftp**command doesn't work, try passivemode, or **pftp**\. Same thing for vice versa
 
+\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- FOOTHOLD PROBLEMS
+\- Try **bind shell**if reverse won't work
+
 ## PRIVILEGE ESCALATION 
 
 We have to pay attention to **files on the machine**, most of the time, this is how privilege escalation is done\.
+
 
 ### Linux 
 
@@ -533,9 +540,13 @@ could exploit
 # (other services maybe be run by machine itself, not container, and
 we could gather info about those services from inside the container,
 to gain RCE
-# of them from outside) 
+# of them from outside)
+# Also check for .dockerenv file in root directory /.dockerenv => we
+are in a container 
  ```
 
+More details here: [https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-security/docker-breakout-privilege-escalation](#https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-security/docker-breakout-privilege-escalation)
+\.
 
 ### Windows 
 
@@ -640,7 +651,7 @@ Regarding services, after replacing binary, restart the system with:
 \- Always check kernel version and try all exploits \-**Only Linux**
 \- Try already known passwordsto **sudo**or switch user \(**su**\) to root \- **Password Reusal**\- **Only Linux**
 
-\!For some reason samdump2 failed here as the both the NT and LM are coming up as blank for all accounts\. T**his is exactly why we need to have multiple tools to accomplish a single task\. When one fails, we can try another\.**
+\!For some reason samdump2failed here as the both the NT and LM are coming up as blank for all accounts\. T**his is exactly why we need to have multiple tools to accomplish a single task\. When one fails, we can try another\.**
 
 ## AD 
 

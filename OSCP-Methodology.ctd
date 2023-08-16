@@ -119,7 +119,7 @@ More exploits: </rich_text>
 dig axfr @&lt;DNS_IP&gt; &lt;DOMAIN&gt;</codebox>
           <codebox char_offset="46" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">dig -x {IP} @&lt;DNS_IP&gt;</codebox>
         </node>
-        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1691737648">
+        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1692172399">
           <rich_text>We have to </rich_text>
           <rich_text weight="heavy">Dirbust</rich_text>
           <rich_text> and </rich_text>
@@ -155,7 +155,8 @@ Also we have to check:
           <rich_text style="italic">/usr/share/seclists/Fuzzing</rich_text>
           <rich_text>
    → try base64
-   → try URL encoded</rich_text>
+   → try URL encoded
+- When something does not work, use incognito, maybe it will work from there</rich_text>
           <node name="SQL injections" unique_id="60" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1572496816" ts_lastsave="1691996989">
             <rich_text>- check with quote “ ' ”
 - check the request in network tab for errors
@@ -431,7 +432,7 @@ Also check this out: </rich_text>
           <codebox char_offset="175" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">snmpwalk -v 1 -c {community string} {IP} NET-SNMP-EXTEND-MIB::nsExtendOutputFull</codebox>
         </node>
       </node>
-      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1689882744">
+      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1692172383">
         <rich_text weight="heavy">Things to consider</rich_text>
         <rich_text>
 - Have you confirmed the service on the port manually and googled all the things (the SSH string, the banner text, the source)?
@@ -460,6 +461,12 @@ Also check this out: </rich_text>
         <rich_text> =&gt; </rich_text>
         <rich_text weight="heavy">C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</rich_text>
         <rich_text>
+
+- Check </rich_text>
+        <rich_text weight="heavy">certificates</rich_text>
+        <rich_text>, maybe we find an interesting domain to add to our </rich_text>
+        <rich_text style="italic">/etc/hosts</rich_text>
+        <rich_text> to get a new website
 
 ----------------------- FROM </rich_text>
         <rich_text link="webs https://dev.to/hackin7/proving-grounds-tips-50ae">https://dev.to/hackin7/proving-grounds-tips-50ae</rich_text>
@@ -491,13 +498,19 @@ Also check this out: </rich_text>
         <rich_text style="italic">mode</rich_text>
         <rich_text>, or </rich_text>
         <rich_text weight="heavy">pftp</rich_text>
-        <rich_text>. Same thing for vice versa</rich_text>
+        <rich_text>. Same thing for vice versa
+
+----------------------- FOOTHOLD PROBLEMS
+- Try </rich_text>
+        <rich_text weight="heavy">bind shell</rich_text>
+        <rich_text> if reverse won't work</rich_text>
       </node>
     </node>
-    <node name="PRIVILEGE ESCALATION" unique_id="107" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="22" is_bold="0" foreground="" ts_creation="1688917213" ts_lastsave="1689415044">
+    <node name="PRIVILEGE ESCALATION" unique_id="107" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="22" is_bold="0" foreground="" ts_creation="1688917213" ts_lastsave="1692172590">
       <rich_text>We have to pay attention to </rich_text>
       <rich_text weight="heavy">files on the machine</rich_text>
-      <rich_text>, most of the time, this is how privilege escalation is done.</rich_text>
+      <rich_text>, most of the time, this is how privilege escalation is done.
+</rich_text>
       <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1690927663">
         <rich_text>Use:
 - linpeas
@@ -564,7 +577,7 @@ Check opened ports:
 # And search for everyone</codebox>
         <codebox char_offset="743" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">netstat -tulpn
 # Maybe we can interact with an internal opened port?</codebox>
-        <node name="Special Cases" unique_id="117" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1690221496" ts_lastsave="1690222214">
+        <node name="Special Cases" unique_id="117" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1690221496" ts_lastsave="1692172613">
           <rich_text>---------------------- Services and Reboot Privs ----------------------
 If we have these SUDO capabilities (sudo -l):
 </rich_text>
@@ -598,6 +611,10 @@ More on that here: </rich_text>
 !Check if we are in a container:
 </rich_text>
           <rich_text justification="left"></rich_text>
+          <rich_text>
+More details here: </rich_text>
+          <rich_text link="webs https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-security/docker-breakout-privilege-escalation">https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-security/docker-breakout-privilege-escalation</rich_text>
+          <rich_text>.</rich_text>
           <codebox char_offset="118" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">User lowpriv may run the following commands on hetemit:
     (root) NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/poweroff</codebox>
           <codebox char_offset="162" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find /etc -writable 2&gt;/dev/null
@@ -612,7 +629,8 @@ chmod +x /tmp/{binary}
           <codebox char_offset="827" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">hostname
 # If we get gibberish data like "f8e1a236869d", we are in a container and we should escape it =&gt; see services that are on the machine and we could exploit
 # (other services maybe be run by machine itself, not container, and we could gather info about those services from inside the container, to gain RCE
-# of them from outside)</codebox>
+# of them from outside)
+# Also check for .dockerenv file in root directory /.dockerenv =&gt; we are in a container</codebox>
         </node>
       </node>
       <node name="Windows" unique_id="110" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924320" ts_lastsave="1691959060">
@@ -708,7 +726,7 @@ Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Full
 x86_64-w64-mingw32-gcc - Win x64</codebox>
         <codebox char_offset="1145" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">shutdown /r</codebox>
       </node>
-      <node name="STUCK?" unique_id="111" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1689415044" ts_lastsave="1690490175">
+      <node name="STUCK?" unique_id="111" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1689415044" ts_lastsave="1692172545">
         <rich_text>- Recheck every line of output from Winpeas/Linpeas
 - Recheck files
 - Rerun Winpeas/Linpeas
@@ -757,7 +775,9 @@ x86_64-w64-mingw32-gcc - Win x64</codebox>
         <rich_text weight="heavy">Only Linux</rich_text>
         <rich_text>
 
-!For some reason samdump2 failed here as the both the NT and LM are coming up as blank for all accounts. T</rich_text>
+!For some reason </rich_text>
+        <rich_text style="italic">samdump2</rich_text>
+        <rich_text> failed here as the both the NT and LM are coming up as blank for all accounts. T</rich_text>
         <rich_text weight="heavy">his is exactly why we need to have multiple tools to accomplish a single task. When one fails, we can try another.</rich_text>
       </node>
     </node>
