@@ -119,7 +119,7 @@ More exploits: </rich_text>
 dig axfr @&lt;DNS_IP&gt; &lt;DOMAIN&gt;</codebox>
           <codebox char_offset="46" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">dig -x {IP} @&lt;DNS_IP&gt;</codebox>
         </node>
-        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1692172399">
+        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1692773330">
           <rich_text>We have to </rich_text>
           <rich_text weight="heavy">Dirbust</rich_text>
           <rich_text> and </rich_text>
@@ -156,7 +156,13 @@ Also we have to check:
           <rich_text>
    → try base64
    → try URL encoded
-- When something does not work, use incognito, maybe it will work from there</rich_text>
+- When something does not work, use incognito, maybe it will work from there
+
+SPECIAL CASE:
+- Tomcat Apache =&gt; we need to access </rich_text>
+          <rich_text style="italic">/manager/html</rich_text>
+          <rich_text> in order to upload a </rich_text>
+          <rich_text weight="heavy">malicious war</rich_text>
           <node name="SQL injections" unique_id="60" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1572496816" ts_lastsave="1691996989">
             <rich_text>- check with quote “ ' ”
 - check the request in network tab for errors
@@ -181,9 +187,12 @@ More on SQL injections:
             <rich_text>
 </rich_text>
           </node>
-          <node name="SSRF" unique_id="69" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1572496888" ts_lastsave="1689364066">
+          <node name="SSRF" unique_id="69" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1572496888" ts_lastsave="1692773206">
             <rich_text>- if Windows, we can capture the Kerberos Ticket using Responder and SSRF
 - we can check for firwalls by checkinf if we get a request on more stranger ports (open a HTTP server on our machine on 4444 and try to get a request)
+- try requesting localhost =&gt; if we get a specific agent, maybe we will find an exploit for it
+
+For internal port scanning using SSRF, we can use WFUZZ.
 
 More on that here: </rich_text>
             <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery">https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery</rich_text>

@@ -158,6 +158,9 @@ Also we have to check:
 -  try URL encoded
 \- When something does not work, use incognito, maybe it will work from there
 
+SPECIAL CASE:
+\- Tomcat Apache =\> we need to access /manager/htmlin order to upload a **malicious war**
+
 ##### SQL injections 
 
 \- check with quote “ ' ”
@@ -177,6 +180,9 @@ More on SQL injections:
 
 \- if Windows, we can capture the Kerberos Ticket using Responder and SSRF
 \- we can check for firwalls by checkinf if we get a request on more stranger ports \(open a HTTP server on our machine on 4444 and try to get a request\)
+\- try requesting localhost =\> if we get a specific agent, maybe we will find an exploit for it
+
+For internal port scanning using SSRF, we can use WFUZZ\.
 
 More on that here: [https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery](#https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery)
 

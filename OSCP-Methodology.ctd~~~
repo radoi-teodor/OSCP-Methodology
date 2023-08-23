@@ -181,9 +181,10 @@ More on SQL injections:
             <rich_text>
 </rich_text>
           </node>
-          <node name="SSRF" unique_id="69" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1572496888" ts_lastsave="1689364066">
+          <node name="SSRF" unique_id="69" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1572496888" ts_lastsave="1692773179">
             <rich_text>- if Windows, we can capture the Kerberos Ticket using Responder and SSRF
 - we can check for firwalls by checkinf if we get a request on more stranger ports (open a HTTP server on our machine on 4444 and try to get a request)
+- try requesting localhost =&gt; if we get a specific agent, maybe we will find an exploit for it
 
 More on that here: </rich_text>
             <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery">https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery</rich_text>
@@ -432,7 +433,7 @@ Also check this out: </rich_text>
           <codebox char_offset="175" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">snmpwalk -v 1 -c {community string} {IP} NET-SNMP-EXTEND-MIB::nsExtendOutputFull</codebox>
         </node>
       </node>
-      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1692172383">
+      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1692172684">
         <rich_text weight="heavy">Things to consider</rich_text>
         <rich_text>
 - Have you confirmed the service on the port manually and googled all the things (the SSH string, the banner text, the source)?
@@ -467,6 +468,7 @@ Also check this out: </rich_text>
         <rich_text>, maybe we find an interesting domain to add to our </rich_text>
         <rich_text style="italic">/etc/hosts</rich_text>
         <rich_text> to get a new website
+- If it is an open-source application, check their repo, maybe you will fins something interesting
 
 ----------------------- FROM </rich_text>
         <rich_text link="webs https://dev.to/hackin7/proving-grounds-tips-50ae">https://dev.to/hackin7/proving-grounds-tips-50ae</rich_text>
@@ -577,7 +579,7 @@ Check opened ports:
 # And search for everyone</codebox>
         <codebox char_offset="743" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">netstat -tulpn
 # Maybe we can interact with an internal opened port?</codebox>
-        <node name="Special Cases" unique_id="117" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1690221496" ts_lastsave="1692172587">
+        <node name="Special Cases" unique_id="117" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1690221496" ts_lastsave="1692172613">
           <rich_text>---------------------- Services and Reboot Privs ----------------------
 If we have these SUDO capabilities (sudo -l):
 </rich_text>
@@ -611,6 +613,10 @@ More on that here: </rich_text>
 !Check if we are in a container:
 </rich_text>
           <rich_text justification="left"></rich_text>
+          <rich_text>
+More details here: </rich_text>
+          <rich_text link="webs https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-security/docker-breakout-privilege-escalation">https://book.hacktricks.xyz/linux-hardening/privilege-escalation/docker-security/docker-breakout-privilege-escalation</rich_text>
+          <rich_text>.</rich_text>
           <codebox char_offset="118" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">User lowpriv may run the following commands on hetemit:
     (root) NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/poweroff</codebox>
           <codebox char_offset="162" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find /etc -writable 2&gt;/dev/null
