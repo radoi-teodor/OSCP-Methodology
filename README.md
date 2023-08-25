@@ -70,7 +70,7 @@ Linux:
 
 Windows:
 \- curl
-\- certutil
+\- certutil \(use this, **better than curl**\)
 \- scp
 
 
@@ -410,7 +410,7 @@ Also check this out: [https://book.hacktricks.xyz/network-services-pentesting/pe
 \- Have you collected all the hashes**and cracked them**?
 \- Have you tried ALL COMBINATIONS of the username/passwords and not just the pairs given? Have you tried them across all services/apps?
 \- Do the version numbers tell you anything about the host?
-\- Have you tried bruteforce \(cewl, patator\)?
+\- Have you tried bruteforce \(**cewl**\- use it on the main page, **patator**\)?
 \- Can you think of a way to find more information: More credentials, more URLs, more files, more ports, more access?
 \- Try usernames found with **capital letter**, all **letters capital**
 \- Do you need to relax some of the terms used for searching? Instead of v2\.8 maybe we check for anything under 3\.

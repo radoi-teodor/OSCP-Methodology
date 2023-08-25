@@ -49,7 +49,7 @@ When an exploit is in Python2, we either:
 If an exploit gives us patched message or doesn't work, WE HAVE TO CHECK ANOTHER ONE, SAME SERVICE TO MAKE SURE THAT SERVICE IS UNEXPLOITABLE.</rich_text>
       </node>
     </node>
-    <node name="SERVICE ENUM " unique_id="76" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="39" is_bold="0" foreground="" ts_creation="1579569598" ts_lastsave="1689708744">
+    <node name="SERVICE ENUM " unique_id="76" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="39" is_bold="0" foreground="" ts_creation="1579569598" ts_lastsave="1692951099">
       <rich_text>We have to enumerate every service and gather as much information as possible.
 
 !For file transfer:
@@ -59,7 +59,9 @@ Linux:
 
 Windows:
 - curl
-- certutil
+- certutil (use this, </rich_text>
+      <rich_text weight="heavy">better than curl</rich_text>
+      <rich_text>)
 - scp
 </rich_text>
       <node name="TCP" unique_id="5" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="21" is_bold="0" foreground="" ts_creation="1569559292" ts_lastsave="1689500233">
@@ -119,7 +121,7 @@ More exploits: </rich_text>
 dig axfr @&lt;DNS_IP&gt; &lt;DOMAIN&gt;</codebox>
           <codebox char_offset="46" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">dig -x {IP} @&lt;DNS_IP&gt;</codebox>
         </node>
-        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1692773327">
+        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1692773330">
           <rich_text>We have to </rich_text>
           <rich_text weight="heavy">Dirbust</rich_text>
           <rich_text> and </rich_text>
@@ -163,7 +165,6 @@ SPECIAL CASE:
           <rich_text style="italic">/manager/html</rich_text>
           <rich_text> in order to upload a </rich_text>
           <rich_text weight="heavy">malicious war</rich_text>
-          <rich_text>.</rich_text>
           <node name="SQL injections" unique_id="60" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1572496816" ts_lastsave="1691996989">
             <rich_text>- check with quote “ ' ”
 - check the request in network tab for errors
