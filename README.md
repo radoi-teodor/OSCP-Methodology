@@ -161,6 +161,8 @@ Also we have to check:
 SPECIAL CASE:
 \- Tomcat Apache =\> we need to access /manager/htmlin order to upload a **malicious war**
 
+**\!Note:**We can use burp bind port to use our localhost as the webserver and burp will redirect anything on the target \(good for debugging\), so no proxy will be involved\.
+
 ##### SQL injections 
 
 \- check with quote “ ' ”
@@ -215,6 +217,13 @@ More on that here: [https://book.hacktricks.xyz/pentesting-web/file-inclusion](#
 
 \- We can try to get the **Kerberos Ticket**with **Responder**by catching the **request used to upload**, and **changing the path of the file we want to upload to our responder server**
 \- We can try uplading reverse shells
+
+**\!Important:**If we are able to upload **\.htaccess**, we can make any file extension executable\.
+
+```
+ AddType application/x-httpd-php .anything 
+ ```
+
 
 Bypass methods for upload protection: 
 \- [https://vulp3cula.gitbook.io/hackers-grimoire/exploitation/web-application/file-upload-bypass](#https://vulp3cula.gitbook.io/hackers-grimoire/exploitation/web-application/file-upload-bypass)
@@ -332,6 +341,18 @@ contents}
 printing every line
 \-apis for providing auth passwords
 
+Or by using **sendemail**:
+
+```
+ sendemail -f 'jonas@localhost' \
+                       -t 'mailadmin@localhost' \
+                       -s 192.168.120.132:25 \
+                       -u 'Your spreadsheet' \
+                       -m 'Here is your requested spreadsheet' \
+                       -a bomb.ods 
+ ```
+
+
 Check this methodology: [https://fareedfauzi.gitbook.io/oscp-playbook/services-enumeration/smtp](#https://fareedfauzi.gitbook.io/oscp-playbook/services-enumeration/smtp)
 
 
@@ -388,10 +409,11 @@ config files.
  ```
 s
 
-AutoRecon\.py will enumerate the service\.
+**AutoRecon\.py**will enumerate the service\.
 Check out:
 \- onesixtyone
 \- snmpwalk
+\- snmp\-check \(**always use this tool also**\)
 
 Enumerate the last command executed:
 
@@ -498,6 +520,13 @@ Check opened ports:
  ```
 
 
+Check running commands:
+
+```
+ ps -eo 
+ ```
+
+
 #### Special Cases 
 
 \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- Services and Reboot Privs \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-
@@ -567,6 +596,7 @@ Use \(and read CAREFULLY the output\):
 \- winpeas
 \- PowerUp
 \- SharpUp
+\- Sherlock\.psq \(for kernel exploits\)
 
 Pay attention on privilegeges of the user:
 
@@ -671,6 +701,7 @@ less -r outputwinpeas.txt
 \- Check kernel or build exploit and try them all from WinPeas \- **Only Windows**
 \- Check Installed software in **Program Files**and **Program Files x86**, maybe it is a public exploit \- **Only Windows**
 \- Check if there is a binary that **backups**or does a **job that may be a service or a scheduled job **and replace with a reverse shell \- **Only Windows**
+\- If no hotfixes are available, check**C:\\Windows\\SoftwareDistribution\\Download**
 
 \- Always check **GTFOBins**for SUIDs and SUDO capabilities \(No matter if it look not probable\) \- **Only Linux**
 \- Always check kernel version and try all exploits \-**Only Linux**
@@ -762,7 +793,9 @@ We can use bloodhound\-pythonto enumerate bloodhound without access to the machi
 Try moving lateraly with:
 \- RDP
 \- WinRM
-\- PSExec
+\- PSExec \(we can do it from kali with **psexec\.py**\)
+\- RunAS: [https://ppn.snovvcrash.rocks/pentest/infrastructure/ad/lateral-movement/runas#runascs](#https://ppn.snovvcrash.rocks/pentest/infrastructure/ad/lateral-movement/runas#runascs)
+
 
 ### File Transfer 
 
@@ -810,3 +843,6 @@ move C:\Windows\System32\cmd.exe C:\Windows\System32\utilman.exe
 
 Or try this: [https://github.com/dxnboy/redteam/blob/master/SeRestoreAbuse.exe](#https://github.com/dxnboy/redteam/blob/master/SeRestoreAbuse.exe)
 \.
+
+
+**SeBackupPrivilege**\- use this tutorial [https://juggernaut-sec.com/sebackupprivilege/#Exfiltrating_the_SAM_and_SYSTEM_Files_Dumping_the_Hashes_and_Performing_a_Pass-the-Hash_Attack_to_Escalate_to_SYSTEM](#https://juggernaut-sec.com/sebackupprivilege/#Exfiltrating_the_SAM_and_SYSTEM_Files_Dumping_the_Hashes_and_Performing_a_Pass-the-Hash_Attack_to_Escalate_to_SYSTEM)
