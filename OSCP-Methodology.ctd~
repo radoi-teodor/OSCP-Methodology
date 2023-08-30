@@ -796,7 +796,6 @@ x86_64-w64-mingw32-gcc - Win x64</codebox>
 # Then
 less -r outputwinpeas.txt</codebox>
         </node>
-        <node name="Special Cases" unique_id="121" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693404563" ts_lastsave="1693404748"/>
       </node>
       <node name="STUCK?" unique_id="111" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1689415044" ts_lastsave="1693324956">
         <rich_text>- Recheck every line of output from Winpeas/Linpeas

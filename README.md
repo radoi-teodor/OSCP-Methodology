@@ -793,7 +793,7 @@ We can use bloodhound\-pythonto enumerate bloodhound without access to the machi
 Try moving lateraly with:
 \- RDP
 \- WinRM
-\- PSExec \(we can do it from kali with **psexec\.py**\)
+\- PSExec \(we can do it from kali with **psexec\.py**\- **impacker\-psexec**\)
 \- RunAS: [https://ppn.snovvcrash.rocks/pentest/infrastructure/ad/lateral-movement/runas#runascs](#https://ppn.snovvcrash.rocks/pentest/infrastructure/ad/lateral-movement/runas#runascs)
 
 

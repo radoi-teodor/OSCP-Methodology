@@ -940,7 +940,7 @@ lsadump::sam</codebox>
           <rich_text link="webs https://github.com/crazywifi/Enable-RDP-One-Liner-CMD">https://github.com/crazywifi/Enable-RDP-One-Liner-CMD</rich_text>
         </node>
       </node>
-      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1693324904">
+      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1693404876">
         <rich_text>Try credentials using crackmapexec:
 </rich_text>
         <rich_text justification="left"></rich_text>
@@ -981,6 +981,8 @@ Try moving lateraly with:
 - WinRM
 - PSExec (we can do it from kali with </rich_text>
         <rich_text weight="heavy">psexec.py</rich_text>
+        <rich_text> - </rich_text>
+        <rich_text weight="heavy">impacker-psexec</rich_text>
         <rich_text>)
 - RunAS: </rich_text>
         <rich_text link="webs https://ppn.snovvcrash.rocks/pentest/infrastructure/ad/lateral-movement/runas#runascs">https://ppn.snovvcrash.rocks/pentest/infrastructure/ad/lateral-movement/runas#runascs</rich_text>
