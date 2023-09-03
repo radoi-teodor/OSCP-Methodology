@@ -486,7 +486,7 @@ Also check this out: </rich_text>
           <codebox char_offset="216" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">snmpwalk -v 1 -c {community string} {IP} NET-SNMP-EXTEND-MIB::nsExtendOutputFull</codebox>
         </node>
       </node>
-      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1692951137">
+      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1693738987">
         <rich_text weight="heavy">Things to consider</rich_text>
         <rich_text>
 - Have you confirmed the service on the port manually and googled all the things (the SSH string, the banner text, the source)?
@@ -562,7 +562,9 @@ Also check this out: </rich_text>
 ----------------------- FOOTHOLD PROBLEMS
 - Try </rich_text>
         <rich_text weight="heavy">bind shell</rich_text>
-        <rich_text> if reverse won't work</rich_text>
+        <rich_text> if reverse won't work
+
+</rich_text>
       </node>
     </node>
     <node name="PRIVILEGE ESCALATION" unique_id="107" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="22" is_bold="0" foreground="" ts_creation="1688917213" ts_lastsave="1693738982">
