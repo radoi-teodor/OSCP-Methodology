@@ -486,7 +486,7 @@ Also check this out: </rich_text>
           <codebox char_offset="216" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">snmpwalk -v 1 -c {community string} {IP} NET-SNMP-EXTEND-MIB::nsExtendOutputFull</codebox>
         </node>
       </node>
-      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1693739036">
+      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1693743533">
         <rich_text weight="heavy">Things to consider</rich_text>
         <rich_text>
 - Have you confirmed the service on the port manually and googled all the things (the SSH string, the banner text, the source)?
@@ -564,9 +564,14 @@ Also check this out: </rich_text>
         <rich_text weight="heavy">bind shell</rich_text>
         <rich_text> if reverse won't work
 
-</rich_text>
+!!! </rich_text>
         <rich_text weight="heavy">Very important: </rich_text>
-        <rich_text style="italic" weight="heavy">When absolutely nothing works, just cewl a wordlist and start bruteforcing.</rich_text>
+        <rich_text style="italic" weight="heavy">When absolutely nothing works, just cewl a wordlist and start bruteforcing</rich_text>
+        <rich_text weight="heavy">.</rich_text>
+        <rich_text>
+Maybe try </rich_text>
+        <rich_text link="webs https://github.com/r3nt0n/bopscrk">https://github.com/r3nt0n/bopscrk</rich_text>
+        <rich_text> BOPSCRK to cr</rich_text>
       </node>
     </node>
     <node name="PRIVILEGE ESCALATION" unique_id="107" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="22" is_bold="0" foreground="" ts_creation="1688917213" ts_lastsave="1693738982">
@@ -577,12 +582,15 @@ Also check this out: </rich_text>
 Good to know, </rich_text>
       <rich_text style="italic">shell in C/C++</rich_text>
       <rich_text>:
-
+</rich_text>
+      <rich_text justification="left"></rich_text>
+      <rich_text>
 
 Compile </rich_text>
       <rich_text style="italic">SO file</rich_text>
       <rich_text>: 
 </rich_text>
+      <rich_text justification="left"></rich_text>
       <codebox char_offset="141" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">#include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;sys/types.h&gt;

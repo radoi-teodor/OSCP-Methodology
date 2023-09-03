@@ -461,6 +461,8 @@ Also check this out: [https://book.hacktricks.xyz/network-services-pentesting/pe
 \- Try **bind shell**if reverse won't work
 
 \!\!\! **Very important: ****When absolutely nothing works, just cewl a wordlist and start bruteforcing****\.**
+Maybe try [https://github.com/r3nt0n/bopscrk](#https://github.com/r3nt0n/bopscrk)
+BOPSCRK to create a wordlist\.
 
 ## PRIVILEGE ESCALATION 
 
