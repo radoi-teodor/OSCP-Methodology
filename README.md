@@ -147,7 +147,7 @@ We have to **Dirbust**and **Feroxbust**using good wordlists:
 
 Also we have to check:
 \- always check server headers \(maybe there is a vulnerable server, maybe there is another thing interesting\)
-\- intersting exntensions \(docx, pdf, txt, php, sql\) \- **ferox \-x php,html,txt**
+\- intersting exntensions \(docx, pdf, txt, php, sql\) \- **ferox \-x php,html,txt, jsp \(Tomcat\)**
 \- we have to check recursive
 \- check if git is present on the server
 \- check page contents, maybe credentials or something helpful is already there
@@ -160,6 +160,7 @@ Also we have to check:
 
 SPECIAL CASE:
 \- Tomcat Apache =\> we need to access /manager/htmlin order to upload a **malicious war**
+\- Tomcat Apache =\> search for **jsp extension**using ferox
 
 **\!Note:**We can use burp bind port to use our localhost as the webserver and burp will redirect anything on the target \(good for debugging\), so no proxy will be involved\.
 
