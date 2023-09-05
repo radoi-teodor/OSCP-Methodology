@@ -280,15 +280,30 @@ More on that here: </rich_text>
             <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/file-upload">https://book.hacktricks.xyz/pentesting-web/file-upload</rich_text>
             <codebox char_offset="300" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">AddType application/x-httpd-php .anything</codebox>
           </node>
-          <node name="Wordpress" unique_id="121" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693945561" ts_lastsave="1693945646">
-            <rich_text>Enumerate plugins, versions and themes:
-
-
-Enumerate users:
-
-
-Bruteforce using discovered users:
+          <node name="Wordpress" unique_id="121" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693945561" ts_lastsave="1693945670">
+            <rich_text>Enumerate </rich_text>
+            <rich_text weight="heavy">plugins</rich_text>
+            <rich_text>, </rich_text>
+            <rich_text weight="heavy">versions</rich_text>
+            <rich_text> and </rich_text>
+            <rich_text weight="heavy">themes</rich_text>
+            <rich_text>:
 </rich_text>
+            <rich_text justification="left"></rich_text>
+            <rich_text>
+
+Enumerate </rich_text>
+            <rich_text weight="heavy">users</rich_text>
+            <rich_text>:
+</rich_text>
+            <rich_text justification="left"></rich_text>
+            <rich_text>
+
+</rich_text>
+            <rich_text weight="heavy">Bruteforce</rich_text>
+            <rich_text> using discovered users:
+</rich_text>
+            <rich_text justification="left"></rich_text>
             <codebox char_offset="40" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">wpscan --url {URL}</codebox>
             <codebox char_offset="60" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">wpscan --url {URL} -e u</codebox>
             <codebox char_offset="98" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">wpscan --url {url} -U users.txt -P /usr/share/wordlist/rockyou.txt
@@ -731,6 +746,7 @@ More details here: </rich_text>
 ---------------------- Restricted shell ----------------------
 If we have a restricted shell, or a shell that won't give us output, we can try ssh into localhost, as a different user:
 </rich_text>
+          <rich_text justification="left"></rich_text>
           <codebox char_offset="118" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">User lowpriv may run the following commands on hetemit:
     (root) NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/poweroff</codebox>
           <codebox char_offset="162" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find /etc -writable 2&gt;/dev/null

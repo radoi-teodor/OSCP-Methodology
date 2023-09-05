@@ -280,7 +280,7 @@ More on that here: </rich_text>
             <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/file-upload">https://book.hacktricks.xyz/pentesting-web/file-upload</rich_text>
             <codebox char_offset="300" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">AddType application/x-httpd-php .anything</codebox>
           </node>
-          <node name="Wordpress" unique_id="121" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693945561" ts_lastsave="1693945635">
+          <node name="Wordpress" unique_id="121" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693945561" ts_lastsave="1693945646">
             <rich_text>Enumerate plugins, versions and themes:
 
 
@@ -291,7 +291,8 @@ Bruteforce using discovered users:
 </rich_text>
             <codebox char_offset="40" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">wpscan --url {URL}</codebox>
             <codebox char_offset="60" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">wpscan --url {URL} -e u</codebox>
-            <codebox char_offset="98" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">wpscan --url {url} -U users.txt -P /usr/share/wordlist/rockyou.txt</codebox>
+            <codebox char_offset="98" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">wpscan --url {url} -U users.txt -P /usr/share/wordlist/rockyou.txt
+# this will use XMLRPC.PHP</codebox>
           </node>
           <node name="STUCK?" unique_id="118" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1691569520" ts_lastsave="1691569562">
             <rich_text>- Dirbust one more time, each directory found in particular
