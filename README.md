@@ -74,9 +74,22 @@ Windows:
 \- scp
 
 
+\[INTERESTING CASES\]
+If the shell must not contains spaces, use **$\{IFS\}**which is a new line\.
+Example:
+
+```
+ echo "" |base64 -d | bash 
+ ```
+
+
 ### TCP 
 
 We will find the service report from AutoRecon\.py, name Full TCP Scan\.
+
+Pay attention on **port knocking**\- [https://refabr1k.gitbook.io/oscp/info-gathering/port-knocking](#https://refabr1k.gitbook.io/oscp/info-gathering/port-knocking)
+
+File to resaerch on it: /etc/knockd\.conf\.
 
 #### FTP 
 
@@ -144,6 +157,7 @@ We have to **Dirbust**and **Feroxbust**using good wordlists:
 \- /usr/share/seclists/Discovery/Web\-Content/big\.txt
 \- /usr/share/seclists/Discovery/Web\-Content/directory\-list\-2\.3\-medium\.txt
 \- /usr/share/seclists/Discovery/Web\-Content/directory\-list\-2\.3\-big\.txt \(let it **run in background**while testing other stuff\)
+**Dirsearch**everytime\.
 
 Also we have to check:
 \- always check server headers \(maybe there is a vulnerable server, maybe there is another thing interesting\)
@@ -474,6 +488,11 @@ Also check this out: [https://book.hacktricks.xyz/network-services-pentesting/pe
 
 \- Check **certificates**, maybe we find an interesting domain to add to our /etc/hoststo get a new website
 \- If it is an open\-source application, check their repo, maybe you will fins something interesting
+
+\- Hashes to try if needed:
+-  MD5
+-  SHA256
+-  BCrypt
 
 \-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\-\- FROM [https://dev.to/hackin7/proving-grounds-tips-50ae](#https://dev.to/hackin7/proving-grounds-tips-50ae)
 

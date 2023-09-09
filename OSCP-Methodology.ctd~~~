@@ -49,7 +49,7 @@ When an exploit is in Python2, we either:
 If an exploit gives us patched message or doesn't work, WE HAVE TO CHECK ANOTHER ONE, SAME SERVICE TO MAKE SURE THAT SERVICE IS UNEXPLOITABLE.</rich_text>
       </node>
     </node>
-    <node name="SERVICE ENUM " unique_id="76" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="39" is_bold="0" foreground="" ts_creation="1579569598" ts_lastsave="1692951099">
+    <node name="SERVICE ENUM " unique_id="76" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="39" is_bold="0" foreground="" ts_creation="1579569598" ts_lastsave="1694288200">
       <rich_text>We have to enumerate every service and gather as much information as possible.
 
 !For file transfer:
@@ -63,7 +63,15 @@ Windows:
       <rich_text weight="heavy">better than curl</rich_text>
       <rich_text>)
 - scp
+
+
+[INTERESTING CASES]
+If the shell must not contains spaces, use </rich_text>
+      <rich_text weight="heavy">${IFS}</rich_text>
+      <rich_text> which is a new line.
+Example:
 </rich_text>
+      <codebox char_offset="285" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">echo "" |base64 -d | bash</codebox>
       <node name="TCP" unique_id="5" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="21" is_bold="0" foreground="" ts_creation="1569559292" ts_lastsave="1689500233">
         <rich_text>We will find the service report from AutoRecon.py, name Full TCP Scan.</rich_text>
         <node name="FTP" unique_id="35" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569560997" ts_lastsave="1688829046">
@@ -121,7 +129,7 @@ More exploits: </rich_text>
 dig axfr @&lt;DNS_IP&gt; &lt;DOMAIN&gt;</codebox>
           <codebox char_offset="46" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">dig -x {IP} @&lt;DNS_IP&gt;</codebox>
         </node>
-        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1693945561">
+        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1694288132">
           <rich_text>We have to </rich_text>
           <rich_text weight="heavy">Dirbust</rich_text>
           <rich_text> and </rich_text>
@@ -132,6 +140,9 @@ dig axfr @&lt;DNS_IP&gt; &lt;DOMAIN&gt;</codebox>
 - /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-big.txt (let it </rich_text>
           <rich_text weight="heavy">run in background</rich_text>
           <rich_text> while testing other stuff)
+</rich_text>
+          <rich_text weight="heavy">Dirsearch</rich_text>
+          <rich_text> everytime.
 
 Also we have to check:
 - always check server headers (maybe there is a vulnerable server, maybe there is another thing interesting)
@@ -280,18 +291,34 @@ More on that here: </rich_text>
             <rich_text link="webs https://book.hacktricks.xyz/pentesting-web/file-upload">https://book.hacktricks.xyz/pentesting-web/file-upload</rich_text>
             <codebox char_offset="300" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">AddType application/x-httpd-php .anything</codebox>
           </node>
-          <node name="Wordpress" unique_id="121" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693945561" ts_lastsave="1693945615">
-            <rich_text>Enumerate plugins, versions and themes:
-
-
-Enumerate users:
-
-
-Bruteforce using discovered users:
+          <node name="Wordpress" unique_id="121" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693945561" ts_lastsave="1693945670">
+            <rich_text>Enumerate </rich_text>
+            <rich_text weight="heavy">plugins</rich_text>
+            <rich_text>, </rich_text>
+            <rich_text weight="heavy">versions</rich_text>
+            <rich_text> and </rich_text>
+            <rich_text weight="heavy">themes</rich_text>
+            <rich_text>:
 </rich_text>
+            <rich_text justification="left"></rich_text>
+            <rich_text>
+
+Enumerate </rich_text>
+            <rich_text weight="heavy">users</rich_text>
+            <rich_text>:
+</rich_text>
+            <rich_text justification="left"></rich_text>
+            <rich_text>
+
+</rich_text>
+            <rich_text weight="heavy">Bruteforce</rich_text>
+            <rich_text> using discovered users:
+</rich_text>
+            <rich_text justification="left"></rich_text>
             <codebox char_offset="40" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">wpscan --url {URL}</codebox>
             <codebox char_offset="60" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">wpscan --url {URL} -e u</codebox>
-            <codebox char_offset="98" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">wpscan --url </codebox>
+            <codebox char_offset="98" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">wpscan --url {url} -U users.txt -P /usr/share/wordlist/rockyou.txt
+# this will use XMLRPC.PHP</codebox>
           </node>
           <node name="STUCK?" unique_id="118" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1691569520" ts_lastsave="1691569562">
             <rich_text>- Dirbust one more time, each directory found in particular
@@ -730,6 +757,7 @@ More details here: </rich_text>
 ---------------------- Restricted shell ----------------------
 If we have a restricted shell, or a shell that won't give us output, we can try ssh into localhost, as a different user:
 </rich_text>
+          <rich_text justification="left"></rich_text>
           <codebox char_offset="118" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">User lowpriv may run the following commands on hetemit:
     (root) NOPASSWD: /sbin/halt, /sbin/reboot, /sbin/poweroff</codebox>
           <codebox char_offset="162" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find /etc -writable 2&gt;/dev/null
