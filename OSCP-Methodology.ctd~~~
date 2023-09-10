@@ -138,7 +138,7 @@ More exploits: </rich_text>
 dig axfr @&lt;DNS_IP&gt; &lt;DOMAIN&gt;</codebox>
           <codebox char_offset="46" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">dig -x {IP} @&lt;DNS_IP&gt;</codebox>
         </node>
-        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1694352041">
+        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1694352043">
           <rich_text>We have to </rich_text>
           <rich_text weight="heavy">Dirbust</rich_text>
           <rich_text> and </rich_text>
@@ -184,7 +184,7 @@ Also we have to check:
 - check for enabled sited in: </rich_text>
           <rich_text weight="heavy">/etc/apache2/sites-enabled/000-default.conf</rich_text>
           <rich_text> (Apache2)
-- 
+
 SPECIAL CASE:
 - Tomcat Apache =&gt; we need to access </rich_text>
           <rich_text style="italic">/manager/html</rich_text>
@@ -664,7 +664,7 @@ void test_this()
 	setuid(0); setgid(0); system("/bin/sh");
 }</codebox>
       <codebox char_offset="162" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">gcc -fPIC -shared test_this.c -o test_this.so</codebox>
-      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1693404538">
+      <node name="Linux" unique_id="109" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="5" is_bold="0" foreground="" ts_creation="1688924277" ts_lastsave="1694352055">
         <rich_text>Use:
 - linpeas
 - kernel exploit suggester
@@ -728,6 +728,10 @@ Check opened ports:
 Check running commands:
 </rich_text>
         <rich_text justification="left"></rich_text>
+        <rich_text>
+
+Use </rich_text>
+        <rich_text weight="heavy">PSpy</rich_text>
         <codebox char_offset="66" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">uname -a</codebox>
         <codebox char_offset="321" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">find / -perm -04000 2&gt;/dev/null</codebox>
         <codebox char_offset="620" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">grep "CRON" /var/log/syslog</codebox>

