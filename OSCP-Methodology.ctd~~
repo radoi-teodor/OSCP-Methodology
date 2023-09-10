@@ -72,8 +72,17 @@ If the shell must not contains spaces, use </rich_text>
 Example:
 </rich_text>
       <codebox char_offset="285" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">echo "" |base64 -d | bash</codebox>
-      <node name="TCP" unique_id="5" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="21" is_bold="0" foreground="" ts_creation="1569559292" ts_lastsave="1689500233">
-        <rich_text>We will find the service report from AutoRecon.py, name Full TCP Scan.</rich_text>
+      <node name="TCP" unique_id="5" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="21" is_bold="0" foreground="" ts_creation="1569559292" ts_lastsave="1694351984">
+        <rich_text>We will find the service report from AutoRecon.py, name Full TCP Scan.
+
+Pay attention on </rich_text>
+        <rich_text weight="heavy">port knocking</rich_text>
+        <rich_text> - </rich_text>
+        <rich_text link="webs https://refabr1k.gitbook.io/oscp/info-gathering/port-knocking">https://refabr1k.gitbook.io/oscp/info-gathering/port-knocking</rich_text>
+        <rich_text>
+File to resaerch on it: </rich_text>
+        <rich_text style="italic">/etc/knockd.conf</rich_text>
+        <rich_text>.</rich_text>
         <node name="FTP" unique_id="35" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569560997" ts_lastsave="1688829046">
           <rich_text>- find the version, maybe it's a vulnerable one
 - check if we are allowed anonymous login (user: anonymous)
@@ -129,7 +138,7 @@ More exploits: </rich_text>
 dig axfr @&lt;DNS_IP&gt; &lt;DOMAIN&gt;</codebox>
           <codebox char_offset="46" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">dig -x {IP} @&lt;DNS_IP&gt;</codebox>
         </node>
-        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1694288132">
+        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1694352043">
           <rich_text>We have to </rich_text>
           <rich_text weight="heavy">Dirbust</rich_text>
           <rich_text> and </rich_text>
@@ -172,6 +181,9 @@ Also we have to check:
    → try base64
    → try URL encoded
 - When something does not work, use incognito, maybe it will work from there
+- check for enabled sited in: </rich_text>
+          <rich_text weight="heavy">/etc/apache2/sites-enabled/000-default.conf</rich_text>
+          <rich_text> (Apache2)
 
 SPECIAL CASE:
 - Tomcat Apache =&gt; we need to access </rich_text>
@@ -234,7 +246,7 @@ It is also used to get inner services =&gt; we can request </rich_text>
             <rich_text link="webs https://www.resecurity.com/blog/article/blind-ssrf-to-rce-vulnerability-exploitation">https://www.resecurity.com/blog/article/blind-ssrf-to-rce-vulnerability-exploitation</rich_text>
             <codebox char_offset="421" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">wfuzz -c -z range,1-65535 --hl=2 http://{IP}:8080/?url.php?path=127.0.0.1:FUZZ</codebox>
           </node>
-          <node name="LFI &amp; RFI" unique_id="105" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1688830874" ts_lastsave="1690927726">
+          <node name="LFI &amp; RFI" unique_id="105" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1688830874" ts_lastsave="1694352028">
             <rich_text>- we can try to include shells from our server
 [For LFI] we can poison the access logs requiresting </rich_text>
             <rich_text link="webs http://url/malicious-payload">http://url/malicious-payload</rich_text>
@@ -248,6 +260,10 @@ Places for </rich_text>
 - see if there is an </rich_text>
             <rich_text weight="heavy">upload functionality</rich_text>
             <rich_text> to mix with LFI vulnerability
+
+- check for enabled sited in: </rich_text>
+            <rich_text weight="heavy">/etc/apache2/sites-enabled/000-default.conf</rich_text>
+            <rich_text> (Apache2)
 
 Check </rich_text>
             <rich_text weight="heavy">firewall file on Linux</rich_text>

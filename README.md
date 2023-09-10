@@ -171,6 +171,7 @@ Also we have to check:
 -  try base64
 -  try URL encoded
 \- When something does not work, use incognito, maybe it will work from there
+\- check for enabled sited in: **/etc/apache2/sites\-enabled/000\-default\.conf**\(Apache2\)
 
 SPECIAL CASE:
 \- Tomcat Apache =\> we need to access /manager/htmlin order to upload a **malicious war**
@@ -222,6 +223,8 @@ then we can include the apache access log in order to execute the PHP payload th
 Places for **access\.log**/var/log/apache/access\. log\.
 
 \- see if there is an **upload functionality**to mix with LFI vulnerability
+
+\- check for enabled sited in: **/etc/apache2/sites\-enabled/000\-default\.conf**\(Apache2\)
 
 Check **firewall file on Linux**: /etc/ufw/user\.rules, help to get a port for the reverse shell\.
 
@@ -594,6 +597,8 @@ Check running commands:
  ps -eo 
  ```
 
+
+Use **PSpy**to check for executed commands and cronjobs, without privilege escalation\.
 
 #### Special Cases 
 
