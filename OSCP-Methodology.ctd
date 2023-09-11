@@ -139,7 +139,7 @@ More exploits: </rich_text>
 dig axfr @&lt;DNS_IP&gt; &lt;DOMAIN&gt;</codebox>
           <codebox char_offset="46" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">dig -x {IP} @&lt;DNS_IP&gt;</codebox>
         </node>
-        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1694352043">
+        <node name="HTTP" unique_id="59" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="32" is_bold="0" foreground="" ts_creation="1569558367" ts_lastsave="1694461422">
           <rich_text>We have to </rich_text>
           <rich_text weight="heavy">Dirbust</rich_text>
           <rich_text> and </rich_text>
@@ -150,6 +150,7 @@ dig axfr @&lt;DNS_IP&gt; &lt;DOMAIN&gt;</codebox>
 - /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-big.txt (let it </rich_text>
           <rich_text weight="heavy">run in background</rich_text>
           <rich_text> while testing other stuff)
+- /usr/share/seclists/Discovery/Web-Content/raft-large-directories-lowercase.txt
 </rich_text>
           <rich_text weight="heavy">Dirsearch</rich_text>
           <rich_text> everytime.
@@ -182,9 +183,13 @@ Also we have to check:
    → try base64
    → try URL encoded
 - When something does not work, use incognito, maybe it will work from there
-- check for enabled sited in: </rich_text>
+- check for enabled sited in: 
+   → </rich_text>
           <rich_text weight="heavy">/etc/apache2/sites-enabled/000-default.conf</rich_text>
           <rich_text> (Apache2)
+   → </rich_text>
+          <rich_text weight="heavy">/etc/nginx/sites-available</rich_text>
+          <rich_text> (Nginx)
 
 SPECIAL CASE:
 - Tomcat Apache =&gt; we need to access </rich_text>
@@ -546,7 +551,7 @@ Also check this out: </rich_text>
           <codebox char_offset="216" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">snmpwalk -v 1 -c {community string} {IP} NET-SNMP-EXTEND-MIB::nsExtendOutputFull</codebox>
         </node>
       </node>
-      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1694288229">
+      <node name="STUCK?" unique_id="77" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1569563263" ts_lastsave="1694461381">
         <rich_text weight="heavy">Things to consider</rich_text>
         <rich_text>
 - Have you confirmed the service on the port manually and googled all the things (the SSH string, the banner text, the source)?
@@ -636,7 +641,13 @@ Also check this out: </rich_text>
         <rich_text>
 Maybe try </rich_text>
         <rich_text link="webs https://github.com/r3nt0n/bopscrk">https://github.com/r3nt0n/bopscrk</rich_text>
-        <rich_text> BOPSCRK to create a wordlist.</rich_text>
+        <rich_text> BOPSCRK to create a wordlist.
+
+Use:
+</rich_text>
+        <codebox char_offset="2646" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">tcpdump -i tun0 icmp
+# and try to ping from the other machine
+# maybe we already achieved RCE</codebox>
       </node>
     </node>
     <node name="PRIVILEGE ESCALATION" unique_id="107" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="22" is_bold="0" foreground="" ts_creation="1688917213" ts_lastsave="1693738982">
@@ -1103,6 +1114,7 @@ Try moving lateraly with:
 
 You can AR REP wihtour user credentials (maybe Kerberoast without user credentials?):
 </rich_text>
+        <rich_text justification="left"></rich_text>
         <codebox char_offset="36" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">proxychains crackmapexec smb 10.10.114.154 -p hghgib6vHT3bVWf -u Administrator # this will check domain users credentials
 proxychains crackmapexec smb 10.10.114.154 -p hghgib6vHT3bVWf -u Administrator --local-auth # this will check local users credentials
 </codebox>

@@ -157,6 +157,7 @@ We have to **Dirbust**and **Feroxbust**using good wordlists:
 \- /usr/share/seclists/Discovery/Web\-Content/big\.txt
 \- /usr/share/seclists/Discovery/Web\-Content/directory\-list\-2\.3\-medium\.txt
 \- /usr/share/seclists/Discovery/Web\-Content/directory\-list\-2\.3\-big\.txt \(let it **run in background**while testing other stuff\)
+\- /usr/share/seclists/Discovery/Web\-Content/raft\-large\-directories\-lowercase\.txt
 **Dirsearch**everytime\.
 
 Also we have to check:
@@ -171,7 +172,9 @@ Also we have to check:
 -  try base64
 -  try URL encoded
 \- When something does not work, use incognito, maybe it will work from there
-\- check for enabled sited in: **/etc/apache2/sites\-enabled/000\-default\.conf**\(Apache2\)
+\- check for enabled sited in: 
+-  **/etc/apache2/sites\-enabled/000\-default\.conf**\(Apache2\)
+-  **/etc/nginx/sites\-available**\(Nginx\)
 
 SPECIAL CASE:
 \- Tomcat Apache =\> we need to access /manager/htmlin order to upload a **malicious war**
@@ -510,6 +513,15 @@ Also check this out: [https://book.hacktricks.xyz/network-services-pentesting/pe
 \!\!\! **Very important: ****When absolutely nothing works, just cewl a wordlist and start bruteforcing****\.**
 Maybe try [https://github.com/r3nt0n/bopscrk](#https://github.com/r3nt0n/bopscrk)
 BOPSCRK to create a wordlist\.
+
+Use:
+
+```
+ tcpdump -i tun0 icmp
+# and try to ping from the other machine
+# maybe we already achieved RCE 
+ ```
+
 
 ## PRIVILEGE ESCALATION 
 
