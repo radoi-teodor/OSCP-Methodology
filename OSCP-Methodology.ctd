@@ -10,10 +10,12 @@ Reverse shell cheatsheet: </rich_text>
     <rich_text>
 Reverse shell generator: </rich_text>
     <rich_text link="webs https://www.revshells.com/">https://www.revshells.com/</rich_text>
-    <node name="Initial Recon" unique_id="2" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="14" is_bold="0" foreground="" ts_creation="1569560343" ts_lastsave="1688827378">
+    <node name="Initial Recon" unique_id="2" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="14" is_bold="0" foreground="" ts_creation="1569560343" ts_lastsave="1694629751">
       <rich_text>OS Check (NMap):
 </rich_text>
       <rich_text justification="left"></rich_text>
+      <rich_text>
+</rich_text>
       <codebox char_offset="17" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">nmap -O {IP}</codebox>
       <node name="ENUM" unique_id="3" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1572497353" ts_lastsave="1688827326">
         <rich_text>Start deep enum process with AutoRecon.py (https://github.com/Tib3rius/AutoRecon.git):

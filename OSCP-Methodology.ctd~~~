@@ -949,7 +949,7 @@ Get-ChildItem -Recurse | Where {$_.Name -match 'Interesting-Name'} | Select Full
         <codebox char_offset="924" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">i686-w64-mingw32-gcc   - Win x32
 x86_64-w64-mingw32-gcc - Win x64</codebox>
         <codebox char_offset="1182" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">shutdown /r</codebox>
-        <node name="Important" unique_id="119" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693136040" ts_lastsave="1694629656">
+        <node name="Important" unique_id="119" prog_lang="custom-colors" tags="" readonly="0" nosearch_me="0" nosearch_ch="0" custom_icon_id="0" is_bold="0" foreground="" ts_creation="1693136040" ts_lastsave="1694629660">
           <rich_text>When we cannot read the winpeas output on kali machine, we have to use:
 </rich_text>
           <rich_text justification="left"></rich_text>
@@ -959,7 +959,8 @@ UAC Bypass:
 - UACME HFIREF0X - </rich_text>
           <rich_text link="webs https://github.com/hfiref0x/UACME">https://github.com/hfiref0x/UACME</rich_text>
           <rich_text>
-- UAC-Bypass</rich_text>
+- UAC-Bypass - </rich_text>
+          <rich_text link="webs https://github.com/k4sth4/UAC-bypass">https://github.com/k4sth4/UAC-bypass</rich_text>
           <codebox char_offset="72" justification="left" frame_width="500" frame_height="100" width_in_pixels="1" syntax_highlighting="sh" highlight_brackets="1" show_line_numbers="0">dos2unix -f outputwinpeas.txt # will convert to readable file on *NIX systems
 # Then
 less -r outputwinpeas.txt</codebox>
